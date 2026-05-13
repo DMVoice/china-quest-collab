@@ -3,21 +3,21 @@ import A from "./assets";
 import MODULES from "./modules/index";
 
 const SEGS = [
-  { id:"map",      en:"City Quest",   img:"icon_map",      bg:"#F5F0D8", accent:"#8B7040", active:true  },
-  { id:"hanfu",    en:"Hanfu Style",  img:"icon_hanfu",    bg:"#E0F0E8", accent:"#3A8860", active:true  },
-  { id:"scratch",  en:"Lucky Card",   img:"icon_scratch",  bg:"#F5EAD0", accent:"#C07040", active:true  },
-  { id:"quiz",     en:"Culture Quiz", img:null, emoji:"📜", bg:"#E8ECF8", accent:"#4060A0", active:true  },
-  { id:"zodiac",   en:"Zodiac",       img:null, emoji:"🐴", bg:"#F8F0DC", accent:"#A07840", active:false },
-  { id:"food",     en:"Foodie",       img:"icon_food",     bg:"#F8EAE0", accent:"#C06040", active:false },
-  { id:"art",      en:"Art Guess",    img:"icon_art",      bg:"#F0E4F8", accent:"#8048A0", active:false },
-  { id:"festival", en:"Festival",     img:"icon_festival", bg:"#F8E4E4", accent:"#B04040", active:false },
+  { id:"map",      en:"City Quest",   img:"icon_map",      bg:"#FFF4DA", accent:"#8A6330", active:true  },
+  { id:"hanfu",    en:"Hanfu Style",  img:"icon_hanfu",    bg:"#E6F4EA", accent:"#3F8468", active:true  },
+  { id:"scratch",  en:"Lucky Card",   img:"icon_scratch",  bg:"#FFE7D6", accent:"#B86B45", active:true  },
+  { id:"quiz",     en:"Culture Quiz", img:null, emoji:"📜", bg:"#EAF1FF", accent:"#526FA8", active:true  },
+  { id:"zodiac",   en:"Zodiac",       img:null, emoji:"🐴", bg:"#FFF2D2", accent:"#A9783B", active:false },
+  { id:"food",     en:"Foodie",       img:"icon_food",     bg:"#FFEBDD", accent:"#B86B45", active:false },
+  { id:"art",      en:"Art Guess",    img:"icon_art",      bg:"#F1EAFE", accent:"#7A62A8", active:false },
+  { id:"festival", en:"Festival",     img:"icon_festival", bg:"#FFE5E8", accent:"#B85F62", active:false },
 ];
 
 const NAV = [
-  { img:"nav1", en:"Daily Reward" },
-  { img:"nav2", en:"Achievements" },
-  { img:"nav3", en:"Culture Tips" },
-  { img:"nav4", en:"Favorites" },
+  { img:"nav1", en:"Daily Reward", short:"Reward" },
+  { img:"nav2", en:"Achievements", short:"Badges" },
+  { img:"nav3", en:"Culture Tips", short:"Tips" },
+  { img:"nav4", en:"Favorites", short:"Saved" },
 ];
 
 const N=SEGS.length, DEG=360/N;
@@ -29,13 +29,14 @@ const arc=(r1,r2,a1,a2)=>{
 };
 
 const Petal=({x,delay,dur,rot})=>(
-  <div style={{position:"absolute",left:x+"%",top:-20,width:10,height:8,
-    background:"radial-gradient(ellipse,#FFB8C8,#FF8EAC)",borderRadius:"50% 0 50% 0",
-    transform:`rotate(${rot}deg)`,opacity:.7,
+  <div style={{position:"absolute",left:x+"%",top:-20,width:"clamp(7px,2vw,13px)",height:"clamp(6px,1.6vw,10px)",
+    background:"radial-gradient(ellipse,#FFD3DD,#FFA8BA)",borderRadius:"50% 0 50% 0",
+    transform:`rotate(${rot}deg)`,opacity:.62,
     animation:`fall ${dur}s ${delay}s infinite linear`,pointerEvents:"none"}}/>
 );
 
-export default function App(){
+export function ChinaQuestHome({ mode="mobile" }){
+  const isDisplay=mode==="display";
   const[rot,setRot]=useState(0);
   const[spinning,setSpinning]=useState(false);
   const[result,setResult]=useState(null);
@@ -64,13 +65,26 @@ export default function App(){
     },5000);
   };
 
+  const wheelMax=isDisplay?"min(66vh,620px)":"min(96vw,430px)";
+  const sideCharacter=isDisplay?"clamp(140px,13vw,210px)":"clamp(72px,23vw,112px)";
+  const headerButton=isDisplay?"clamp(76px,8vw,112px)":"clamp(48px,16vw,76px)";
+  const logoWidth=isDisplay?"clamp(360px,42vw,640px)":"clamp(174px,58vw,270px)";
+
   return(
   <div style={{width:"100%",minHeight:"100dvh",position:"relative",overflow:"hidden",
-    background:"linear-gradient(180deg,#B8DEF0,#CBE8F4 25%,#DCF0DC 62%,#EDE8C4)",
-    maxWidth:480,margin:"0 auto",display:"flex",flexDirection:"column",fontFamily:"sans-serif"}}>
+    background:isDisplay
+      ?"linear-gradient(180deg,#8ED3F4 0%,#CDEEF9 30%,#F8EECF 66%,#F7C6B6 100%)"
+      :"linear-gradient(180deg,#AEE1F7 0%,#D8F2FB 30%,#F7F1D7 67%,#F6C7B7 100%)",
+    margin:"0 auto",display:"flex",flexDirection:"column",fontFamily:"sans-serif",
+    maxWidth:isDisplay?"none":480}}>
+
+    {isDisplay&&(
+      <div style={{position:"absolute",inset:"0",pointerEvents:"none",
+        background:"radial-gradient(circle at 18% 82%,rgba(114,177,159,.35),transparent 22%),radial-gradient(circle at 82% 78%,rgba(255,184,168,.35),transparent 24%)"}}/>
+    )}
 
     {/* Sky background */}
-    <svg style={{position:"absolute",top:0,left:0,width:"100%",height:"58%",pointerEvents:"none"}}
+    <svg style={{position:"absolute",top:0,left:0,width:"100%",height:isDisplay?"72%":"54%",pointerEvents:"none"}}
       viewBox="0 0 480 290" preserveAspectRatio="xMidYMax slice">
       <ellipse cx="80" cy="42" rx="52" ry="22" fill="white" opacity=".7"/>
       <ellipse cx="380" cy="50" rx="55" ry="23" fill="white" opacity=".65"/>
@@ -89,7 +103,7 @@ export default function App(){
         <circle cx="480" cy="198" r="20" fill="#F4B0C4" opacity=".7"/>
         <circle cx="462" cy="194" r="16" fill="#F0A0B8" opacity=".62"/>
       </g>
-      <path d="M0,272 Q120,256 240,263 Q360,270 480,260 L480,290 L0,290Z" fill="#B8D898" opacity=".38"/>
+      <path d="M0,272 Q120,256 240,263 Q360,270 480,260 L480,290 L0,290Z" fill="#94CFAE" opacity=".38"/>
     </svg>
 
     {/* Petals */}
@@ -98,62 +112,80 @@ export default function App(){
     </div>
 
     {/* Top frame */}
-    <div style={{background:"linear-gradient(90deg,#C8A8E0,#E8B8C8,#F0D0A0,#E8B8C8,#C8A8E0)",height:5}}/>
-    <div style={{background:"linear-gradient(90deg,#F0E8C8,#FCF4E0,#F0E8C8)",height:3}}/>
+    <div style={{background:"linear-gradient(90deg,#F6B5AE,#F6D58D,#8ECDB7,#F6D58D,#F6B5AE)",height:isDisplay?8:5}}/>
+    <div style={{background:"linear-gradient(90deg,#FFF5D8,#FFFDF2,#FFF5D8)",height:isDisplay?5:3}}/>
 
     {/* Header */}
     <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",
-      padding:"8px 14px 4px",position:"relative",zIndex:5}}>
-      <button style={{width:92,height:92,background:"none",border:"none",
+      padding:isDisplay?"clamp(12px,2vh,24px) clamp(28px,5vw,70px) 4px":"clamp(4px,1.5vw,8px) clamp(8px,3vw,14px) 0",
+      position:"relative",zIndex:5}}>
+      <button style={{width:headerButton,height:headerButton,background:"rgba(255,250,236,.76)",border:"2px solid rgba(219,166,81,.55)",
+        borderRadius:"50%",boxShadow:"0 8px 22px rgba(150,92,32,.14)",
         cursor:"pointer",flexShrink:0,padding:0}}>
-        <img src={A.avatar} style={{width:92,height:92,objectFit:"contain"}} alt=""/>
+        <img src={A.avatar} style={{width:"100%",height:"100%",objectFit:"contain"}} alt=""/>
       </button>
 
-      <div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center"}}>
-        <img src={A.logo} style={{width:"min(200px,50vw)",height:"auto"}} alt="China Quest"/>
+      <div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",minWidth:0}}>
+        <div style={{position:"relative",padding:isDisplay?"clamp(10px,1.4vw,18px) clamp(34px,4vw,66px)":"6px clamp(12px,3vw,20px)",
+          borderRadius:isDisplay?"34px":"22px",
+          background:"linear-gradient(180deg,rgba(255,252,240,.96),rgba(255,241,205,.94))",
+          border:"2px solid rgba(220,166,72,.58)",
+          boxShadow:isDisplay?"0 14px 34px rgba(129,80,28,.2), inset 0 0 0 4px rgba(255,255,255,.42)":"0 8px 22px rgba(129,80,28,.15)"}}>
+          <img src={A.logo} style={{width:logoWidth,maxWidth:"100%",height:"auto",display:"block"}} alt="China Quest"/>
+          {isDisplay&&<div style={{position:"absolute",left:"18%",right:"18%",bottom:"-16px",
+            background:"linear-gradient(180deg,#78C8B6,#4BA78F)",color:"#FFF8DE",
+            border:"2px solid rgba(255,233,167,.85)",borderRadius:14,textAlign:"center",
+            fontFamily:"'Noto Serif SC',serif",fontWeight:700,fontSize:"clamp(.95rem,1.55vw,1.35rem)",
+            letterSpacing:"clamp(2px,.4vw,6px)",padding:"4px 10px",boxShadow:"0 8px 18px rgba(40,110,95,.2)"}}>
+            Play · Learn · Discover
+          </div>}
+        </div>
       </div>
 
-      <button style={{width:92,height:92,background:"none",border:"none",
+      <button style={{width:headerButton,height:headerButton,background:"rgba(255,250,236,.76)",border:"2px solid rgba(219,166,81,.55)",
+        borderRadius:"50%",boxShadow:"0 8px 22px rgba(150,92,32,.14)",
         cursor:"pointer",flexShrink:0,padding:0}}>
-        <img src={A.settings} style={{width:92,height:92,objectFit:"contain"}} alt=""/>
+        <img src={A.settings} style={{width:"100%",height:"100%",objectFit:"contain"}} alt=""/>
       </button>
     </div>
 
     {/* Subtitle */}
-    <div style={{textAlign:"center",margin:"2px 28px 4px",
+    {!isDisplay&&<div style={{textAlign:"center",margin:"2px clamp(30px,10vw,52px) 2px",
       borderTop:"1px solid rgba(200,140,60,.28)",borderBottom:"1px solid rgba(200,140,60,.28)",
       padding:"2px 0",position:"relative",zIndex:5,
-      fontSize:".68rem",color:"#8B5A20",letterSpacing:"3px"}}>
+      fontSize:"clamp(.6rem,2.6vw,.72rem)",color:"#8B5A20",letterSpacing:"clamp(1px,.8vw,3px)"}}>
       ❁ Play · Learn · Discover ❁
-    </div>
+    </div>}
 
     {/* Lanterns + Wheel */}
     <div style={{display:"flex",alignItems:"flex-start",justifyContent:"center",
-      position:"relative",zIndex:5,marginTop:4}}>
+      position:"relative",zIndex:5,marginTop:isDisplay?"clamp(24px,4vh,48px)":2,
+      width:isDisplay?"min(100%,1180px)":"100%",alignSelf:"center",padding:isDisplay?"0 clamp(34px,5vw,72px)":"0 2px"}}>
 
       {/* Left lantern */}
       <div style={{animation:"swayL 5s ease-in-out infinite",transformOrigin:"top center",
-        paddingTop:4,flexShrink:0}}>
-        <img src={A.lantern} style={{width:68,height:"auto",display:"block"}} alt=""/>
+        paddingTop:isDisplay?0:4,flexShrink:0,overflow:"hidden",
+        position:isDisplay?"static":"absolute",left:isDisplay?"auto":2,top:isDisplay?"auto":0}}>
+        <img src={A.lantern} style={{width:isDisplay?"clamp(86px,10vw,142px)":"clamp(34px,10vw,54px)",height:"auto",display:"block"}} alt=""/>
       </div>
 
       {/* Wheel */}
-      <div style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center"}}>
+      <div style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",minWidth:0}}>
         {/* Pointer */}
-        <div style={{marginBottom:-2,zIndex:2,filter:"drop-shadow(0 4px 8px rgba(160,100,10,.6))"}}>
-          <svg width="28" height="32" viewBox="0 0 28 32">
+        <div style={{marginBottom:isDisplay?-8:-4,zIndex:2,filter:"drop-shadow(0 5px 10px rgba(160,100,10,.45))"}}>
+          <svg width={isDisplay?54:34} height={isDisplay?60:38} viewBox="0 0 28 32">
             <defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F5D560"/><stop offset="100%" stopColor="#C09020"/>
+              <stop offset="0%" stopColor="#FFF0A8"/><stop offset="100%" stopColor="#D79A36"/>
             </linearGradient></defs>
-            <path d="M14,30 L2,2 Q14,11 26,2Z" fill="url(#pg)" stroke="#A07010" strokeWidth="1"/>
+            <path d="M14,30 L2,2 Q14,11 26,2Z" fill="url(#pg)" stroke="#B98328" strokeWidth="1"/>
           </svg>
         </div>
 
         {/* SVG Wheel */}
         <svg width="100%" viewBox="0 0 400 400"
-          style={{maxWidth:360,transform:`rotate(${rot}deg)`,
+          style={{width:wheelMax,maxWidth:"100%",transform:`rotate(${rot}deg)`,
             transition:spinning?"transform 5s cubic-bezier(.06,.7,.08,1)":"none",
-            filter:"none"}}>
+            filter:isDisplay?"drop-shadow(0 22px 36px rgba(111,72,30,.24))":"drop-shadow(0 10px 18px rgba(111,72,30,.16))"}}>
           <defs>
             {SEGS.map(s=>(
               <radialGradient key={s.id} id={`g${s.id}`} cx="35%" cy="28%">
@@ -163,31 +195,31 @@ export default function App(){
             ))}
           </defs>
           {/* Rings */}
-          <circle cx={CX} cy={CY} r={197} fill="#D4C090" opacity=".3"/>
-          <circle cx={CX} cy={CY} r={193} fill="#F5EDD8"/>
-          <circle cx={CX} cy={CY} r={188} fill="#D4A070" opacity=".22"/>
-          <circle cx={CX} cy={CY} r={184} fill="#FBF5EE"/>
+          <circle cx={CX} cy={CY} r={198} fill="#F7B6A5" opacity=".42"/>
+          <circle cx={CX} cy={CY} r={193} fill="#FFF3D8"/>
+          <circle cx={CX} cy={CY} r={188} fill="#E7B85D" opacity=".42"/>
+          <circle cx={CX} cy={CY} r={182} fill="#FFF9EA"/>
           {Array.from({length:48}).map((_,i)=>{
             const[px,py]=pol(191,i*7.5);
-            return <circle key={i} cx={px} cy={py} r={i%6===0?3.5:1.8} fill={i%6===0?"#C49028":"#D8AC48"}/>;
+            return <circle key={i} cx={px} cy={py} r={i%6===0?4:2} fill={i%6===0?"#F8D878":"#E0B84F"}/>;
           })}
           {/* Segments */}
           {SEGS.map((s,i)=>{
             const a1=i*DEG,a2=(i+1)*DEG,mid=a1+DEG/2;
-            const[ix,iy]=pol(128,mid);
-            const[tx,ty]=pol(90,mid);
+            const[ix,iy]=pol(isDisplay?127:130,mid);
+            const[tx,ty]=pol(isDisplay?88:91,mid);
             return(<g key={s.id}>
               <path d={arc(OR,IR,a1,a2)} fill={s.active?`url(#g${s.id})`:"#EDE6D8"}
                 stroke="#F0CCA0" strokeWidth="2.5" opacity={s.active?1:.38}/>
               {s.img
-                ? <image href={A[s.img]} x={ix-26} y={iy-26} width={52} height={52}
+                ? <image href={A[s.img]} x={ix-(isDisplay?31:29)} y={iy-(isDisplay?31:29)} width={isDisplay?62:58} height={isDisplay?62:58}
                     opacity={s.active?1:.25} transform={`rotate(${mid},${ix},${iy})`}/>
                 : <text x={ix} y={iy} textAnchor="middle" dominantBaseline="middle"
-                    fontSize="24" opacity={s.active?1:.25}
+                    fontSize={isDisplay?32:29} opacity={s.active?1:.25}
                     transform={`rotate(${mid},${ix},${iy})`}>{s.emoji}</text>
               }
               <text x={tx} y={ty} textAnchor="middle" dominantBaseline="middle"
-                fontSize="8.5" fontFamily="'Cinzel',serif" fontWeight="700"
+                fontSize={isDisplay?9.8:9.2} fontFamily="'Cinzel',serif" fontWeight="700"
                 fill={s.active?s.accent:"#B8AA90"}
                 transform={`rotate(${mid},${tx},${ty})`}>{s.en}</text>
             </g>);
@@ -198,36 +230,39 @@ export default function App(){
             return <line key={i} x1={ix2} y1={iy2} x2={ox} y2={oy} stroke="#F0CCA0" strokeWidth="2.5"/>;
           })}
           {/* Center */}
-          <circle cx={CX} cy={CY} r={64} fill="#C89020"/>
-          <circle cx={CX} cy={CY} r={57} fill="#FFF8DC"/>
-          <circle cx={CX} cy={CY} r={50} fill="#FFFBF0" opacity=".9"/>
+          <circle cx={CX} cy={CY} r={66} fill="#DFA544"/>
+          <circle cx={CX} cy={CY} r={59} fill="#FFF1C4"/>
+          <circle cx={CX} cy={CY} r={51} fill="#FFF9E8" opacity=".94"/>
           {[0,60,120,180,240,300].map(a=>{const[px,py]=pol(60,a);return(
             <circle key={a} cx={px} cy={py} r={3} fill="#C89020" opacity=".55"/>
           )})}
-          <image href={A.fu} x={CX-52} y={CY-52} width={104} height={104}/>
+          <image href={A.fu} x={CX-54} y={CY-54} width={108} height={108}/>
         </svg>
 
         {/* Platform */}
-        <div style={{width:"min(300px,76vw)",height:18,
-          background:"linear-gradient(180deg,#E8A080,#C06840)",borderRadius:"50%",
-          boxShadow:"0 4px 12px rgba(180,80,40,.25)",marginTop:-6}}/>
+        <div style={{width:isDisplay?"min(560px,58vw)":"min(330px,84vw)",height:isDisplay?30:18,
+          background:"linear-gradient(180deg,#F8C3A4,#E78773)",borderRadius:"50%",
+          boxShadow:"0 8px 20px rgba(180,90,55,.22)",marginTop:isDisplay?-10:-6}}/>
       </div>
 
       {/* Right lantern */}
       <div style={{animation:"swayR 4.5s ease-in-out infinite",transformOrigin:"top center",
-        paddingTop:4,flexShrink:0}}>
-        <img src={A.lantern} style={{width:68,height:"auto",display:"block",transform:"scaleX(-1)"}} alt=""/>
+        paddingTop:isDisplay?0:4,flexShrink:0,overflow:"hidden",
+        position:isDisplay?"static":"absolute",right:isDisplay?"auto":2,top:isDisplay?"auto":0}}>
+        <img src={A.lantern} style={{width:isDisplay?"clamp(86px,10vw,142px)":"clamp(34px,10vw,54px)",height:"auto",display:"block",transform:"scaleX(-1)"}} alt=""/>
       </div>
     </div>
 
     {/* Characters + Spin */}
     <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",
-      padding:"0 4px",position:"relative",zIndex:5,marginTop:-20}}>
+      padding:isDisplay?"0 clamp(44px,8vw,140px)":"0 clamp(4px,1.5vw,8px)",
+      position:"relative",zIndex:5,marginTop:isDisplay?"clamp(-72px,-5vh,-38px)":"clamp(-32px,-7vw,-16px)"}}>
 
       {/* Child + bubble */}
       <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
         <div style={{background:"white",border:"2px solid #D4A040",borderRadius:11,
-          padding:"5px 9px",fontSize:".64rem",color:"#6A4820",lineHeight:1.6,maxWidth:105,
+          padding:isDisplay?"10px 16px":"5px 9px",fontSize:isDisplay?"clamp(.9rem,1.2vw,1.08rem)":"clamp(.56rem,2.4vw,.68rem)",
+          color:"#6A4820",lineHeight:1.5,maxWidth:isDisplay?210:112,
           boxShadow:"0 3px 10px rgba(0,0,0,.12)",marginBottom:3,position:"relative"}}>
           Spin the wheel!<br/>Pick your adventure!
           <div style={{position:"absolute",bottom:-9,right:14,width:0,height:0,
@@ -237,56 +272,60 @@ export default function App(){
             borderLeft:"9px solid transparent",borderRight:"9px solid transparent",
             borderTop:"12px solid #D4A040"}}/>
         </div>
-        <img src={A.child} style={{width:108,height:"auto",
+        <img src={A.child} style={{width:sideCharacter,height:"auto",
           animation:"bounce 3s ease-in-out infinite"}} alt=""/>
       </div>
 
       {/* Spin button */}
-      <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,paddingBottom:4}}>
+      <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:isDisplay?8:3,paddingBottom:isDisplay?26:4}}>
         <button onClick={spin} disabled={spinning} style={{
-          padding:"12px 28px",fontFamily:"'Cinzel',serif",fontSize:"1rem",letterSpacing:"2px",
-          background:spinning?"linear-gradient(135deg,#D8C8A0,#C8B880)":"linear-gradient(135deg,#F0D060,#D49828 45%,#F0D060)",
-          border:`2px solid ${spinning?"#C0B078":"#B87E10"}`,borderRadius:50,
+          minHeight:isDisplay?64:50,padding:isDisplay?"16px 46px":"12px clamp(30px,10vw,44px)",
+          fontFamily:"'Cinzel',serif",fontSize:isDisplay?"clamp(1.25rem,1.8vw,1.7rem)":"clamp(1rem,4.6vw,1.2rem)",letterSpacing:"2px",
+          background:spinning?"linear-gradient(135deg,#D8C8A0,#C8B880)":"linear-gradient(135deg,#FFF0A8,#E3A13D 46%,#FFD978)",
+          border:`3px solid ${spinning?"#C0B078":"#B87E10"}`,borderRadius:999,
           color:spinning?"#A89840":"#3A2408",cursor:spinning?"not-allowed":"pointer",
-          boxShadow:spinning?"none":"0 5px 22px rgba(190,120,15,.5)",
+          boxShadow:spinning?"none":"0 8px 24px rgba(190,120,15,.38)",
           transition:"all .3s",animation:spinning?"none":"pulse 2.5s ease-in-out infinite"}}>
           {spinning?"Spinning...":"SPIN!"}
         </button>
-        <p style={{color:"#8B6030",fontSize:".6rem",margin:0,letterSpacing:"1px",textAlign:"center"}}>
+        <p style={{color:"#8B6030",fontSize:isDisplay?"clamp(.9rem,1.2vw,1rem)":"clamp(.62rem,2.7vw,.74rem)",margin:0,letterSpacing:"1px",textAlign:"center"}}>
           Spin to start your adventure!
         </p>
       </div>
 
       {/* Panda */}
-      <img src={A.panda} style={{width:112,height:"auto",
+      <img src={A.panda} style={{width:sideCharacter,height:"auto",
         animation:"pandaSway 4s ease-in-out infinite"}} alt=""/>
     </div>
 
     {/* Bottom Nav */}
-    <div style={{display:"flex",justifyContent:"space-around",padding:"8px 6px",
+    <div style={{display:"flex",justifyContent:"space-between",
+      padding:isDisplay?"12px clamp(46px,9vw,160px)":"7px clamp(5px,2vw,8px)",gap:isDisplay?18:5,
       background:"linear-gradient(to top,rgba(235,215,165,.97),rgba(248,232,192,.93))",
       borderTop:"3px solid #D4A040",position:"relative",zIndex:10,marginTop:"auto",
-      paddingBottom:"max(12px, env(safe-area-inset-bottom))"}}>
+      paddingBottom:"max(10px,env(safe-area-inset-bottom))"}}>
       {NAV.map(item=>(
-        <button key={item.en} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,
-          background:"linear-gradient(135deg,#F5E8BC,#E8CC80)",
-          border:"2px solid #C89C38",borderRadius:13,
-          padding:"6px 8px",cursor:"pointer",
-          boxShadow:"0 3px 10px rgba(170,110,15,.2)",minWidth:60}}>
+        <button key={item.en} style={{
+          flex:1,display:"flex",flexDirection:"column",alignItems:"center",
+          justifyContent:"center",gap:isDisplay?6:2,
+          background:"linear-gradient(180deg,#FFF1CA,#A7D6C3 72%,#7EC0A8)",
+          border:"2px solid #C89C38",borderRadius:12,
+          padding:isDisplay?"10px 10px":"6px 2px",cursor:"pointer",minWidth:0,
+          boxShadow:"0 3px 10px rgba(170,110,15,.2)"}}>
           {item.img
-            ? <img src={A[item.img]} style={{width:42,height:42,objectFit:"contain"}} alt={item.en}/>
-            : <span style={{fontSize:"1.6rem",lineHeight:"42px"}}>{item.emoji}</span>
+            ? <img src={A[item.img]} style={{width:isDisplay?"clamp(56px,5vw,76px)":"clamp(29px,8.6vw,38px)",height:isDisplay?"clamp(56px,5vw,76px)":"clamp(29px,8.6vw,38px)",objectFit:"contain"}} alt={item.en}/>
+            : <span style={{fontSize:"min(1.5rem,7vw)",lineHeight:1.2}}>{item.emoji}</span>
           }
-          <span style={{fontSize:".54rem",color:"#7A4E18",fontWeight:700,
-            textAlign:"center",lineHeight:1.2}}>{item.en}</span>
+          <span style={{fontSize:isDisplay?"clamp(.9rem,1.1vw,1rem)":"clamp(.52rem,2.35vw,.64rem)",color:"#6B4A1F",fontWeight:700,
+            textAlign:"center",lineHeight:1.15,whiteSpace:"nowrap"}}>{isDisplay?item.en:item.short}</span>
         </button>
       ))}
     </div>
 
     {/* Footer */}
     <div style={{textAlign:"center",padding:"4px",
-      background:"linear-gradient(90deg,#C8A8E0,#E8B8C8,#C8A8E0)",
-      color:"#5A2060",fontSize:".56rem",letterSpacing:"3px"}}>
+      background:"linear-gradient(90deg,#F4A397,#F3C879,#F4A397)",
+      color:"#81452C",fontSize:isDisplay?".85rem":".56rem",letterSpacing:isDisplay?"5px":"3px"}}>
       ✦ Play · Learn · Grow ✦
     </div>
 
@@ -297,7 +336,7 @@ export default function App(){
         display:"flex",alignItems:"center",justifyContent:"center",
         zIndex:200,animation:"fadeIn .25s ease"}}>
         <div onClick={e=>e.stopPropagation()} style={{background:"white",borderRadius:24,
-          maxWidth:330,width:"88%",overflow:"hidden",
+          maxWidth:isDisplay?420:330,width:"88%",overflow:"hidden",
           boxShadow:"0 28px 80px rgba(0,0,0,.3)",
           animation:"springUp .45s cubic-bezier(.34,1.56,.64,1)"}}>
           <div style={{background:result.bg,padding:"26px 26px 18px",textAlign:"center"}}>
@@ -336,6 +375,7 @@ export default function App(){
     })()}
 
     <style>{`
+      *{box-sizing:border-box}
       @keyframes fadeIn{from{opacity:0}to{opacity:1}}
       @keyframes springUp{from{opacity:0;transform:translateY(50px) scale(.82)}to{opacity:1;transform:translateY(0) scale(1)}}
       @keyframes pulse{0%,100%{box-shadow:0 5px 22px rgba(190,120,15,.5)}50%{box-shadow:0 8px 36px rgba(190,120,15,.82)}}
@@ -346,4 +386,8 @@ export default function App(){
       @keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:.7}100%{transform:translateY(110vh) rotate(720deg);opacity:.05}}
     `}</style>
   </div>);
+}
+
+export default function ChinaQuest(){
+  return <ChinaQuestHome mode="mobile" />;
 }
