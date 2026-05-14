@@ -10,14 +10,14 @@ import CultureQuiz from './CultureQuiz';
 import ScratchCard  from './ScratchCard';
 import CityQuest    from './CityQuest';
 import FoodGallery  from './FoodGallery';
-// import HanfuStyle from './HanfuStyle';  ← uncomment when ready
+import HanfuStyle   from './HanfuStyle';
 
 const MODULES = {
   quiz:    CultureQuiz,
   scratch: ScratchCard,
   map:     CityQuest,
   food:    FoodGallery,
-  // hanfu: HanfuStyle,
+  hanfu:   HanfuStyle,
 };
 
 export default MODULES;
