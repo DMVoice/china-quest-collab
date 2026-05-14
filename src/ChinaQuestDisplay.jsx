@@ -155,22 +155,23 @@ export default function ChinaQuestDisplay(){
             return <circle key={i} cx={px} cy={py} r={i%6===0?4:2} fill={i%6===0?"#F8D878":"#E0B84F"}/>;
           })}
           {SEGS.map((s,i)=>{
+            const available=Boolean(MODULES[s.id]);
             const a1=i*DEG,a2=(i+1)*DEG,mid=a1+DEG/2;
             const[ix,iy]=pol(127,mid);
             const[tx,ty]=pol(88,mid);
             return(<g key={s.id}>
-              <path d={arc(OR,IR,a1,a2)} fill={s.active?`url(#display-g-${s.id})`:"#EDE6D8"}
-                stroke="#F0CCA0" strokeWidth="2.5" opacity={s.active?1:.38}/>
+              <path d={arc(OR,IR,a1,a2)} fill={available?`url(#display-g-${s.id})`:"#EDE6D8"}
+                stroke="#F0CCA0" strokeWidth="2.5" opacity={available?1:.38}/>
               {s.img
                 ? <image href={A[s.img]} x={ix-31} y={iy-31} width={62} height={62}
-                    opacity={s.active?1:.25} transform={`rotate(${mid},${ix},${iy})`}/>
+                    opacity={available?1:.25} transform={`rotate(${mid},${ix},${iy})`}/>
                 : <text x={ix} y={iy} textAnchor="middle" dominantBaseline="middle"
-                    fontSize="32" opacity={s.active?1:.25}
+                    fontSize="32" opacity={available?1:.25}
                     transform={`rotate(${mid},${ix},${iy})`}>{s.emoji}</text>
               }
               <text x={tx} y={ty} textAnchor="middle" dominantBaseline="middle"
                 fontSize="9.8" fontFamily="'Cinzel',serif" fontWeight="700"
-                fill={s.active?s.accent:"#B8AA90"}
+                fill={available?s.accent:"#B8AA90"}
                 transform={`rotate(${mid},${tx},${ty})`}>{s.en}</text>
             </g>);
           })}
@@ -244,7 +245,9 @@ export default function ChinaQuestDisplay(){
       </div>
     </footer>
 
-    {show&&result&&(
+    {show&&result&&(()=>{
+      const available=Boolean(MODULES[result.id]);
+      return (
       <div onClick={()=>setShow(false)} style={{position:"fixed",inset:0,
         background:"rgba(40,18,8,.52)",backdropFilter:"blur(8px)",
         display:"flex",alignItems:"center",justifyContent:"center",
@@ -263,9 +266,9 @@ export default function ChinaQuestDisplay(){
           </div>
           <div style={{padding:"16px 22px 20px",textAlign:"center"}}>
             <p style={{color:"#6A5038",fontSize:".9rem",lineHeight:1.85,margin:"0 0 16px"}}>
-              {result.active?"Tap below to start your adventure!":"Coming soon! Check back later."}
+              {available?"Tap below to start your adventure!":"Coming soon! Check back later."}
             </p>
-            {result.active
+            {available
               ? <button onClick={()=>{setShow(false);setActiveModule(result.id);}}
                   style={{width:"100%",padding:"13px",background:result.bg,color:result.accent,
                     border:`2px solid ${result.accent}55`,borderRadius:12,fontSize:".95rem",
@@ -280,7 +283,8 @@ export default function ChinaQuestDisplay(){
           </div>
         </div>
       </div>
-    )}
+      );
+    })()}
 
     {activeModule && MODULES[activeModule] && (()=>{
       const Module = MODULES[activeModule];
