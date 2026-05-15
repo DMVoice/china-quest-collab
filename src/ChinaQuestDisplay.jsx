@@ -151,15 +151,16 @@ export default function ChinaQuestDisplay() {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          padding: "clamp(8px,1.2vh,13px) clamp(28px,4vw,76px) 0",
+          padding: "clamp(8px,1.1vh,12px) clamp(22px,4vw,70px) 0",
           textAlign: "center",
         }}
       >
         <img
-          src="/image/china_quest_a_cultural_adventure.png"
+          src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "min(58vw,760px)",
-            height: "clamp(54px,9vh,88px)",
+            width: "min(86vw,1200px)",
+            maxHeight: "clamp(96px,15vh,148px)",
+            height: "auto",
             display: "block",
             objectFit: "contain",
             filter: "drop-shadow(0 7px 12px rgba(107,63,22,.2))",
@@ -179,7 +180,7 @@ export default function ChinaQuestDisplay() {
           alignItems: "center",
           justifyItems: "center",
           gap: "clamp(8px,1.6vw,28px)",
-          padding: "clamp(2px,.5vh,6px) clamp(28px,4.5vw,86px) 0",
+          padding: "0 clamp(28px,4.5vw,86px)",
         }}
       >
         <img
@@ -210,7 +211,7 @@ export default function ChinaQuestDisplay() {
             width="100%"
             viewBox="0 0 400 400"
             style={{
-              width: "min(67vh,57vw,720px)",
+              width: "min(64vh,58vw,720px)",
               maxWidth: "100%",
               transform: `rotate(${rot}deg)`,
               transition: spinning ? "transform 5s cubic-bezier(.06,.7,.08,1)" : "none",
