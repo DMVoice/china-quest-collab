@@ -36,7 +36,7 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Diligent Virtue · Fortune as Mountains", poemZh:"勤恳厚德 · 福如山岳",
     famous:[
-      {year:1985,name:"Cristiano Ronaldo",tag:"Soccer",known:"Portuguese soccer legend · 5× Ballon d'Or winner"},
+      {year:1985,name:"Cristiano Ronaldo",tag:"Soccer",known:"Portuguese soccer legend · 5× Ballon d'Or winner",image:"ronaldo-zodiac.jpeg"},
       {year:1997,name:"Jayson Tatum",tag:"NBA",known:"Boston Celtics All-Star · 2024 NBA Champion"},
       {year:1985,name:"Bruno Mars",tag:"Music",known:"Grammy-winning pop/R&B superstar"},
     ],
