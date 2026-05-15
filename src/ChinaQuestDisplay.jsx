@@ -150,48 +150,35 @@ export default function ChinaQuestDisplay() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 6,
-          padding: "clamp(14px,2.6vh,30px) clamp(28px,4vw,76px) 0",
+          gap: 4,
+          padding: "clamp(10px,1.5vh,16px) clamp(28px,4vw,76px) 0",
           textAlign: "center",
         }}
       >
         <img
           src={A.logo}
           style={{
-            width: "clamp(230px,22vw,390px)",
+            width: "clamp(210px,19vw,340px)",
             height: "auto",
             display: "block",
             filter: "drop-shadow(0 7px 12px rgba(107,63,22,.2))",
           }}
           alt="China Quest"
         />
-        <h1
-          style={{
-            margin: 0,
-            color: "#7F3F24",
-            fontFamily: "'Cinzel', Georgia, serif",
-            fontSize: "clamp(2.2rem,4.2vw,5.2rem)",
-            lineHeight: 0.95,
-            letterSpacing: 0,
-            textShadow: "0 4px 0 rgba(255,245,215,.75),0 10px 24px rgba(120,65,28,.16)",
-          }}
-        >
-          China Quest
-        </h1>
         <p
           style={{
             margin: 0,
-            padding: "7px 18px",
-            border: "2px solid rgba(255,233,167,.9)",
+            padding: "5px 15px",
+            border: "1.5px solid rgba(255,233,167,.82)",
             borderRadius: 999,
             background: "linear-gradient(180deg,#78C8B6,#4BA78F)",
             color: "#FFF8DE",
             fontFamily: "'Noto Serif SC',serif",
-            fontSize: "clamp(.9rem,1.35vw,1.35rem)",
-            fontWeight: 700,
+            fontSize: "clamp(.72rem,1vw,1.05rem)",
+            fontWeight: 600,
             lineHeight: 1.2,
-            letterSpacing: 1,
-            boxShadow: "0 8px 18px rgba(40,110,95,.2)",
+            letterSpacing: 0.4,
+            boxShadow: "0 6px 14px rgba(40,110,95,.16)",
           }}
         >
           Special Interactive Activity for Multicultural Night
@@ -205,11 +192,11 @@ export default function ChinaQuestDisplay() {
           zIndex: 4,
           minHeight: 0,
           display: "grid",
-          gridTemplateColumns: "minmax(110px,1fr) minmax(430px,720px) minmax(110px,1fr)",
+          gridTemplateColumns: "minmax(96px,1fr) minmax(430px,760px) minmax(96px,1fr)",
           alignItems: "center",
           justifyItems: "center",
-          gap: "clamp(12px,2vw,36px)",
-          padding: "clamp(2px,.8vh,10px) clamp(30px,5vw,96px) 0",
+          gap: "clamp(8px,1.6vw,28px)",
+          padding: "0 clamp(28px,4.5vw,86px)",
         }}
       >
         <img
@@ -240,7 +227,7 @@ export default function ChinaQuestDisplay() {
             width="100%"
             viewBox="0 0 400 400"
             style={{
-              width: "min(62vh,54vw,680px)",
+              width: "min(67vh,57vw,720px)",
               maxWidth: "100%",
               transform: `rotate(${rot}deg)`,
               transition: spinning ? "transform 5s cubic-bezier(.06,.7,.08,1)" : "none",
@@ -313,8 +300,8 @@ export default function ChinaQuestDisplay() {
 
           <div
             style={{
-              width: "min(580px,48vw)",
-              height: "clamp(20px,2.6vh,32px)",
+              width: "min(610px,50vw)",
+              height: "clamp(18px,2.3vh,30px)",
               background: "linear-gradient(180deg,#F8C3A4,#E78773)",
               borderRadius: "50%",
               boxShadow: "0 8px 20px rgba(180,90,55,.22)",
@@ -344,38 +331,38 @@ export default function ChinaQuestDisplay() {
           display: "grid",
           gridTemplateColumns: "minmax(150px,1fr) auto minmax(150px,1fr)",
           alignItems: "end",
-          gap: "clamp(16px,3vw,48px)",
-          padding: "0 clamp(34px,6vw,112px) clamp(14px,2vh,28px)",
+          gap: "clamp(12px,2.4vw,38px)",
+          padding: "0 clamp(34px,6vw,112px) clamp(8px,1.2vh,16px)",
         }}
       >
         <div style={{ display: "flex", alignItems: "end", gap: "clamp(12px,1.8vw,26px)" }}>
-          <img src={A.child} style={{ width: "clamp(104px,10vw,166px)", height: "auto", animation: "bounce 3s ease-in-out infinite" }} alt="" />
+          <img src={A.child} style={{ width: "clamp(88px,8.5vw,140px)", height: "auto", animation: "bounce 3s ease-in-out infinite" }} alt="" />
           <div
             style={{
               background: "rgba(255,255,255,.92)",
               border: "2px solid #D4A040",
               borderRadius: 13,
-              padding: "8px 14px",
-              fontSize: "clamp(.78rem,1vw,.98rem)",
+              padding: "7px 12px",
+              fontSize: "clamp(.72rem,.9vw,.9rem)",
               color: "#6A4820",
               lineHeight: 1.45,
               boxShadow: "0 4px 12px rgba(0,0,0,.12)",
-              marginBottom: "clamp(28px,5vh,60px)",
+              marginBottom: "clamp(20px,3.5vh,42px)",
             }}
           >
             Spin the wheel!<br />Pick your adventure!
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, paddingBottom: "clamp(10px,2vh,24px)" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, paddingBottom: "clamp(6px,1.2vh,14px)" }}>
           <button
             onClick={spin}
             disabled={spinning}
             style={{
-              minHeight: "clamp(56px,7vh,74px)",
-              padding: "clamp(12px,1.7vh,18px) clamp(44px,4.8vw,70px)",
+              minHeight: "clamp(50px,6vh,66px)",
+              padding: "clamp(10px,1.4vh,15px) clamp(40px,4.4vw,64px)",
               fontFamily: "'Cinzel',serif",
-              fontSize: "clamp(1.2rem,2vw,1.8rem)",
+              fontSize: "clamp(1.12rem,1.75vw,1.58rem)",
               letterSpacing: 2,
               background: spinning ? "linear-gradient(135deg,#D8C8A0,#C8B880)" : "linear-gradient(135deg,#FFF0A8,#E3A13D 46%,#FFD978)",
               border: `3px solid ${spinning ? "#C0B078" : "#B87E10"}`,
@@ -389,7 +376,7 @@ export default function ChinaQuestDisplay() {
           >
             {spinning ? "Spinning..." : "SPIN!"}
           </button>
-          <p style={{ color: "#8B6030", fontSize: "clamp(.8rem,1vw,.98rem)", margin: 0, letterSpacing: 1, textAlign: "center" }}>
+          <p style={{ color: "#8B6030", fontSize: "clamp(.74rem,.9vw,.9rem)", margin: 0, letterSpacing: 1, textAlign: "center" }}>
             Scan the QR code to play
           </p>
         </div>
@@ -398,7 +385,7 @@ export default function ChinaQuestDisplay() {
           <details
             style={{
               width: "min(380px,30vw)",
-              marginBottom: "clamp(12px,2vh,24px)",
+              marginBottom: "clamp(8px,1.4vh,16px)",
               border: "2px solid rgba(200,156,56,.65)",
               borderRadius: 14,
               background: "rgba(255,250,236,.72)",
@@ -444,7 +431,7 @@ export default function ChinaQuestDisplay() {
               })}
             </div>
           </details>
-          <img src={A.panda} style={{ width: "clamp(116px,11vw,182px)", height: "auto", animation: "pandaSway 4s ease-in-out infinite" }} alt="" />
+          <img src={A.panda} style={{ width: "clamp(96px,9vw,154px)", height: "auto", animation: "pandaSway 4s ease-in-out infinite" }} alt="" />
         </div>
       </footer>
 
