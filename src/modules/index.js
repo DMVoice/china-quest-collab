@@ -11,6 +11,7 @@ import ScratchCard  from './ScratchCard';
 import CityQuest    from './CityQuest';
 import FoodGallery  from './FoodGallery';
 import HanfuStyle   from './HanfuStyle';
+import Instruments  from './Instruments';
 
 const MODULES = {
   quiz:    CultureQuiz,
@@ -18,6 +19,7 @@ const MODULES = {
   map:     CityQuest,
   food:    FoodGallery,
   hanfu:   HanfuStyle,
+  art:     Instruments,
 };
 
 export default MODULES;
