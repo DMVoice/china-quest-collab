@@ -40,9 +40,21 @@ export default function ChinaQuestDisplay(){
   const[spinning,setSpinning]=useState(false);
   const[result,setResult]=useState(null);
   const[show,setShow]=useState(false);
-  const[activeModule,setActiveModule]=useState(null);
+  const[activeModule,setActiveModule]=useState(()=>window.location.hash.slice(1)||null);
   const total=useRef(0);
   const petals=useMemo(()=>Array.from({length:16},(_,i)=>({x:i*6+2,delay:i*.55,dur:7+(i%4)*1.2,rot:i*24})),[]);
+
+  useEffect(()=>{
+    const id=activeModule||"";
+    if(window.location.hash.slice(1)!==id)
+      window.history.replaceState(null,"",id?"#"+id:window.location.pathname+window.location.search);
+  },[activeModule]);
+
+  useEffect(()=>{
+    const onHash=()=>setActiveModule(window.location.hash.slice(1)||null);
+    window.addEventListener("hashchange",onHash);
+    return()=>window.removeEventListener("hashchange",onHash);
+  },[]);
 
   useEffect(()=>{
     const href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@600&display=swap";
