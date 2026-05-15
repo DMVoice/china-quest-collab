@@ -1,94 +1,65 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import A from "./assets";
+import MODULE_REGISTRY from "./modules/index";
 
-const MODULES = [
-  {
-    id: "map",
-    title: "City Quest",
-    detail: "Find famous places across China.",
-    img: A.icon_map,
-    bg: "#FFF4DA",
-    accent: "#8A6330",
-  },
-  {
-    id: "hanfu",
-    title: "Hanfu Style",
-    detail: "Dress up with traditional-inspired outfits.",
-    img: A.icon_hanfu,
-    bg: "#E6F4EA",
-    accent: "#3F8468",
-  },
-  {
-    id: "scratch",
-    title: "Lucky Card",
-    detail: "Reveal a cheerful surprise.",
-    img: A.icon_scratch,
-    bg: "#FFE7D6",
-    accent: "#B86B45",
-  },
-  {
-    id: "quiz",
-    title: "Culture Quiz",
-    detail: "Answer quick questions and learn.",
-    img: A.blossom,
-    bg: "#EAF1FF",
-    accent: "#526FA8",
-  },
-  {
-    id: "zodiac",
-    title: "Zodiac",
-    detail: "Meet the animals of the zodiac.",
-    img: A.fu,
-    bg: "#FFF2D2",
-    accent: "#A9783B",
-  },
-  {
-    id: "food",
-    title: "Foodie",
-    detail: "Discover favorite Chinese dishes.",
-    img: A.icon_food,
-    bg: "#FFEBDD",
-    accent: "#B86B45",
-  },
-  {
-    id: "art",
-    title: "Instruments",
-    detail: "Hear and explore musical sounds.",
-    img: A.icon_art,
-    bg: "#F1EAFE",
-    accent: "#7A62A8",
-  },
-  {
-    id: "festival",
-    title: "Festival",
-    detail: "Celebrate holidays and traditions.",
-    img: A.icon_festival,
-    bg: "#FFE5E8",
-    accent: "#B85F62",
-  },
+const SEGS = [
+  { id: "map", en: "City Quest", img: "icon_map", bg: "#FFF4DA", accent: "#8A6330" },
+  { id: "hanfu", en: "Hanfu Style", img: "icon_hanfu", bg: "#E6F4EA", accent: "#3F8468" },
+  { id: "scratch", en: "Lucky Card", img: "icon_scratch", bg: "#FFE7D6", accent: "#B86B45" },
+  { id: "quiz", en: "Culture Quiz", emoji: "📜", bg: "#EAF1FF", accent: "#526FA8" },
+  { id: "zodiac", en: "Zodiac", emoji: "🐴", bg: "#FFF2D2", accent: "#A9783B" },
+  { id: "food", en: "Foodie", img: "icon_food", bg: "#FFEBDD", accent: "#B86B45" },
+  { id: "art", en: "Instruments", img: "icon_art", bg: "#F1EAFE", accent: "#7A62A8" },
+  { id: "festival", en: "Festival", img: "icon_festival", bg: "#FFE5E8", accent: "#B85F62" },
 ];
+
+const N = SEGS.length;
+const DEG = 360 / N;
+const CX = 200;
+const CY = 200;
+const OR = 170;
+const IR = 58;
+
+const pol = (r, d) => {
+  const rad = ((d - 90) * Math.PI) / 180;
+  return [CX + r * Math.cos(rad), CY + r * Math.sin(rad)];
+};
+
+const arc = (r1, r2, a1, a2) => {
+  const [x1, y1] = pol(r1, a1);
+  const [x2, y2] = pol(r1, a2);
+  const [x3, y3] = pol(r2, a2);
+  const [x4, y4] = pol(r2, a1);
+  return `M${x1},${y1} A${r1},${r1} 0 0,1 ${x2},${y2} L${x3},${y3} A${r2},${r2} 0 0,0 ${x4},${y4}Z`;
+};
 
 const Petal = ({ x, delay, dur, rot }) => (
   <div
-    className="display-petal"
     style={{
+      position: "absolute",
       left: `${x}%`,
-      animationDelay: `${delay}s`,
-      animationDuration: `${dur}s`,
+      top: -20,
+      width: "clamp(7px,.7vw,13px)",
+      height: "clamp(6px,.55vw,10px)",
+      background: "radial-gradient(ellipse,#FFD3DD,#FFA8BA)",
+      borderRadius: "50% 0 50% 0",
       transform: `rotate(${rot}deg)`,
+      opacity: 0.58,
+      animation: `fall ${dur}s ${delay}s infinite linear`,
+      pointerEvents: "none",
     }}
   />
 );
 
 export default function ChinaQuestDisplay() {
+  const [rot, setRot] = useState(0);
+  const [spinning, setSpinning] = useState(false);
+  const [result, setResult] = useState(null);
+  const [show, setShow] = useState(false);
+  const [activeModule, setActiveModule] = useState(null);
+  const total = useRef(0);
   const petals = useMemo(
-    () =>
-      Array.from({ length: 18 }, (_, i) => ({
-        x: i * 5.8 + 1,
-        delay: i * 0.45,
-        dur: 7 + (i % 4) * 1.4,
-        rot: i * 24,
-      })),
+    () => Array.from({ length: 16 }, (_, i) => ({ x: i * 6 + 2, delay: i * 0.55, dur: 7 + (i % 4) * 1.2, rot: i * 24 })),
     [],
   );
 
@@ -103,15 +74,49 @@ export default function ChinaQuestDisplay() {
     document.head.appendChild(el);
   }, []);
 
+  const spin = () => {
+    if (spinning) return;
+
+    setSpinning(true);
+    setShow(false);
+    const nr = total.current + (7 + Math.random() * 5) * 360 + Math.random() * 360;
+    total.current = nr;
+    setRot(nr);
+
+    setTimeout(() => {
+      const norm = ((nr % 360) + 360) % 360;
+      setResult(SEGS[Math.floor(((360 - norm) % 360) / DEG) % N]);
+      setSpinning(false);
+      setTimeout(() => setShow(true), 180);
+    }, 5000);
+  };
+
   return (
-    <main className="display-page">
-      <svg className="display-scenery" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+    <div
+      style={{
+        width: "100%",
+        minHeight: "100dvh",
+        position: "relative",
+        overflow: "hidden",
+        background: "linear-gradient(180deg,#8ED3F4 0%,#CDEEF9 30%,#FFF4D6 68%,#F6B9A8 100%)",
+        display: "grid",
+        gridTemplateRows: "auto minmax(0,1fr) auto",
+        fontFamily: "sans-serif",
+        color: "#4A2D12",
+      }}
+    >
+      <svg
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+        viewBox="0 0 1600 900"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
         <ellipse cx="210" cy="108" rx="165" ry="45" fill="white" opacity=".55" />
         <ellipse cx="1320" cy="118" rx="180" ry="52" fill="white" opacity=".48" />
         <ellipse cx="790" cy="72" rx="120" ry="34" fill="white" opacity=".35" />
         <path d="M0,675 Q260,610 520,660 T1040,654 T1600,620 L1600,900 L0,900Z" fill="#9ED3B4" opacity=".32" />
         <path d="M0,735 Q320,695 620,735 T1200,730 T1600,710 L1600,900 L0,900Z" fill="#F7DFC1" opacity=".55" />
-        <g opacity=".34">
+        <g opacity=".35">
           <line x1="88" y1="900" x2="106" y2="565" stroke="#8B5E3C" strokeWidth="16" />
           <circle cx="72" cy="550" r="70" fill="#F6B7C5" />
           <circle cx="142" cy="530" r="56" fill="#F0A6BA" />
@@ -121,401 +126,429 @@ export default function ChinaQuestDisplay() {
         </g>
       </svg>
 
-      <div className="display-petal-layer" aria-hidden="true">
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}>
         {petals.map((pt, i) => (
           <Petal key={i} {...pt} />
         ))}
       </div>
 
-      <div className="display-top-frame" />
-      <img className="display-lantern display-lantern-left" src={A.lantern} alt="" />
-      <img className="display-lantern display-lantern-right" src={A.lantern} alt="" />
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 10,
+          background: "linear-gradient(90deg,#F6B5AE,#F6D58D,#8ECDB7,#F6D58D,#F6B5AE)",
+        }}
+      />
 
-      <section className="display-hero" aria-labelledby="display-title">
-        <div className="display-logo-wrap">
-          <img src={A.logo} className="display-logo" alt="China Quest" />
-        </div>
-        <p className="display-kicker">Special Interactive Activity for Multicultural Night</p>
-        <h1 id="display-title">China Quest</h1>
-        <p className="display-description">
-          A playful journey where kids can explore Chinese cities, food, clothing, music,
-          festivals, and traditions through quick hands-on activities.
+      <header
+        style={{
+          position: "relative",
+          zIndex: 5,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 6,
+          padding: "clamp(14px,2.6vh,30px) clamp(28px,4vw,76px) 0",
+          textAlign: "center",
+        }}
+      >
+        <img
+          src={A.logo}
+          style={{
+            width: "clamp(230px,22vw,390px)",
+            height: "auto",
+            display: "block",
+            filter: "drop-shadow(0 7px 12px rgba(107,63,22,.2))",
+          }}
+          alt="China Quest"
+        />
+        <h1
+          style={{
+            margin: 0,
+            color: "#7F3F24",
+            fontFamily: "'Cinzel', Georgia, serif",
+            fontSize: "clamp(2.2rem,4.2vw,5.2rem)",
+            lineHeight: 0.95,
+            letterSpacing: 0,
+            textShadow: "0 4px 0 rgba(255,245,215,.75),0 10px 24px rgba(120,65,28,.16)",
+          }}
+        >
+          China Quest
+        </h1>
+        <p
+          style={{
+            margin: 0,
+            padding: "7px 18px",
+            border: "2px solid rgba(255,233,167,.9)",
+            borderRadius: 999,
+            background: "linear-gradient(180deg,#78C8B6,#4BA78F)",
+            color: "#FFF8DE",
+            fontFamily: "'Noto Serif SC',serif",
+            fontSize: "clamp(.9rem,1.35vw,1.35rem)",
+            fontWeight: 700,
+            lineHeight: 1.2,
+            letterSpacing: 1,
+            boxShadow: "0 8px 18px rgba(40,110,95,.2)",
+          }}
+        >
+          Special Interactive Activity for Multicultural Night
         </p>
-      </section>
+      </header>
 
-      <section className="display-module-grid" aria-label="China Quest activities">
-        {MODULES.map((module, index) => (
-          <article
-            className="display-module-card"
-            key={module.id}
+      <main
+        className="display-spinner-stage"
+        style={{
+          position: "relative",
+          zIndex: 4,
+          minHeight: 0,
+          display: "grid",
+          gridTemplateColumns: "minmax(110px,1fr) minmax(430px,720px) minmax(110px,1fr)",
+          alignItems: "center",
+          justifyItems: "center",
+          gap: "clamp(12px,2vw,36px)",
+          padding: "clamp(2px,.8vh,10px) clamp(30px,5vw,96px) 0",
+        }}
+      >
+        <img
+          src={A.lantern}
+          style={{
+            justifySelf: "start",
+            width: "clamp(84px,10vw,150px)",
+            animation: "swayL 5s ease-in-out infinite",
+            transformOrigin: "top center",
+          }}
+          alt=""
+        />
+
+        <section style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }} aria-label="China Quest spinner wheel">
+          <div style={{ marginBottom: "clamp(-10px,-1vh,-5px)", zIndex: 2, filter: "drop-shadow(0 5px 10px rgba(160,100,10,.45))" }}>
+            <svg width="clamp(42px,4.6vw,64px)" height="clamp(46px,5vw,70px)" viewBox="0 0 28 32">
+              <defs>
+                <linearGradient id="displayPointer" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#FFF0A8" />
+                  <stop offset="100%" stopColor="#D79A36" />
+                </linearGradient>
+              </defs>
+              <path d="M14,30 L2,2 Q14,11 26,2Z" fill="url(#displayPointer)" stroke="#B98328" strokeWidth="1" />
+            </svg>
+          </div>
+
+          <svg
+            width="100%"
+            viewBox="0 0 400 400"
             style={{
-              "--card-bg": module.bg,
-              "--card-accent": module.accent,
-              animationDelay: `${index * 70}ms`,
+              width: "min(62vh,54vw,680px)",
+              maxWidth: "100%",
+              transform: `rotate(${rot}deg)`,
+              transition: spinning ? "transform 5s cubic-bezier(.06,.7,.08,1)" : "none",
+              filter: "drop-shadow(0 24px 38px rgba(111,72,30,.26))",
             }}
           >
-            <div className="display-module-icon">
-              <img src={module.img} alt="" />
-            </div>
-            <div>
-              <h2>{module.title}</h2>
-              <p>{module.detail}</p>
-            </div>
-          </article>
-        ))}
-      </section>
+            <defs>
+              {SEGS.map((s) => (
+                <radialGradient key={s.id} id={`display-g-${s.id}`} cx="35%" cy="28%">
+                  <stop offset="0%" stopColor="white" stopOpacity=".68" />
+                  <stop offset="100%" stopColor={s.bg} />
+                </radialGradient>
+              ))}
+            </defs>
+            <circle cx={CX} cy={CY} r={198} fill="#F7B6A5" opacity=".42" />
+            <circle cx={CX} cy={CY} r={193} fill="#FFF3D8" />
+            <circle cx={CX} cy={CY} r={188} fill="#E7B85D" opacity=".42" />
+            <circle cx={CX} cy={CY} r={182} fill="#FFF9EA" />
+            {Array.from({ length: 48 }).map((_, i) => {
+              const [px, py] = pol(191, i * 7.5);
+              return <circle key={i} cx={px} cy={py} r={i % 6 === 0 ? 4 : 2} fill={i % 6 === 0 ? "#F8D878" : "#E0B84F"} />;
+            })}
+            {SEGS.map((s, i) => {
+              const available = Boolean(MODULE_REGISTRY[s.id]);
+              const a1 = i * DEG;
+              const a2 = (i + 1) * DEG;
+              const mid = a1 + DEG / 2;
+              const [ix, iy] = pol(127, mid);
+              const [tx, ty] = pol(88, mid);
+              return (
+                <g key={s.id}>
+                  <path d={arc(OR, IR, a1, a2)} fill={available ? `url(#display-g-${s.id})` : "#EDE6D8"} stroke="#F0CCA0" strokeWidth="2.5" opacity={available ? 1 : 0.38} />
+                  {s.img ? (
+                    <image href={A[s.img]} x={ix - 31} y={iy - 31} width={62} height={62} opacity={available ? 1 : 0.25} transform={`rotate(${mid},${ix},${iy})`} />
+                  ) : (
+                    <text x={ix} y={iy} textAnchor="middle" dominantBaseline="middle" fontSize="32" opacity={available ? 1 : 0.25} transform={`rotate(${mid},${ix},${iy})`}>
+                      {s.emoji}
+                    </text>
+                  )}
+                  <text
+                    x={tx}
+                    y={ty}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="9.8"
+                    fontFamily="'Cinzel',serif"
+                    fontWeight="700"
+                    fill={available ? s.accent : "#B8AA90"}
+                    transform={`rotate(${mid},${tx},${ty})`}
+                  >
+                    {s.en}
+                  </text>
+                </g>
+              );
+            })}
+            {SEGS.map((_, i) => {
+              const [ox, oy] = pol(OR, i * DEG);
+              const [ix2, iy2] = pol(IR, i * DEG);
+              return <line key={i} x1={ix2} y1={iy2} x2={ox} y2={oy} stroke="#F0CCA0" strokeWidth="2.5" />;
+            })}
+            <circle cx={CX} cy={CY} r={66} fill="#DFA544" />
+            <circle cx={CX} cy={CY} r={59} fill="#FFF1C4" />
+            <circle cx={CX} cy={CY} r={51} fill="#FFF9E8" opacity=".94" />
+            {[0, 60, 120, 180, 240, 300].map((a) => {
+              const [px, py] = pol(60, a);
+              return <circle key={a} cx={px} cy={py} r={3} fill="#C89020" opacity=".55" />;
+            })}
+            <image href={A.fu} x={CX - 54} y={CY - 54} width={108} height={108} />
+          </svg>
 
-      <section className="display-cta" aria-label="QR code prompt">
-        <img src={A.child} className="display-character" alt="" />
-        <p>Scan the QR code to play</p>
-        <img src={A.panda} className="display-character display-panda" alt="" />
-      </section>
+          <div
+            style={{
+              width: "min(580px,48vw)",
+              height: "clamp(20px,2.6vh,32px)",
+              background: "linear-gradient(180deg,#F8C3A4,#E78773)",
+              borderRadius: "50%",
+              boxShadow: "0 8px 20px rgba(180,90,55,.22)",
+              marginTop: "clamp(-12px,-1vh,-6px)",
+            }}
+          />
+        </section>
+
+        <img
+          src={A.lantern}
+          style={{
+            justifySelf: "end",
+            width: "clamp(84px,10vw,150px)",
+            animation: "swayR 4.5s ease-in-out infinite",
+            transformOrigin: "top center",
+            transform: "scaleX(-1)",
+          }}
+          alt=""
+        />
+      </main>
+
+      <footer
+        className="display-controls"
+        style={{
+          position: "relative",
+          zIndex: 6,
+          display: "grid",
+          gridTemplateColumns: "minmax(150px,1fr) auto minmax(150px,1fr)",
+          alignItems: "end",
+          gap: "clamp(16px,3vw,48px)",
+          padding: "0 clamp(34px,6vw,112px) clamp(14px,2vh,28px)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "end", gap: "clamp(12px,1.8vw,26px)" }}>
+          <img src={A.child} style={{ width: "clamp(104px,10vw,166px)", height: "auto", animation: "bounce 3s ease-in-out infinite" }} alt="" />
+          <div
+            style={{
+              background: "rgba(255,255,255,.92)",
+              border: "2px solid #D4A040",
+              borderRadius: 13,
+              padding: "8px 14px",
+              fontSize: "clamp(.78rem,1vw,.98rem)",
+              color: "#6A4820",
+              lineHeight: 1.45,
+              boxShadow: "0 4px 12px rgba(0,0,0,.12)",
+              marginBottom: "clamp(28px,5vh,60px)",
+            }}
+          >
+            Spin the wheel!<br />Pick your adventure!
+          </div>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, paddingBottom: "clamp(10px,2vh,24px)" }}>
+          <button
+            onClick={spin}
+            disabled={spinning}
+            style={{
+              minHeight: "clamp(56px,7vh,74px)",
+              padding: "clamp(12px,1.7vh,18px) clamp(44px,4.8vw,70px)",
+              fontFamily: "'Cinzel',serif",
+              fontSize: "clamp(1.2rem,2vw,1.8rem)",
+              letterSpacing: 2,
+              background: spinning ? "linear-gradient(135deg,#D8C8A0,#C8B880)" : "linear-gradient(135deg,#FFF0A8,#E3A13D 46%,#FFD978)",
+              border: `3px solid ${spinning ? "#C0B078" : "#B87E10"}`,
+              borderRadius: 999,
+              color: spinning ? "#A89840" : "#3A2408",
+              cursor: spinning ? "not-allowed" : "pointer",
+              boxShadow: spinning ? "none" : "0 8px 24px rgba(190,120,15,.38)",
+              transition: "all .3s",
+              animation: spinning ? "none" : "pulse 2.5s ease-in-out infinite",
+            }}
+          >
+            {spinning ? "Spinning..." : "SPIN!"}
+          </button>
+          <p style={{ color: "#8B6030", fontSize: "clamp(.8rem,1vw,.98rem)", margin: 0, letterSpacing: 1, textAlign: "center" }}>
+            Scan the QR code to play
+          </p>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "end", justifyContent: "end", gap: "clamp(12px,1.8vw,26px)" }}>
+          <details
+            style={{
+              width: "min(380px,30vw)",
+              marginBottom: "clamp(12px,2vh,24px)",
+              border: "2px solid rgba(200,156,56,.65)",
+              borderRadius: 14,
+              background: "rgba(255,250,236,.72)",
+              boxShadow: "0 6px 18px rgba(120,70,20,.12)",
+              overflow: "hidden",
+            }}
+          >
+            <summary
+              style={{
+                padding: "9px 13px",
+                color: "#8B6030",
+                fontSize: "clamp(.72rem,.9vw,.88rem)",
+                fontWeight: 700,
+                cursor: "pointer",
+                letterSpacing: 0.5,
+              }}
+            >
+              Presenter Tools
+            </summary>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 8, padding: "0 10px 10px" }}>
+              {SEGS.map((s) => {
+                const available = Boolean(MODULE_REGISTRY[s.id]);
+                return (
+                  <button
+                    key={s.id}
+                    disabled={!available}
+                    onClick={() => setActiveModule(s.id)}
+                    style={{
+                      minHeight: 38,
+                      border: `1px solid ${available ? `${s.accent}55` : "#D8CDB8"}`,
+                      borderRadius: 10,
+                      background: available ? s.bg : "#F5EFE5",
+                      color: available ? s.accent : "#A89880",
+                      fontSize: "clamp(.62rem,.76vw,.78rem)",
+                      fontWeight: 700,
+                      cursor: available ? "pointer" : "not-allowed",
+                      opacity: available ? 1 : 0.55,
+                    }}
+                  >
+                    {s.en}
+                  </button>
+                );
+              })}
+            </div>
+          </details>
+          <img src={A.panda} style={{ width: "clamp(116px,11vw,182px)", height: "auto", animation: "pandaSway 4s ease-in-out infinite" }} alt="" />
+        </div>
+      </footer>
+
+      {show &&
+        result &&
+        (() => {
+          const available = Boolean(MODULE_REGISTRY[result.id]);
+          return (
+            <div
+              onClick={() => setShow(false)}
+              style={{
+                position: "fixed",
+                inset: 0,
+                background: "rgba(40,18,8,.52)",
+                backdropFilter: "blur(8px)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 200,
+                animation: "fadeIn .25s ease",
+              }}
+            >
+              <div
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  background: "white",
+                  borderRadius: 24,
+                  maxWidth: 420,
+                  width: "88%",
+                  overflow: "hidden",
+                  boxShadow: "0 28px 80px rgba(0,0,0,.3)",
+                  animation: "springUp .45s cubic-bezier(.34,1.56,.64,1)",
+                }}
+              >
+                <div style={{ background: result.bg, padding: "26px 26px 18px", textAlign: "center" }}>
+                  {result.img ? (
+                    <img src={A[result.img]} style={{ width: 90, height: 90, objectFit: "contain", marginBottom: 8 }} alt="" />
+                  ) : (
+                    <span style={{ fontSize: "3.5rem", display: "block", marginBottom: 8 }}>{result.emoji}</span>
+                  )}
+                  <h2 style={{ fontFamily: "'Cinzel',serif", fontSize: "1.4rem", color: result.accent, margin: "0 0 2px", letterSpacing: 2 }}>{result.en}</h2>
+                </div>
+                <div style={{ padding: "16px 22px 20px", textAlign: "center" }}>
+                  <p style={{ color: "#6A5038", fontSize: ".9rem", lineHeight: 1.85, margin: "0 0 16px" }}>
+                    {available ? "Tap below to start your adventure!" : "Coming soon! Check back later."}
+                  </p>
+                  {available ? (
+                    <button
+                      onClick={() => {
+                        setShow(false);
+                        setActiveModule(result.id);
+                      }}
+                      style={{
+                        width: "100%",
+                        padding: 13,
+                        background: result.bg,
+                        color: result.accent,
+                        border: `2px solid ${result.accent}55`,
+                        borderRadius: 12,
+                        fontSize: ".95rem",
+                        fontFamily: "'Cinzel',serif",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                        letterSpacing: 2,
+                      }}
+                    >
+                      Let's Go! →
+                    </button>
+                  ) : (
+                    <div style={{ padding: 11, background: "#F5EFE5", borderRadius: 11, color: "#B0A080", fontSize: ".83rem" }}>🔜 Coming Soon!</div>
+                  )}
+                  <button onClick={() => setShow(false)} style={{ marginTop: 10, background: "none", border: "none", color: "#C0B090", fontSize: ".73rem", cursor: "pointer" }}>
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
+      {activeModule &&
+        MODULE_REGISTRY[activeModule] &&
+        (() => {
+          const Module = MODULE_REGISTRY[activeModule];
+          return <Module onExit={() => setActiveModule(null)} />;
+        })()}
 
       <style>{`
-        * {
-          box-sizing: border-box;
-        }
-
-        .display-page {
-          width: 100%;
-          min-height: 100dvh;
-          position: relative;
-          overflow: hidden;
-          display: grid;
-          grid-template-rows: auto minmax(0, 1fr) auto;
-          gap: clamp(14px, 2vh, 28px);
-          padding: clamp(18px, 3vh, 34px) clamp(22px, 4vw, 78px) clamp(16px, 2.8vh, 32px);
-          color: #4a2d12;
-          font-family: Arial, Helvetica, sans-serif;
-          background: linear-gradient(180deg, #8ed3f4 0%, #cdeef9 30%, #fff4d6 68%, #f6b9a8 100%);
-        }
-
-        .display-scenery,
-        .display-petal-layer {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-        }
-
-        .display-petal-layer {
-          overflow: hidden;
-          z-index: 1;
-        }
-
-        .display-petal {
-          position: absolute;
-          top: -24px;
-          width: clamp(8px, 0.85vw, 15px);
-          height: clamp(7px, 0.72vw, 12px);
-          border-radius: 50% 0 50% 0;
-          background: radial-gradient(ellipse, #ffd3dd, #ffa8ba);
-          opacity: .58;
-          animation-name: displayFall;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-        }
-
-        .display-top-frame {
-          position: absolute;
-          z-index: 2;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 12px;
-          background: linear-gradient(90deg, #f6b5ae, #f6d58d, #8ecdb7, #f6d58d, #f6b5ae);
-        }
-
-        .display-lantern {
-          position: absolute;
-          z-index: 3;
-          top: clamp(22px, 4vh, 54px);
-          width: clamp(70px, 8vw, 138px);
-          filter: drop-shadow(0 10px 16px rgba(130, 58, 28, .16));
-          transform-origin: top center;
-        }
-
-        .display-lantern-left {
-          left: clamp(20px, 4vw, 82px);
-          animation: displaySwayLeft 5s ease-in-out infinite;
-        }
-
-        .display-lantern-right {
-          right: clamp(20px, 4vw, 82px);
-          animation: displaySwayRight 4.5s ease-in-out infinite;
-        }
-
-        .display-hero {
-          position: relative;
-          z-index: 4;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          max-width: 1120px;
-          width: min(100%, 1120px);
-          justify-self: center;
-          padding-top: clamp(8px, 1vh, 14px);
-        }
-
-        .display-logo-wrap {
-          border: 2px solid rgba(220, 166, 72, .58);
-          border-radius: 30px;
-          padding: clamp(8px, 1.2vw, 16px) clamp(24px, 3vw, 48px);
-          background: linear-gradient(180deg, rgba(255, 252, 240, .96), rgba(255, 241, 205, .94));
-          box-shadow: 0 14px 34px rgba(129, 80, 28, .18), inset 0 0 0 4px rgba(255, 255, 255, .42);
-        }
-
-        .display-logo {
-          display: block;
-          width: clamp(230px, 30vw, 500px);
-          height: auto;
-        }
-
-        .display-kicker {
-          width: fit-content;
-          margin: clamp(12px, 1.6vh, 18px) 0 6px;
-          padding: 7px 18px;
-          border: 2px solid rgba(255, 233, 167, .9);
-          border-radius: 999px;
-          background: linear-gradient(180deg, #78c8b6, #4ba78f);
-          color: #fff8de;
-          font-family: "Noto Serif SC", serif;
-          font-size: clamp(.95rem, 1.4vw, 1.45rem);
-          font-weight: 700;
-          line-height: 1.2;
-          letter-spacing: 1px;
-          box-shadow: 0 8px 18px rgba(40, 110, 95, .2);
-        }
-
-        .display-hero h1 {
-          margin: 0;
-          color: #7f3f24;
-          font-family: "Cinzel", Georgia, serif;
-          font-size: clamp(2.6rem, 6vw, 6.7rem);
-          line-height: .95;
-          letter-spacing: 0;
-          text-shadow: 0 4px 0 rgba(255, 245, 215, .75), 0 10px 24px rgba(120, 65, 28, .16);
-        }
-
-        .display-description {
-          max-width: 850px;
-          margin: clamp(8px, 1.2vh, 14px) 0 0;
-          color: #6a4820;
-          font-size: clamp(1rem, 1.55vw, 1.55rem);
-          line-height: 1.35;
-          text-wrap: balance;
-        }
-
-        .display-module-grid {
-          position: relative;
-          z-index: 4;
-          align-self: center;
-          justify-self: center;
-          width: min(100%, 1280px);
-          display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: clamp(10px, 1.4vw, 20px);
-        }
-
-        .display-module-card {
-          min-height: clamp(126px, 16vh, 176px);
-          display: grid;
-          grid-template-columns: clamp(54px, 5.5vw, 88px) minmax(0, 1fr);
-          align-items: center;
-          gap: clamp(10px, 1.2vw, 16px);
-          padding: clamp(12px, 1.35vw, 20px);
-          border: 2px solid color-mix(in srgb, var(--card-accent) 42%, white);
-          border-radius: 18px;
-          background: linear-gradient(180deg, rgba(255, 255, 255, .78), color-mix(in srgb, var(--card-bg) 86%, white));
-          box-shadow: 0 12px 26px rgba(112, 70, 28, .13);
-          animation: cardIn .42s ease both;
-        }
-
-        .display-module-icon {
-          display: grid;
-          place-items: center;
-          width: clamp(54px, 5.5vw, 88px);
-          height: clamp(54px, 5.5vw, 88px);
-          border-radius: 50%;
-          background: var(--card-bg);
-          border: 2px solid rgba(255, 255, 255, .8);
-          box-shadow: inset 0 0 0 2px rgba(220, 166, 72, .18);
-        }
-
-        .display-module-icon img {
-          width: 76%;
-          height: 76%;
-          object-fit: contain;
-        }
-
-        .display-module-card h2 {
-          margin: 0 0 5px;
-          color: var(--card-accent);
-          font-family: "Cinzel", Georgia, serif;
-          font-size: clamp(1rem, 1.5vw, 1.45rem);
-          line-height: 1.05;
-          letter-spacing: 0;
-        }
-
-        .display-module-card p {
-          margin: 0;
-          color: #6a5038;
-          font-size: clamp(.8rem, 1.05vw, 1.05rem);
-          line-height: 1.32;
-        }
-
-        .display-cta {
-          position: relative;
-          z-index: 4;
-          align-self: end;
-          justify-self: center;
-          width: min(100%, 980px);
-          display: grid;
-          grid-template-columns: minmax(84px, auto) minmax(0, 1fr) minmax(84px, auto);
-          align-items: end;
-          gap: clamp(12px, 2.6vw, 42px);
-        }
-
-        .display-cta p {
-          align-self: center;
-          margin: 0 0 clamp(8px, 1.5vh, 18px);
-          padding: clamp(14px, 1.7vh, 20px) clamp(22px, 3vw, 46px);
-          border: 3px solid #b87e10;
-          border-radius: 999px;
-          color: #3a2408;
-          background: linear-gradient(135deg, #fff0a8, #e3a13d 46%, #ffd978);
-          box-shadow: 0 8px 24px rgba(190, 120, 15, .3);
-          font-family: "Cinzel", Georgia, serif;
-          font-size: clamp(1.2rem, 2.5vw, 2.6rem);
-          font-weight: 700;
-          line-height: 1.1;
-          text-align: center;
-          letter-spacing: 0;
-        }
-
-        .display-character {
-          width: clamp(90px, 11vw, 178px);
-          height: auto;
-          animation: displayBounce 3s ease-in-out infinite;
-        }
-
-        .display-panda {
-          animation: displayPandaSway 4s ease-in-out infinite;
-        }
-
-        @media (max-width: 920px) {
-          .display-page {
-            gap: 14px;
-            padding: 18px 18px 16px;
-          }
-
-          .display-lantern {
-            width: 72px;
-          }
-
-          .display-module-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-          }
-
-          .display-module-card {
-            min-height: 108px;
-            border-radius: 14px;
-          }
-
-          .display-cta {
-            grid-template-columns: 76px minmax(0, 1fr) 76px;
-            gap: 8px;
-          }
-
-          .display-character {
-            width: 76px;
-          }
-        }
-
-        @media (max-width: 560px) {
-          .display-lantern {
-            display: none;
-          }
-
-          .display-logo {
-            width: min(68vw, 310px);
-          }
-
-          .display-kicker {
-            max-width: 92vw;
-          }
-
-          .display-module-card {
-            grid-template-columns: 52px minmax(0, 1fr);
-            padding: 10px;
-          }
-
-          .display-module-icon {
-            width: 52px;
-            height: 52px;
-          }
-        }
-
-        @keyframes cardIn {
-          from {
-            opacity: 0;
-            transform: translateY(14px) scale(.98);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        @keyframes displayFall {
-          0% {
-            transform: translateY(-24px) rotate(0deg);
-            opacity: .68;
-          }
-          100% {
-            transform: translateY(110vh) rotate(720deg);
-            opacity: .05;
-          }
-        }
-
-        @keyframes displaySwayLeft {
-          0%, 100% {
-            transform: rotate(-5deg);
-          }
-          50% {
-            transform: rotate(4deg);
-          }
-        }
-
-        @keyframes displaySwayRight {
-          0%, 100% {
-            transform: rotate(5deg) scaleX(-1);
-          }
-          50% {
-            transform: rotate(-4deg) scaleX(-1);
-          }
-        }
-
-        @keyframes displayBounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
-
-        @keyframes displayPandaSway {
-          0%, 100% {
-            transform: rotate(-3deg) translateY(0);
-          }
-          50% {
-            transform: rotate(3deg) translateY(-7px);
-          }
+        *{box-sizing:border-box}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        @keyframes springUp{from{opacity:0;transform:translateY(50px) scale(.82)}to{opacity:1;transform:translateY(0) scale(1)}}
+        @keyframes pulse{0%,100%{box-shadow:0 5px 22px rgba(190,120,15,.5)}50%{box-shadow:0 8px 36px rgba(190,120,15,.82)}}
+        @keyframes swayL{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(4deg)}}
+        @keyframes swayR{0%,100%{transform:rotate(5deg) scaleX(-1)}50%{transform:rotate(-4deg) scaleX(-1)}}
+        @keyframes pandaSway{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-7px)}}
+        @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        @keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:.7}100%{transform:translateY(110vh) rotate(720deg);opacity:.05}}
+        @media (max-width: 860px){
+          .display-spinner-stage{grid-template-columns:minmax(0,1fr)!important;padding-left:18px!important;padding-right:18px!important}
+          .display-spinner-stage > img{display:none!important}
+          .display-controls{grid-template-columns:1fr!important;padding-left:18px!important;padding-right:18px!important}
+          .display-controls > div:first-child, .display-controls > div:last-child{display:none!important}
         }
       `}</style>
-    </main>
+    </div>
   );
 }
