@@ -9,7 +9,7 @@ const SEGS = [
   { id:"quiz",     en:"Culture Quiz", img:null, emoji:"📜", bg:"#EAF1FF", accent:"#526FA8", active:true  },
   { id:"zodiac",   en:"Zodiac",       img:null, emoji:"🐴", bg:"#FFF2D2", accent:"#A9783B", active:false },
   { id:"food",     en:"Foodie",       img:"icon_food",     bg:"#FFEBDD", accent:"#B86B45", active:false },
-  { id:"art",      en:"Art Guess",    img:"icon_art",      bg:"#F1EAFE", accent:"#7A62A8", active:false },
+  { id:"art",      en:"Instruments",  img:"icon_art",      bg:"#F1EAFE", accent:"#7A62A8", active:true  },
   { id:"festival", en:"Festival",     img:"icon_festival", bg:"#FFE5E8", accent:"#B85F62", active:false },
 ];
 
@@ -42,6 +42,7 @@ export function ChinaQuestHome({ mode="mobile" }){
   const[result,setResult]=useState(null);
   const[show,setShow]=useState(false);
   const[activeModule,setActiveModule]=useState(null);
+  const[pickerOpen,setPickerOpen]=useState(false);
   const total=useRef(0);
   const petals=useMemo(()=>Array.from({length:12},(_,i)=>({x:i*8+2,delay:i*.8,dur:6+(i%3)*2,rot:i*30})),[]);
 
@@ -292,6 +293,13 @@ export function ChinaQuestHome({ mode="mobile" }){
         <p style={{color:"#8B6030",fontSize:isDisplay?"clamp(.9rem,1.2vw,1rem)":"clamp(.62rem,2.7vw,.74rem)",margin:0,letterSpacing:"1px",textAlign:"center"}}>
           Spin to start your adventure!
         </p>
+        <button onClick={()=>setPickerOpen(true)} style={{
+          marginTop:isDisplay?4:1,background:"transparent",border:"none",
+          color:"#A87830",fontSize:isDisplay?"clamp(.78rem,1vw,.9rem)":"clamp(.56rem,2.3vw,.66rem)",
+          fontWeight:700,letterSpacing:".5px",cursor:"pointer",
+          textDecoration:"underline dotted",textUnderlineOffset:"3px"}}>
+          or pick directly →
+        </button>
       </div>
 
       {/* Panda */}
@@ -371,6 +379,66 @@ export function ChinaQuestHome({ mode="mobile" }){
       </div>
       );
     })()}
+
+    {/* Picker overlay — direct segment selection */}
+    {pickerOpen && (
+      <div onClick={()=>setPickerOpen(false)} style={{position:"fixed",inset:0,
+        background:"rgba(40,18,8,.52)",backdropFilter:"blur(8px)",
+        display:"flex",alignItems:"center",justifyContent:"center",
+        zIndex:210,animation:"fadeIn .25s ease"}}>
+        <div onClick={e=>e.stopPropagation()} style={{background:"white",borderRadius:24,
+          maxWidth:isDisplay?520:340,width:"90%",overflow:"hidden",
+          boxShadow:"0 28px 80px rgba(0,0,0,.3)",
+          animation:"springUp .45s cubic-bezier(.34,1.56,.64,1)"}}>
+          <div style={{background:"linear-gradient(135deg,#FFF0A8,#E3A13D 60%,#FFD978)",
+            padding:"16px 20px",textAlign:"center"}}>
+            <h2 style={{fontFamily:"'Cinzel',serif",fontSize:"1.2rem",color:"#3A2408",
+              margin:0,letterSpacing:"2px"}}>PICK YOUR ADVENTURE</h2>
+          </div>
+          <div style={{padding:"16px 16px 14px",
+            display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10}}>
+            {SEGS.map(s=>{
+              const available=Boolean(MODULES[s.id]);
+              return (
+                <button key={s.id} disabled={!available}
+                  onClick={()=>{setPickerOpen(false);setActiveModule(s.id);}}
+                  style={{
+                    background:available?s.bg:"#F5EFE5",
+                    border:`2px solid ${available?s.accent+"55":"#D8CDB8"}`,
+                    borderRadius:14,padding:"12px 10px",
+                    cursor:available?"pointer":"not-allowed",
+                    display:"flex",flexDirection:"column",alignItems:"center",gap:6,
+                    opacity:available?1:.55,textAlign:"center",
+                    transition:"transform .15s",
+                  }}>
+                  {s.img
+                    ? <img src={A[s.img]} style={{width:40,height:40,objectFit:"contain"}} alt=""/>
+                    : <span style={{fontSize:"1.9rem",lineHeight:1}}>{s.emoji}</span>
+                  }
+                  <span style={{fontFamily:"'Cinzel',serif",fontSize:".8rem",
+                    color:available?s.accent:"#A89880",fontWeight:700,
+                    letterSpacing:"1px",lineHeight:1.2}}>
+                    {s.en}
+                  </span>
+                  {!available && (
+                    <span style={{fontSize:".62rem",color:"#A89880",letterSpacing:".5px"}}>
+                      Coming Soon
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{padding:"0 16px 16px",textAlign:"center"}}>
+            <button onClick={()=>setPickerOpen(false)} style={{
+              background:"none",border:"none",color:"#A89880",
+              fontSize:".78rem",cursor:"pointer",letterSpacing:".5px"}}>
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
 
     {/* Active module */}
     {activeModule && MODULES[activeModule] && (()=>{
