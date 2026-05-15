@@ -37,7 +37,6 @@ const ZODIAC_DATA = {
     poemEn:"Diligent Virtue · Fortune as Mountains", poemZh:"勤恳厚德 · 福如山岳",
     famous:[
       {year:1985,name:"Cristiano Ronaldo",tag:"Soccer",known:"Portuguese soccer legend · 5× Ballon d'Or winner",image:"ronaldo-zodiac.jpeg"},
-      {year:1997,name:"Jayson Tatum",tag:"NBA",known:"Boston Celtics All-Star · 2024 NBA Champion"},
       {year:1985,name:"Bruno Mars",tag:"Music",known:"Grammy-winning pop/R&B superstar"},
     ],
   },
@@ -52,6 +51,7 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Roar of the Tiger · Power in All Directions", poemZh:"虎啸生风 · 威震八方",
     famous:[
+      {year:1998,name:"Jayson Tatum",tag:"NBA",known:"Boston Celtics All-Star · 2024 NBA Champion",image:"tatum-zodiac.jpeg"},
       {year:1998,name:"Shai Gilgeous-Alexander",tag:"NBA",known:"OKC Thunder superstar · 2025 NBA MVP"},
       {year:1998,name:"Olivia Rodrigo",tag:"Music",known:'Grammy-winning singer of "drivers license", "vampire"'},
       {year:1986,name:"Lady Gaga",tag:"Music",known:"Pop icon · Oscar-winning singer and actress"},
