@@ -148,41 +148,24 @@ export default function ChinaQuestDisplay() {
           position: "relative",
           zIndex: 5,
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           alignItems: "center",
-          gap: 4,
-          padding: "clamp(10px,1.5vh,16px) clamp(28px,4vw,76px) 0",
+          justifyContent: "center",
+          padding: "clamp(8px,1.2vh,13px) clamp(28px,4vw,76px) 0",
           textAlign: "center",
         }}
       >
         <img
-          src={A.logo}
+          src="/image/china_quest_a_cultural_adventure.png"
           style={{
-            width: "clamp(210px,19vw,340px)",
-            height: "auto",
+            width: "min(58vw,760px)",
+            height: "clamp(54px,9vh,88px)",
             display: "block",
+            objectFit: "contain",
             filter: "drop-shadow(0 7px 12px rgba(107,63,22,.2))",
           }}
-          alt="China Quest"
+          alt="China Quest: A Cultural Adventure"
         />
-        <p
-          style={{
-            margin: 0,
-            padding: "5px 15px",
-            border: "1.5px solid rgba(255,233,167,.82)",
-            borderRadius: 999,
-            background: "linear-gradient(180deg,#78C8B6,#4BA78F)",
-            color: "#FFF8DE",
-            fontFamily: "'Noto Serif SC',serif",
-            fontSize: "clamp(.72rem,1vw,1.05rem)",
-            fontWeight: 600,
-            lineHeight: 1.2,
-            letterSpacing: 0.4,
-            boxShadow: "0 6px 14px rgba(40,110,95,.16)",
-          }}
-        >
-          Special Interactive Activity for Multicultural Night
-        </p>
       </header>
 
       <main
@@ -196,7 +179,7 @@ export default function ChinaQuestDisplay() {
           alignItems: "center",
           justifyItems: "center",
           gap: "clamp(8px,1.6vw,28px)",
-          padding: "0 clamp(28px,4.5vw,86px)",
+          padding: "clamp(2px,.5vh,6px) clamp(28px,4.5vw,86px) 0",
         }}
       >
         <img
