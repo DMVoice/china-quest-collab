@@ -20,7 +20,7 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Wit and Wisdom · Endless Blessings", poemZh:"机巧灵慧 · 福禄绵长",
     famous:[
-      {year:1984,name:"LeBron James",tag:"NBA",known:"Lakers superstar · 4× NBA Champion · all-time leading scorer"},
+      {year:1984,name:"LeBron James",tag:"NBA",known:"Lakers superstar · 4× NBA Champion · all-time leading scorer",image:"lebron-zodiac.jpeg"},
       {year:1996,name:"Zendaya",tag:"Film/TV",known:"Star of Euphoria, Spider-Man, and Dune"},
       {year:1984,name:"Mark Zuckerberg",tag:"Tech",known:"Founder & CEO of Meta (Facebook, Instagram)"},
     ],
@@ -294,8 +294,10 @@ function buildFrameSVG(zodiac, tag) {
   `;
 }
 
+const BASE = import.meta.env.BASE_URL;
+
 async function loadPortrait(person, fallbackEmoji) {
-  if (person.image) return { type:"img", url: person.image };
+  if (person.image) return { type:"img", url: BASE + "images/" + person.image };
   try {
     const title = encodeURIComponent(person.name.replace(/ /g, "_"));
     const resp = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${title}`);
