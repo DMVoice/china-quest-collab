@@ -186,10 +186,13 @@ export default function ChinaQuestDisplay() {
         <img
           src={A.lantern}
           style={{
-            justifySelf: "start",
-            width: "clamp(84px,10vw,150px)",
+            justifySelf: "end",
+            alignSelf: "start",
+            width: "clamp(136px,17vw,260px)",
+            marginTop: "clamp(2px,1.2vh,18px)",
             animation: "swayL 5s ease-in-out infinite",
             transformOrigin: "top center",
+            pointerEvents: "none",
           }}
           alt=""
         />
@@ -297,11 +300,14 @@ export default function ChinaQuestDisplay() {
         <img
           src={A.lantern}
           style={{
-            justifySelf: "end",
-            width: "clamp(84px,10vw,150px)",
+            justifySelf: "start",
+            alignSelf: "start",
+            width: "clamp(136px,17vw,260px)",
+            marginTop: "clamp(2px,1.2vh,18px)",
             animation: "swayR 4.5s ease-in-out infinite",
             transformOrigin: "top center",
             transform: "scaleX(-1)",
+            pointerEvents: "none",
           }}
           alt=""
         />
