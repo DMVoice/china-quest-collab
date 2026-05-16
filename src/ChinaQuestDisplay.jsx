@@ -193,10 +193,11 @@ export default function ChinaQuestDisplay() {
           minHeight: 0,
           display: "grid",
           gridTemplateColumns: "minmax(96px,1fr) minmax(430px,760px) minmax(96px,1fr)",
-          alignItems: "center",
+          alignItems: "start",
           justifyItems: "center",
           gap: "clamp(8px,1.6vw,28px)",
           padding: "0 clamp(28px,4.5vw,86px)",
+          marginTop: "clamp(-30px,-2.8vh,-10px)",
         }}
       >
         <img
@@ -204,7 +205,7 @@ export default function ChinaQuestDisplay() {
           style={{
             position: "absolute",
             top: "clamp(-4px,.5vh,8px)",
-            left: "clamp(24px,7vw,150px)",
+            left: "clamp(12px,3vw,84px)",
             width: "clamp(136px,17vw,260px)",
             animation: "swayL 5s ease-in-out infinite",
             transformOrigin: "top center",
@@ -321,7 +322,7 @@ export default function ChinaQuestDisplay() {
           style={{
             position: "absolute",
             top: "clamp(-4px,.5vh,8px)",
-            right: "clamp(24px,7vw,150px)",
+            right: "clamp(12px,3vw,84px)",
             width: "clamp(136px,17vw,260px)",
             animation: "swayR 4.5s ease-in-out infinite",
             transformOrigin: "top center",
@@ -341,7 +342,7 @@ export default function ChinaQuestDisplay() {
           gridTemplateColumns: "minmax(150px,1fr) auto minmax(150px,1fr)",
           alignItems: "end",
           gap: "clamp(12px,2.4vw,38px)",
-          padding: "0 clamp(34px,6vw,112px) clamp(8px,1.2vh,16px)",
+          padding: "0 clamp(18px,3vw,56px) clamp(8px,1.2vh,16px)",
         }}
       >
         <div style={{ display: "flex", alignItems: "end", gap: "clamp(12px,1.8vw,26px)" }}>
