@@ -100,7 +100,8 @@ export default function ChinaQuestDisplay() {
         overflow: "hidden",
         background: "linear-gradient(180deg,#8ED3F4 0%,#CDEEF9 30%,#FFF4D6 68%,#F6B9A8 100%)",
         display: "grid",
-        gridTemplateRows: "auto minmax(0,1fr) auto",
+        gridTemplateRows: "auto auto auto",
+        alignContent: "start",
         fontFamily: "sans-serif",
         color: "#4A2D12",
       }}
@@ -343,6 +344,7 @@ export default function ChinaQuestDisplay() {
           alignItems: "end",
           gap: "clamp(12px,2.4vw,38px)",
           padding: "0 clamp(18px,3vw,56px) clamp(8px,1.2vh,16px)",
+          marginTop: "clamp(-42px,-4vh,-18px)",
         }}
       >
         <div style={{ display: "flex", alignItems: "end", gap: "clamp(12px,1.8vw,26px)" }}>
