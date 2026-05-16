@@ -158,13 +158,13 @@ export default function ChinaQuestDisplay() {
         <img
           src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "clamp(420px,52vw,760px)",
+            width: "clamp(620px,62vw,980px)",
             maxWidth: "90vw",
-            maxHeight: "clamp(90px,13vh,150px)",
+            maxHeight: "clamp(100px,15vh,170px)",
             height: "auto",
             display: "block",
             objectFit: "contain",
-            filter: "drop-shadow(0 7px 12px rgba(107,63,22,.2))",
+            filter: "saturate(.78) brightness(1.08) contrast(.92) drop-shadow(0 7px 12px rgba(107,63,22,.16))",
           }}
           alt="China Quest: A Cultural Adventure"
         />
