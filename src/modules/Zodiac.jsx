@@ -22,7 +22,6 @@ const ZODIAC_DATA = {
     famous:[
       {year:1984,name:"LeBron James",tag:"NBA",known:"Lakers superstar · 4× NBA Champion · all-time leading scorer",image:"lebron-zodiac.jpeg"},
       {year:1996,name:"Zendaya",tag:"Film/TV",known:"Star of Euphoria, Spider-Man, and Dune",image:"zendaya-zodiac.jpeg"},
-      {year:1984,name:"Mark Zuckerberg",tag:"Tech",known:"Founder & CEO of Meta (Facebook, Instagram)",image:"zuckerberg-zodiac.jpeg"},
       {year:1985,name:"Cristiano Ronaldo",tag:"Soccer",known:"Portuguese soccer legend · 5× Ballon d'Or winner",image:"ronaldo-zodiac.jpeg"},
     ],
   },
@@ -38,6 +37,8 @@ const ZODIAC_DATA = {
     poemEn:"Diligent Virtue · Fortune as Mountains", poemZh:"勤恳厚德 · 福如山岳",
     famous:[
       {year:1985,name:"Bruno Mars",tag:"Music",known:"Grammy-winning pop/R&B superstar"},
+      {year:1961,name:"Barack Obama",tag:"Politics",known:"44th President of the United States"},
+      {year:1997,name:"Simone Biles",tag:"Gymnastics",known:"Most decorated gymnast in history · 7× Olympic gold"},
     ],
   },
   Tiger: {
@@ -68,6 +69,8 @@ const ZODIAC_DATA = {
     poemEn:"Jade Rabbit Rising · Peace and Longevity", poemZh:"玉兔东升 · 福寿安康",
     famous:[
       {year:1987,name:"Lionel Messi",tag:"Soccer",known:"Argentine soccer GOAT · 2022 World Cup Champion"},
+      {year:1975,name:"David Beckham",tag:"Soccer",known:"England icon · Real Madrid and LA Galaxy legend"},
+      {year:1975,name:"Tiger Woods",tag:"Golf",known:"15× Major champion · greatest golfer of all time"},
     ],
   },
   Dragon: {
@@ -98,10 +101,8 @@ const ZODIAC_DATA = {
     poemEn:"Sacred Serpent · Heart of Jade", poemZh:"灵蛇献瑞 · 慧心如玉",
     famous:[
       {year:1989,name:"Taylor Swift",tag:"Music",known:"Pop superstar · Eras Tour broke every record imaginable"},
-      {year:1989,name:"Daniel Radcliffe",tag:"Film",known:"Played Harry Potter in all 8 films"},
       {year:2001,name:"Billie Eilish",tag:"Music",known:'Grammy-winning singer · "bad guy", "What Was I Made For?"'},
       {year:2001,name:"LaMelo Ball",tag:"NBA",known:"Charlotte Hornets All-Star point guard"},
-      {year:2002,name:"Caitlin Clark",tag:"WNBA",known:"Indiana Fever star · revolutionized women's basketball"},
     ],
   },
   Horse: {
@@ -118,7 +119,6 @@ const ZODIAC_DATA = {
       {year:1990,name:"Jennifer Lawrence",tag:"Film",known:"Oscar-winning actress · The Hunger Games' Katniss"},
       {year:2002,name:"Emma Raducanu",tag:"Tennis",known:"2021 US Open Champion · British tennis star"},
       {year:2002,name:"Sadie Sink",tag:"Film/TV",known:"Plays Max in Stranger Things"},
-      {year:2002,name:"Finn Wolfhard",tag:"Film/TV",known:"Plays Mike in Stranger Things"},
     ],
   },
   Goat: {
@@ -133,8 +133,6 @@ const ZODIAC_DATA = {
     poemEn:"Three Goats Bring Spring · All Wishes Granted", poemZh:"三阳开泰 · 吉祥如意",
     famous:[
       {year:2004,name:"Victor Wembanyama",tag:"NBA",known:'San Antonio Spurs phenom · 7\'4" rising superstar'},
-      {year:1991,name:"Ed Sheeran",tag:"Music",known:'Singer-songwriter of "Shape of You", "Perfect"'},
-      {year:2003,name:"Olivia Rodrigo",tag:"Music",known:'Grammy-winning singer of "drivers license", "vampire"'},
       {year:2003,name:"Jude Bellingham",tag:"Soccer",known:"Real Madrid & England midfielder superstar"},
       {year:2003,name:"Carlos Alcaraz",tag:"Tennis",known:"World #1 · multiple Grand Slam champion"},
     ],
@@ -152,7 +150,6 @@ const ZODIAC_DATA = {
     famous:[
       {year:1992,name:"Selena Gomez",tag:"Music/Film",known:"Singer · star of Only Murders in the Building"},
       {year:2004,name:"Coco Gauff",tag:"Tennis",known:"2023 US Open Champion · top US tennis star"},
-      {year:2004,name:"Travis Hunter",tag:"NFL",known:"2024 Heisman winner · Jaguars two-way star"},
       {year:2004,name:"Millie Bobby Brown",tag:"Film/TV",known:"Eleven in Stranger Things · star of Enola Holmes"},
     ],
   },
@@ -169,6 +166,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1993,name:"Ariana Grande",tag:"Music",known:"Pop superstar · star of Wicked"},
       {year:1981,name:"Beyoncé",tag:"Music",known:"Music icon · most-Grammy-winning artist ever"},
+      {year:1994,name:"Harry Styles",tag:"Music",known:'Former One Direction star · "As It Was", "Watermelon Sugar"'},
     ],
   },
   Dog: {
@@ -183,6 +181,8 @@ const ZODIAC_DATA = {
     poemEn:"Faithful Guardian · Peace and Joy", poemZh:"义犬护宅 · 平安喜乐",
     famous:[
       {year:1994,name:"Justin Bieber",tag:"Music",known:'Global pop star · "Baby", "Sorry", "Peaches"'},
+      {year:1982,name:"Prince William",tag:"Royalty",known:"Prince of Wales · future King of England"},
+      {year:1982,name:"Nicki Minaj",tag:"Music",known:"Rap icon · one of the best-selling female artists ever"},
     ],
   },
   Pig: {
