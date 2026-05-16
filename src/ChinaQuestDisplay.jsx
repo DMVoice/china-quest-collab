@@ -158,9 +158,9 @@ export default function ChinaQuestDisplay() {
         <img
           src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "clamp(780px,76vw,1180px)",
-            maxWidth: "94vw",
-            maxHeight: "clamp(110px,16vh,180px)",
+            width: "clamp(760px,72vw,1120px)",
+            maxWidth: "96vw",
+            maxHeight: "clamp(190px,26vh,280px)",
             height: "auto",
             display: "block",
             objectFit: "contain",
@@ -189,7 +189,7 @@ export default function ChinaQuestDisplay() {
           style={{
             position: "absolute",
             top: "clamp(-4px,.5vh,8px)",
-            left: "clamp(18px,16vw,300px)",
+            left: "clamp(24px,7vw,150px)",
             width: "clamp(136px,17vw,260px)",
             animation: "swayL 5s ease-in-out infinite",
             transformOrigin: "top center",
@@ -306,7 +306,7 @@ export default function ChinaQuestDisplay() {
           style={{
             position: "absolute",
             top: "clamp(-4px,.5vh,8px)",
-            right: "clamp(18px,16vw,300px)",
+            right: "clamp(24px,7vw,150px)",
             width: "clamp(136px,17vw,260px)",
             animation: "swayR 4.5s ease-in-out infinite",
             transformOrigin: "top center",
