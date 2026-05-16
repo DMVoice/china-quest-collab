@@ -102,7 +102,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1989,name:"Taylor Swift",tag:"Music",known:"Pop superstar · Eras Tour broke every record imaginable"},
       {year:2001,name:"Billie Eilish",tag:"Music",known:'Grammy-winning singer · "bad guy", "What Was I Made For?"'},
-      {year:2001,name:"LaMelo Ball",tag:"NBA",known:"Charlotte Hornets All-Star point guard"},
+      {year:1989,name:"Shinichi Kudo",tag:"Anime",known:"Teen detective · hero of Detective Conan · 名探偵コナン",image:"shinichi-zodiac.jpeg"},
     ],
   },
   Horse: {
