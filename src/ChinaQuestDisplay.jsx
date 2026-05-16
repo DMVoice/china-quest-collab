@@ -56,12 +56,24 @@ export default function ChinaQuestDisplay() {
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState(null);
   const [show, setShow] = useState(false);
-  const [activeModule, setActiveModule] = useState(null);
+  const [activeModule, setActiveModule] = useState(() => window.location.hash.slice(1) || null);
   const total = useRef(0);
   const petals = useMemo(
     () => Array.from({ length: 22 }, (_, i) => ({ x: (i * 4.7 + 2) % 98, delay: i * 0.42, dur: 7 + (i % 5) * 1.05, rot: i * 24 })),
     [],
   );
+
+  useEffect(() => {
+    const id = activeModule || "";
+    if (window.location.hash.slice(1) !== id)
+      window.history.replaceState(null, "", id ? "#" + id : window.location.pathname + window.location.search);
+  }, [activeModule]);
+
+  useEffect(() => {
+    const onHash = () => setActiveModule(window.location.hash.slice(1) || null);
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   useEffect(() => {
     const href =

@@ -41,10 +41,22 @@ export function ChinaQuestHome({ mode="mobile" }){
   const[spinning,setSpinning]=useState(false);
   const[result,setResult]=useState(null);
   const[show,setShow]=useState(false);
-  const[activeModule,setActiveModule]=useState(null);
+  const[activeModule,setActiveModule]=useState(()=>window.location.hash.slice(1)||null);
   const[pickerOpen,setPickerOpen]=useState(false);
   const total=useRef(0);
   const petals=useMemo(()=>Array.from({length:12},(_,i)=>({x:i*8+2,delay:i*.8,dur:6+(i%3)*2,rot:i*30})),[]);
+
+  useEffect(()=>{
+    const id=activeModule||"";
+    if(window.location.hash.slice(1)!==id)
+      window.history.replaceState(null,"",id?"#"+id:window.location.pathname+window.location.search);
+  },[activeModule]);
+
+  useEffect(()=>{
+    const onHash=()=>setActiveModule(window.location.hash.slice(1)||null);
+    window.addEventListener("hashchange",onHash);
+    return()=>window.removeEventListener("hashchange",onHash);
+  },[]);
 
   useEffect(()=>{
     const el=document.createElement("link");
