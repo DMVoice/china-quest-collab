@@ -95,19 +95,23 @@ export default function ChinaQuestDisplay() {
     <div
       style={{
         width: "100%",
-        minHeight: "100dvh",
+        height: "100dvh",
+        minHeight: 620,
         position: "relative",
         overflow: "hidden",
-        background: "linear-gradient(180deg,#8ED3F4 0%,#CDEEF9 30%,#FFF4D6 68%,#F6B9A8 100%)",
+        backgroundImage:
+          "linear-gradient(rgba(255,248,226,.18),rgba(255,250,238,.26)), url('/images/serene_springtime_fantasy_valley_with_pagodas.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         display: "grid",
-        gridTemplateRows: "auto auto auto",
-        alignContent: "start",
+        gridTemplateRows: "clamp(118px,18vh,188px) minmax(0,1fr)",
         fontFamily: "sans-serif",
         color: "#4A2D12",
       }}
     >
       <svg
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.22 }}
         viewBox="0 0 1600 900"
         preserveAspectRatio="none"
         aria-hidden="true"
@@ -164,23 +168,22 @@ export default function ChinaQuestDisplay() {
           position: "relative",
           zIndex: 5,
           display: "flex",
-          flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          padding: "clamp(5px,.8vh,10px) clamp(18px,3vw,56px) 0",
+          padding: "clamp(10px,1.7vh,20px) clamp(10px,1.5vw,24px) 0",
           textAlign: "center",
         }}
       >
         <img
           src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "clamp(760px,72vw,1120px)",
-            maxWidth: "96vw",
-            maxHeight: "clamp(190px,26vh,280px)",
+            width: "clamp(900px,76vw,1320px)",
+            maxWidth: "98vw",
+            maxHeight: "clamp(110px,16vh,190px)",
             height: "auto",
             display: "block",
             objectFit: "contain",
-            filter: "saturate(.78) brightness(1.08) contrast(.92) drop-shadow(0 7px 12px rgba(107,63,22,.16))",
+            filter: "saturate(.94) brightness(1.04) contrast(.98) drop-shadow(0 8px 16px rgba(107,63,22,.22))",
           }}
           alt="China Quest: A Cultural Adventure"
         />
@@ -193,30 +196,41 @@ export default function ChinaQuestDisplay() {
           zIndex: 4,
           minHeight: 0,
           display: "grid",
-          gridTemplateColumns: "minmax(96px,1fr) minmax(430px,760px) minmax(96px,1fr)",
-          alignItems: "start",
+          gridTemplateColumns: "minmax(440px,1fr) minmax(326px,clamp(326px,30vw,450px))",
+          alignItems: "center",
           justifyItems: "center",
-          gap: "clamp(8px,1.6vw,28px)",
-          padding: "0 clamp(28px,4.5vw,86px)",
-          marginTop: "clamp(-30px,-2.8vh,-10px)",
+          gap: "clamp(20px,3.8vw,70px)",
+          padding: "0 clamp(28px,4.8vw,82px) clamp(18px,2.8vh,30px)",
         }}
       >
         <img
           src={A.lantern}
           style={{
             position: "absolute",
-            top: "clamp(-4px,.5vh,8px)",
-            left: "clamp(12px,3vw,84px)",
-            width: "clamp(136px,17vw,260px)",
+            top: "clamp(-34px,-3vh,-16px)",
+            left: "clamp(-10px,.8vw,22px)",
+            width: "clamp(168px,17vw,286px)",
             animation: "swayL 5s ease-in-out infinite",
             transformOrigin: "top center",
             pointerEvents: "none",
+            opacity: 0.9,
+            zIndex: 1,
           }}
           alt=""
         />
 
         <section
-          style={{ gridColumn: 2, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
+          style={{
+            gridColumn: 1,
+            alignSelf: "center",
+            justifySelf: "end",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            transform: "translateX(clamp(-16px,-2vw,-4px))",
+            zIndex: 3,
+          }}
           aria-label="China Quest spinner wheel"
         >
           <div style={{ marginBottom: "clamp(-10px,-1vh,-5px)", zIndex: 2, filter: "drop-shadow(0 5px 10px rgba(160,100,10,.45))" }}>
@@ -235,11 +249,12 @@ export default function ChinaQuestDisplay() {
             width="100%"
             viewBox="0 0 400 400"
             style={{
-              width: "min(64vh,58vw,720px)",
+              width: "clamp(430px,60vh,680px)",
+              height: "clamp(430px,60vh,680px)",
               maxWidth: "100%",
               transform: `rotate(${rot}deg)`,
               transition: spinning ? "transform 5s cubic-bezier(.06,.7,.08,1)" : "none",
-              filter: "drop-shadow(0 24px 38px rgba(111,72,30,.26))",
+              filter: "drop-shadow(0 24px 38px rgba(70,45,18,.34))",
             }}
           >
             <defs>
@@ -308,7 +323,7 @@ export default function ChinaQuestDisplay() {
 
           <div
             style={{
-              width: "min(610px,50vw)",
+              width: "min(540px,46vw)",
               height: "clamp(18px,2.3vh,30px)",
               background: "linear-gradient(180deg,#F8C3A4,#E78773)",
               borderRadius: "50%",
@@ -322,87 +337,154 @@ export default function ChinaQuestDisplay() {
           src={A.lantern}
           style={{
             position: "absolute",
-            top: "clamp(-4px,.5vh,8px)",
-            right: "clamp(12px,3vw,84px)",
-            width: "clamp(136px,17vw,260px)",
+            top: "clamp(-34px,-3vh,-16px)",
+            right: "clamp(-10px,.8vw,22px)",
+            width: "clamp(168px,17vw,286px)",
             animation: "swayR 4.5s ease-in-out infinite",
             transformOrigin: "top center",
             transform: "scaleX(-1)",
             pointerEvents: "none",
+            opacity: 0.9,
+            zIndex: 1,
           }}
           alt=""
         />
-      </main>
 
-      <footer
-        className="display-controls"
-        style={{
-          position: "relative",
-          zIndex: 6,
-          display: "grid",
-          gridTemplateColumns: "minmax(150px,1fr) auto minmax(150px,1fr)",
-          alignItems: "end",
-          gap: "clamp(12px,2.4vw,38px)",
-          padding: "0 clamp(18px,3vw,56px) clamp(8px,1.2vh,16px)",
-          marginTop: "clamp(-42px,-4vh,-18px)",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "end", gap: "clamp(12px,1.8vw,26px)" }}>
-          <img src={A.child} style={{ width: "clamp(122px,12vw,214px)", height: "auto", animation: "bounce 3s ease-in-out infinite" }} alt="" />
+        <aside
+          className="display-control-panel"
+          style={{
+            gridColumn: 2,
+            justifySelf: "start",
+            width: "100%",
+            maxWidth: 410,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "clamp(10px,1.5vh,16px)",
+            padding: "clamp(16px,2.6vh,26px) clamp(16px,2vw,24px)",
+            borderRadius: 34,
+            border: "5px solid rgba(215,159,48,.96)",
+            background:
+              "radial-gradient(circle at 12% 12%,rgba(255,224,134,.8) 0 10px,transparent 11px), radial-gradient(circle at 86% 16%,rgba(255,183,200,.78) 0 8px,transparent 9px), radial-gradient(circle at 22% 84%,rgba(151,209,183,.38) 0 11px,transparent 12px), linear-gradient(160deg,rgba(255,255,246,.98),rgba(255,238,218,.97) 58%,rgba(255,248,232,.98))",
+            boxShadow: "0 24px 52px rgba(87,48,14,.3), 0 7px 0 rgba(176,113,34,.28), inset 0 0 0 3px rgba(255,255,255,.85), inset 0 0 0 9px rgba(248,214,143,.34)",
+            backdropFilter: "blur(7px)",
+            position: "relative",
+            zIndex: 4,
+          }}
+          aria-label="Spin controls"
+        >
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              top: 12,
+              left: 26,
+              right: 26,
+              height: 12,
+              borderTop: "3px solid rgba(213,159,55,.42)",
+              borderRadius: "50%",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              bottom: 14,
+              left: 22,
+              right: 22,
+              height: 18,
+              borderBottom: "3px solid rgba(213,159,55,.34)",
+              borderRadius: "50%",
+            }}
+          />
+          <h1
+            style={{
+              margin: "clamp(4px,.8vh,8px) 0 0",
+              maxWidth: 350,
+              fontFamily: "'Cinzel',serif",
+              fontSize: "clamp(1.38rem,2.1vw,2rem)",
+              lineHeight: 1.06,
+              letterSpacing: 0,
+              textAlign: "center",
+              color: "#743B20",
+              textShadow: "0 2px 0 rgba(255,255,255,.8)",
+              position: "relative",
+              zIndex: 2,
+            }}
+          >
+            Ready for your China Quest?
+          </h1>
+
           <div
             style={{
-              background: "rgba(255,255,255,.92)",
-              border: "2px solid #D4A040",
-              borderRadius: 13,
-              padding: "7px 12px",
-              fontSize: "clamp(.72rem,.9vw,.9rem)",
-              color: "#6A4820",
-              lineHeight: 1.45,
-              boxShadow: "0 4px 12px rgba(0,0,0,.12)",
-              marginBottom: "clamp(20px,3.5vh,42px)",
+              width: "clamp(206px,20vw,260px)",
+              height: "clamp(206px,20vw,260px)",
+              borderRadius: "50%",
+              display: "grid",
+              placeItems: "center",
+              padding: "clamp(13px,1.6vw,18px)",
+              background:
+                "conic-gradient(from 12deg,#E4AA3F,#FFE39A,#D99B31,#F7D572,#E4AA3F), radial-gradient(circle,#FFF7DC 0 58%,#E6B14E 59% 100%)",
+              boxShadow: "0 18px 30px rgba(93,50,19,.26), inset 0 0 0 4px rgba(255,255,255,.72)",
+              position: "relative",
+              zIndex: 2,
             }}
           >
-            Spin the wheel!<br />Pick your adventure!
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                inset: "clamp(18px,2vw,24px)",
+                borderRadius: "50%",
+                border: "2px dashed rgba(139,78,28,.3)",
+              }}
+            />
+            <button
+              className="display-spin-button"
+              onClick={spin}
+              disabled={spinning}
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                fontFamily: "'Cinzel',serif",
+                fontSize: spinning ? "clamp(1.18rem,1.8vw,1.54rem)" : "clamp(2.35rem,4.2vw,3.95rem)",
+                fontWeight: 700,
+                letterSpacing: 0,
+                background: spinning
+                  ? "radial-gradient(circle at 35% 24%,#EFE2BB,#BFAF83 72%)"
+                  : "radial-gradient(circle at 32% 22%,#FFD2B7 0 18%,#FF755F 38%,#E73342 66%,#C82231 100%)",
+                border: `7px solid ${spinning ? "#B9A15C" : "#FFD76A"}`,
+                color: spinning ? "#786C4D" : "#FFF8D6",
+                cursor: spinning ? "not-allowed" : "pointer",
+                textShadow: spinning ? "none" : "0 4px 0 rgba(112,28,20,.42)",
+                boxShadow: spinning
+                  ? "inset 0 9px 18px rgba(80,50,20,.18)"
+                  : "0 15px 0 #9F2A23, 0 23px 28px rgba(114,45,20,.32), inset 0 8px 12px rgba(255,255,255,.48), inset 0 -10px 18px rgba(129,23,31,.22)",
+                transition: "transform .18s ease, box-shadow .18s ease, filter .18s ease",
+                animation: spinning ? "none" : "pulse 2.5s ease-in-out infinite",
+                position: "relative",
+                zIndex: 1,
+              }}
+            >
+              {spinning ? "Spinning..." : "SPIN!"}
+            </button>
           </div>
-        </div>
 
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, paddingBottom: "clamp(6px,1.2vh,14px)" }}>
-          <button
-            onClick={spin}
-            disabled={spinning}
-            style={{
-              minHeight: "clamp(50px,6vh,66px)",
-              padding: "clamp(10px,1.4vh,15px) clamp(40px,4.4vw,64px)",
-              fontFamily: "'Cinzel',serif",
-              fontSize: "clamp(1.12rem,1.75vw,1.58rem)",
-              letterSpacing: 2,
-              background: spinning ? "linear-gradient(135deg,#D8C8A0,#C8B880)" : "linear-gradient(135deg,#FFF0A8,#E3A13D 46%,#FFD978)",
-              border: `3px solid ${spinning ? "#C0B078" : "#B87E10"}`,
-              borderRadius: 999,
-              color: spinning ? "#A89840" : "#3A2408",
-              cursor: spinning ? "not-allowed" : "pointer",
-              boxShadow: spinning ? "none" : "0 8px 24px rgba(190,120,15,.38)",
-              transition: "all .3s",
-              animation: spinning ? "none" : "pulse 2.5s ease-in-out infinite",
-            }}
-          >
-            {spinning ? "Spinning..." : "SPIN!"}
-          </button>
-          <p style={{ color: "#8B6030", fontSize: "clamp(.74rem,.9vw,.9rem)", margin: 0, letterSpacing: 1, textAlign: "center" }}>
-            Scan the QR code to play
+          <p style={{ color: "#8B6030", fontSize: "clamp(.92rem,1.2vw,1.08rem)", fontWeight: 700, margin: 0, letterSpacing: 0, textAlign: "center" }}>
+            Tap to start your China Quest!
           </p>
-        </div>
 
-        <div style={{ display: "flex", alignItems: "end", justifyContent: "end", gap: "clamp(12px,1.8vw,26px)" }}>
           <details
             style={{
-              width: "min(380px,30vw)",
-              marginBottom: "clamp(8px,1.4vh,16px)",
+              width: "100%",
               border: "2px solid rgba(200,156,56,.65)",
-              borderRadius: 14,
-              background: "rgba(255,250,236,.72)",
-              boxShadow: "0 6px 18px rgba(120,70,20,.12)",
+              borderRadius: 16,
+              background: "rgba(255,250,236,.62)",
+              boxShadow: "0 5px 14px rgba(120,70,20,.1)",
               overflow: "hidden",
+              position: "relative",
+              zIndex: 2,
             }}
           >
             <summary
@@ -443,9 +525,39 @@ export default function ChinaQuestDisplay() {
               })}
             </div>
           </details>
-          <img src={A.panda} style={{ width: "clamp(132px,13vw,230px)", height: "auto", animation: "pandaSway 4s ease-in-out infinite" }} alt="" />
-        </div>
-      </footer>
+        </aside>
+
+        <img
+          src={A.child}
+          className="display-child"
+          style={{
+            position: "absolute",
+            left: "clamp(8px,2vw,32px)",
+            bottom: "clamp(-18px,-1vh,-6px)",
+            width: "clamp(220px,21vw,350px)",
+            height: "auto",
+            animation: "bounce 3s ease-in-out infinite",
+            pointerEvents: "none",
+            zIndex: 1,
+          }}
+          alt=""
+        />
+        <img
+          src={A.panda}
+          className="display-panda"
+          style={{
+            position: "absolute",
+            right: "clamp(8px,2vw,32px)",
+            bottom: "clamp(-18px,-1vh,-6px)",
+            width: "clamp(230px,21vw,360px)",
+            height: "auto",
+            animation: "pandaSway 4s ease-in-out infinite",
+            pointerEvents: "none",
+            zIndex: 1,
+          }}
+          alt=""
+        />
+      </main>
 
       {show &&
         result &&
@@ -535,17 +647,21 @@ export default function ChinaQuestDisplay() {
         *{box-sizing:border-box}
         @keyframes fadeIn{from{opacity:0}to{opacity:1}}
         @keyframes springUp{from{opacity:0;transform:translateY(50px) scale(.82)}to{opacity:1;transform:translateY(0) scale(1)}}
-        @keyframes pulse{0%,100%{box-shadow:0 5px 22px rgba(190,120,15,.5)}50%{box-shadow:0 8px 36px rgba(190,120,15,.82)}}
+        @keyframes pulse{0%,100%{filter:brightness(1);transform:translateY(0)}50%{filter:brightness(1.08);transform:translateY(-3px)}}
         @keyframes swayL{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(4deg)}}
         @keyframes swayR{0%,100%{transform:rotate(5deg) scaleX(-1)}50%{transform:rotate(-4deg) scaleX(-1)}}
         @keyframes pandaSway{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-7px)}}
         @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
         @keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:.7}100%{transform:translateY(110vh) rotate(720deg);opacity:.05}}
-        @media (max-width: 860px){
-          .display-spinner-stage{grid-template-columns:minmax(0,1fr)!important;padding-left:18px!important;padding-right:18px!important}
+        .display-spin-button:active:not(:disabled){transform:translateY(8px)!important;box-shadow:0 8px 0 #A93325,0 14px 20px rgba(114,45,20,.28),inset 0 7px 12px rgba(255,255,255,.35)!important}
+        @media (max-width: 980px){
+          .display-spinner-stage{grid-template-columns:minmax(0,1fr) minmax(260px,320px)!important;padding-left:18px!important;padding-right:18px!important;gap:16px!important}
           .display-spinner-stage > img{display:none!important}
-          .display-controls{grid-template-columns:1fr!important;padding-left:18px!important;padding-right:18px!important}
-          .display-controls > div:first-child, .display-controls > div:last-child{display:none!important}
+          .display-child,.display-panda{display:none!important}
+        }
+        @media (max-width: 760px){
+          .display-spinner-stage{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;overflow:auto!important}
+          .display-control-panel{grid-column:1!important;justify-self:center!important}
         }
       `}</style>
     </div>
