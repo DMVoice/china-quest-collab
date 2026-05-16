@@ -11,6 +11,7 @@ import ScratchCard  from './ScratchCard';
 import CityQuest    from './CityQuest';
 import FoodGallery  from './FoodGallery';
 import HanfuStyle   from './HanfuStyle';
+import Zodiac       from './Zodiac';
 import Instruments  from './Instruments';
 
 const MODULES = {
@@ -20,6 +21,7 @@ const MODULES = {
   food:    FoodGallery,
   hanfu:   HanfuStyle,
   art:     Instruments,
+  zodiac:  Zodiac,
 };
 
 export default MODULES;
