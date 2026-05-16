@@ -150,7 +150,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1992,name:"Selena Gomez",tag:"Music/Film",known:"Singer · star of Only Murders in the Building"},
       {year:2004,name:"Coco Gauff",tag:"Tennis",known:"2023 US Open Champion · top US tennis star"},
-      {year:2004,name:"Millie Bobby Brown",tag:"Film/TV",known:"Eleven in Stranger Things · star of Enola Holmes"},
+      {year:1992,name:"Son Goku",tag:"Anime",known:"Saiyan warrior · Dragon Ball hero · protector of Earth",image:"goku-zodiac.jpeg"},
     ],
   },
   Rooster: {
