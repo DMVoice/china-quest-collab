@@ -151,15 +151,16 @@ export default function ChinaQuestDisplay() {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          padding: "clamp(8px,1.1vh,12px) clamp(22px,4vw,70px) 0",
+          padding: "clamp(5px,.8vh,10px) clamp(18px,3vw,56px) 0",
           textAlign: "center",
         }}
       >
         <img
           src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "min(86vw,1200px)",
-            maxHeight: "clamp(96px,15vh,148px)",
+            width: "clamp(420px,52vw,760px)",
+            maxWidth: "90vw",
+            maxHeight: "clamp(90px,13vh,150px)",
             height: "auto",
             display: "block",
             objectFit: "contain",
