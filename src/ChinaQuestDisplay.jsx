@@ -158,9 +158,9 @@ export default function ChinaQuestDisplay() {
         <img
           src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "clamp(620px,62vw,980px)",
-            maxWidth: "90vw",
-            maxHeight: "clamp(100px,15vh,170px)",
+            width: "clamp(780px,76vw,1180px)",
+            maxWidth: "94vw",
+            maxHeight: "clamp(110px,16vh,180px)",
             height: "auto",
             display: "block",
             objectFit: "contain",
@@ -187,10 +187,10 @@ export default function ChinaQuestDisplay() {
         <img
           src={A.lantern}
           style={{
-            justifySelf: "end",
-            alignSelf: "start",
+            position: "absolute",
+            top: "clamp(-4px,.5vh,8px)",
+            left: "clamp(18px,16vw,300px)",
             width: "clamp(136px,17vw,260px)",
-            marginTop: "clamp(2px,1.2vh,18px)",
             animation: "swayL 5s ease-in-out infinite",
             transformOrigin: "top center",
             pointerEvents: "none",
@@ -198,7 +198,10 @@ export default function ChinaQuestDisplay() {
           alt=""
         />
 
-        <section style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }} aria-label="China Quest spinner wheel">
+        <section
+          style={{ gridColumn: 2, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
+          aria-label="China Quest spinner wheel"
+        >
           <div style={{ marginBottom: "clamp(-10px,-1vh,-5px)", zIndex: 2, filter: "drop-shadow(0 5px 10px rgba(160,100,10,.45))" }}>
             <svg width="clamp(42px,4.6vw,64px)" height="clamp(46px,5vw,70px)" viewBox="0 0 28 32">
               <defs>
@@ -301,10 +304,10 @@ export default function ChinaQuestDisplay() {
         <img
           src={A.lantern}
           style={{
-            justifySelf: "start",
-            alignSelf: "start",
+            position: "absolute",
+            top: "clamp(-4px,.5vh,8px)",
+            right: "clamp(18px,16vw,300px)",
             width: "clamp(136px,17vw,260px)",
-            marginTop: "clamp(2px,1.2vh,18px)",
             animation: "swayR 4.5s ease-in-out infinite",
             transformOrigin: "top center",
             transform: "scaleX(-1)",
