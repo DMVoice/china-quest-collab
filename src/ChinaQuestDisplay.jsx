@@ -59,7 +59,7 @@ export default function ChinaQuestDisplay() {
   const [activeModule, setActiveModule] = useState(null);
   const total = useRef(0);
   const petals = useMemo(
-    () => Array.from({ length: 16 }, (_, i) => ({ x: i * 6 + 2, delay: i * 0.55, dur: 7 + (i % 4) * 1.2, rot: i * 24 })),
+    () => Array.from({ length: 22 }, (_, i) => ({ x: (i * 4.7 + 2) % 98, delay: i * 0.42, dur: 7 + (i % 5) * 1.05, rot: i * 24 })),
     [],
   );
 
@@ -112,10 +112,19 @@ export default function ChinaQuestDisplay() {
         aria-hidden="true"
       >
         <ellipse cx="210" cy="108" rx="165" ry="45" fill="white" opacity=".55" />
+        <ellipse cx="282" cy="128" rx="92" ry="28" fill="white" opacity=".24" />
         <ellipse cx="1320" cy="118" rx="180" ry="52" fill="white" opacity=".48" />
+        <ellipse cx="1228" cy="148" rx="118" ry="32" fill="white" opacity=".22" />
         <ellipse cx="790" cy="72" rx="120" ry="34" fill="white" opacity=".35" />
+        <ellipse cx="890" cy="98" rx="72" ry="20" fill="white" opacity=".18" />
+        <g fill="none" stroke="#D79A36" strokeWidth="5" strokeLinecap="round" opacity=".12">
+          <path d="M138,235 q42,-34 84,0 q42,34 84,0" />
+          <path d="M1265,250 q42,-34 84,0 q42,34 84,0" />
+        </g>
         <path d="M0,675 Q260,610 520,660 T1040,654 T1600,620 L1600,900 L0,900Z" fill="#9ED3B4" opacity=".32" />
+        <path d="M0,705 Q260,660 520,698 T1050,690 T1600,670 L1600,900 L0,900Z" fill="#CFE6B8" opacity=".28" />
         <path d="M0,735 Q320,695 620,735 T1200,730 T1600,710 L1600,900 L0,900Z" fill="#F7DFC1" opacity=".55" />
+        <path d="M0,775 Q250,745 510,772 T1030,772 T1600,748 L1600,900 L0,900Z" fill="#F6C7B7" opacity=".22" />
         <g opacity=".35">
           <line x1="88" y1="900" x2="106" y2="565" stroke="#8B5E3C" strokeWidth="16" />
           <circle cx="72" cy="550" r="70" fill="#F6B7C5" />
@@ -123,6 +132,12 @@ export default function ChinaQuestDisplay() {
           <line x1="1510" y1="900" x2="1490" y2="575" stroke="#8B5E3C" strokeWidth="16" />
           <circle cx="1538" cy="555" r="75" fill="#F6B7C5" />
           <circle cx="1464" cy="532" r="56" fill="#F0A6BA" />
+        </g>
+        <g opacity=".2" fill="#F3B9C8">
+          <circle cx="240" cy="585" r="9" />
+          <circle cx="274" cy="606" r="6" />
+          <circle cx="1340" cy="602" r="8" />
+          <circle cx="1305" cy="628" r="5" />
         </g>
       </svg>
 
@@ -330,7 +345,7 @@ export default function ChinaQuestDisplay() {
         }}
       >
         <div style={{ display: "flex", alignItems: "end", gap: "clamp(12px,1.8vw,26px)" }}>
-          <img src={A.child} style={{ width: "clamp(88px,8.5vw,140px)", height: "auto", animation: "bounce 3s ease-in-out infinite" }} alt="" />
+          <img src={A.child} style={{ width: "clamp(122px,12vw,214px)", height: "auto", animation: "bounce 3s ease-in-out infinite" }} alt="" />
           <div
             style={{
               background: "rgba(255,255,255,.92)",
@@ -425,7 +440,7 @@ export default function ChinaQuestDisplay() {
               })}
             </div>
           </details>
-          <img src={A.panda} style={{ width: "clamp(96px,9vw,154px)", height: "auto", animation: "pandaSway 4s ease-in-out infinite" }} alt="" />
+          <img src={A.panda} style={{ width: "clamp(132px,13vw,230px)", height: "auto", animation: "pandaSway 4s ease-in-out infinite" }} alt="" />
         </div>
       </footer>
 
