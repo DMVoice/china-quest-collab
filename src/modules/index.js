@@ -12,6 +12,7 @@ import CityQuest    from './CityQuest';
 import FoodGallery  from './FoodGallery';
 import HanfuStyle   from './HanfuStyle';
 import Instruments  from './Instruments';
+import FestivalsQuiz from './FestivalsQuiz';
 
 const MODULES = {
   quiz:    CultureQuiz,
@@ -20,6 +21,7 @@ const MODULES = {
   food:    FoodGallery,
   hanfu:   HanfuStyle,
   art:     Instruments,
+  festival: FestivalsQuiz
 };
 
 export default MODULES;
