@@ -177,9 +177,9 @@ export default function ChinaQuestDisplay() {
         <img
           src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "clamp(900px,76vw,1320px)",
+            width: "clamp(1000px,82vw,1440px)",
             maxWidth: "98vw",
-            maxHeight: "clamp(110px,16vh,190px)",
+            maxHeight: "clamp(180px,24vh,260px)",
             height: "auto",
             display: "block",
             objectFit: "contain",
@@ -196,7 +196,7 @@ export default function ChinaQuestDisplay() {
           zIndex: 4,
           minHeight: 0,
           display: "grid",
-          gridTemplateColumns: "minmax(440px,1fr) minmax(326px,clamp(326px,30vw,450px))",
+          gridTemplateColumns: "minmax(380px,1fr) minmax(380px,clamp(380px,32vw,490px))",
           alignItems: "center",
           justifyItems: "center",
           gap: "clamp(20px,3.8vw,70px)",
@@ -207,9 +207,9 @@ export default function ChinaQuestDisplay() {
           src={A.lantern}
           style={{
             position: "absolute",
-            top: "clamp(-34px,-3vh,-16px)",
-            left: "clamp(-10px,.8vw,22px)",
-            width: "clamp(168px,17vw,286px)",
+            top: "clamp(-24px,-2vh,-10px)",
+            left: "clamp(-6px,.6vw,18px)",
+            width: "clamp(160px,15vw,250px)",
             animation: "swayL 5s ease-in-out infinite",
             transformOrigin: "top center",
             pointerEvents: "none",
@@ -249,8 +249,8 @@ export default function ChinaQuestDisplay() {
             width="100%"
             viewBox="0 0 400 400"
             style={{
-              width: "clamp(430px,60vh,680px)",
-              height: "clamp(430px,60vh,680px)",
+              width: "clamp(430px,58vh,640px)",
+              height: "clamp(430px,58vh,640px)",
               maxWidth: "100%",
               transform: `rotate(${rot}deg)`,
               transition: spinning ? "transform 5s cubic-bezier(.06,.7,.08,1)" : "none",
@@ -337,9 +337,9 @@ export default function ChinaQuestDisplay() {
           src={A.lantern}
           style={{
             position: "absolute",
-            top: "clamp(-34px,-3vh,-16px)",
-            right: "clamp(-10px,.8vw,22px)",
-            width: "clamp(168px,17vw,286px)",
+            top: "clamp(-24px,-2vh,-10px)",
+            right: "clamp(-6px,.6vw,18px)",
+            width: "clamp(160px,15vw,250px)",
             animation: "swayR 4.5s ease-in-out infinite",
             transformOrigin: "top center",
             transform: "scaleX(-1)",
@@ -356,12 +356,12 @@ export default function ChinaQuestDisplay() {
             gridColumn: 2,
             justifySelf: "start",
             width: "100%",
-            maxWidth: 410,
+            maxWidth: 460,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "clamp(10px,1.5vh,16px)",
-            padding: "clamp(16px,2.6vh,26px) clamp(16px,2vw,24px)",
+            gap: "clamp(8px,1vh,12px)",
+            padding: "clamp(12px,1.8vh,18px) clamp(14px,1.6vw,20px)",
             borderRadius: 34,
             border: "5px solid rgba(215,159,48,.96)",
             background:
@@ -399,10 +399,10 @@ export default function ChinaQuestDisplay() {
           />
           <h1
             style={{
-              margin: "clamp(4px,.8vh,8px) 0 0",
-              maxWidth: 350,
+              margin: "clamp(2px,.5vh,5px) 0 0",
+              maxWidth: 400,
               fontFamily: "'Cinzel',serif",
-              fontSize: "clamp(1.38rem,2.1vw,2rem)",
+              fontSize: "clamp(1.1rem,1.5vw,1.5rem)",
               lineHeight: 1.06,
               letterSpacing: 0,
               textAlign: "center",
@@ -417,12 +417,12 @@ export default function ChinaQuestDisplay() {
 
           <div
             style={{
-              width: "clamp(206px,20vw,260px)",
-              height: "clamp(206px,20vw,260px)",
+              width: "clamp(120px,11vw,155px)",
+              height: "clamp(120px,11vw,155px)",
               borderRadius: "50%",
               display: "grid",
               placeItems: "center",
-              padding: "clamp(13px,1.6vw,18px)",
+              padding: "clamp(6px,.85vw,10px)",
               background:
                 "conic-gradient(from 12deg,#E4AA3F,#FFE39A,#D99B31,#F7D572,#E4AA3F), radial-gradient(circle,#FFF7DC 0 58%,#E6B14E 59% 100%)",
               boxShadow: "0 18px 30px rgba(93,50,19,.26), inset 0 0 0 4px rgba(255,255,255,.72)",
@@ -448,19 +448,19 @@ export default function ChinaQuestDisplay() {
                 height: "100%",
                 borderRadius: "50%",
                 fontFamily: "'Cinzel',serif",
-                fontSize: spinning ? "clamp(1.18rem,1.8vw,1.54rem)" : "clamp(2.35rem,4.2vw,3.95rem)",
+                fontSize: spinning ? "clamp(.7rem,1vw,.9rem)" : "clamp(1.3rem,2.2vw,1.95rem)",
                 fontWeight: 700,
                 letterSpacing: 0,
                 background: spinning
                   ? "radial-gradient(circle at 35% 24%,#EFE2BB,#BFAF83 72%)"
                   : "radial-gradient(circle at 32% 22%,#FFD2B7 0 18%,#FF755F 38%,#E73342 66%,#C82231 100%)",
-                border: `7px solid ${spinning ? "#B9A15C" : "#FFD76A"}`,
+                border: `4px solid ${spinning ? "#B9A15C" : "#FFD76A"}`,
                 color: spinning ? "#786C4D" : "#FFF8D6",
                 cursor: spinning ? "not-allowed" : "pointer",
-                textShadow: spinning ? "none" : "0 4px 0 rgba(112,28,20,.42)",
+                textShadow: spinning ? "none" : "0 2.5px 0 rgba(112,28,20,.42)",
                 boxShadow: spinning
-                  ? "inset 0 9px 18px rgba(80,50,20,.18)"
-                  : "0 15px 0 #9F2A23, 0 23px 28px rgba(114,45,20,.32), inset 0 8px 12px rgba(255,255,255,.48), inset 0 -10px 18px rgba(129,23,31,.22)",
+                  ? "inset 0 5px 10px rgba(80,50,20,.18)"
+                  : "0 8px 0 #9F2A23, 0 14px 18px rgba(114,45,20,.32), inset 0 5px 9px rgba(255,255,255,.48), inset 0 -6px 11px rgba(129,23,31,.22)",
                 transition: "transform .18s ease, box-shadow .18s ease, filter .18s ease",
                 animation: spinning ? "none" : "pulse 2.5s ease-in-out infinite",
                 position: "relative",
@@ -471,7 +471,7 @@ export default function ChinaQuestDisplay() {
             </button>
           </div>
 
-          <p style={{ color: "#8B6030", fontSize: "clamp(.92rem,1.2vw,1.08rem)", fontWeight: 700, margin: 0, letterSpacing: 0, textAlign: "center" }}>
+          <p style={{ color: "#8B6030", fontSize: "clamp(.76rem,.95vw,.9rem)", fontWeight: 700, margin: 0, letterSpacing: 0, textAlign: "center" }}>
             Tap to start your China Quest!
           </p>
 
@@ -532,13 +532,13 @@ export default function ChinaQuestDisplay() {
           className="display-child"
           style={{
             position: "absolute",
-            left: "clamp(8px,2vw,32px)",
-            bottom: "clamp(-18px,-1vh,-6px)",
-            width: "clamp(220px,21vw,350px)",
+            left: "clamp(6px,1.4vw,22px)",
+            bottom: "clamp(-14px,-.8vh,-4px)",
+            width: "clamp(180px,15vw,260px)",
             height: "auto",
             animation: "bounce 3s ease-in-out infinite",
             pointerEvents: "none",
-            zIndex: 1,
+            zIndex: 6,
           }}
           alt=""
         />
@@ -547,13 +547,13 @@ export default function ChinaQuestDisplay() {
           className="display-panda"
           style={{
             position: "absolute",
-            right: "clamp(8px,2vw,32px)",
-            bottom: "clamp(-18px,-1vh,-6px)",
-            width: "clamp(230px,21vw,360px)",
+            right: "clamp(6px,1.4vw,22px)",
+            bottom: "clamp(-14px,-.8vh,-4px)",
+            width: "clamp(190px,15vw,270px)",
             height: "auto",
             animation: "pandaSway 4s ease-in-out infinite",
             pointerEvents: "none",
-            zIndex: 1,
+            zIndex: 6,
           }}
           alt=""
         />
