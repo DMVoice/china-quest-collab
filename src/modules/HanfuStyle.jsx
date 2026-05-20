@@ -251,6 +251,10 @@ export default function HanfuStyle({ onExit }) {
   const [phase, setPhase] = useState("start");
   const [target, setTarget] = useState(null);
   const [showHints, setShowHints] = useState(false);
+  const [heroGif] = useState(() => {
+    const gifs = ["/images/qingmingshanghetu2.gif", "/images/qingmingshanghetu3.gif", "/images/qingmingshanghetu4.gif"];
+    return gifs[Math.floor(Math.random() * gifs.length)];
+  });
 
   const targetDynasty = DYNASTIES.find(d => d.id === target) ?? null;
 
@@ -288,18 +292,11 @@ export default function HanfuStyle({ onExit }) {
           gap: 32, padding: "20px 40px",
           textAlign: "center",
         }}>
-          <div style={{ display: "flex", flexDirection: "row", gap: 16, alignItems: "center", justifyContent: "center" }}>
-            <img
-              src="/images/qingmingshanghetu2.gif"
-              alt="Along the River During the Qingming Festival"
-              style={{ height: 200, maxWidth: 420, borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)", objectFit: "cover" }}
-            />
-            <img
-              src="/images/qingmingshanghetu3.gif"
-              alt="Along the River During the Qingming Festival 3"
-              style={{ height: 200, maxWidth: 420, borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)", objectFit: "cover" }}
-            />
-          </div>
+          <img
+            src={heroGif}
+            alt="Along the River During the Qingming Festival"
+            style={{ height: 200, maxWidth: 560, width: "100%", borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)", objectFit: "cover" }}
+          />
           <div>
             <p style={{
               fontFamily: "'Noto Serif SC', serif",
