@@ -295,7 +295,7 @@ export default function HanfuStyle({ onExit }) {
           <img
             src={heroGif}
             alt="Along the River During the Qingming Festival"
-            style={{ height: 200, maxWidth: 560, width: "100%", borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)", objectFit: "cover" }}
+            style={{ borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)" }}
           />
           <div>
             <p style={{
