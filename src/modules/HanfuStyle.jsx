@@ -288,11 +288,18 @@ export default function HanfuStyle({ onExit }) {
           gap: 32, padding: "20px 40px",
           textAlign: "center",
         }}>
-          <img
-            src="/images/qingmingshanghetu1.jpg"
-            alt="Along the River During the Qingming Festival"
-            style={{ width: "100%", maxWidth: 420, borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)", display: "block" }}
-          />
+          <div style={{ display: "flex", flexDirection: "row", gap: 16, alignItems: "center", justifyContent: "center" }}>
+            <img
+              src="/images/qingmingshanghetu2.gif"
+              alt="Along the River During the Qingming Festival"
+              style={{ height: 200, maxWidth: 420, borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)", objectFit: "cover" }}
+            />
+            <img
+              src="/images/qingmingshanghetu3.gif"
+              alt="Along the River During the Qingming Festival 3"
+              style={{ height: 200, maxWidth: 420, borderRadius: 16, opacity: 0.85, boxShadow: "0 4px 20px rgba(0,0,0,.15)", objectFit: "cover" }}
+            />
+          </div>
           <div>
             <p style={{
               fontFamily: "'Noto Serif SC', serif",
