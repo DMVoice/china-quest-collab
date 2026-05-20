@@ -105,7 +105,7 @@ export default function ChinaQuestDisplay() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         display: "grid",
-        gridTemplateRows: "clamp(118px,18vh,188px) minmax(0,1fr)",
+        gridTemplateRows: "clamp(150px,22vh,260px) minmax(0,1fr)",
         fontFamily: "sans-serif",
         color: "#4A2D12",
       }}
@@ -177,9 +177,9 @@ export default function ChinaQuestDisplay() {
         <img
           src="/images/china_quest_a_cultural_adventure.png"
           style={{
-            width: "clamp(900px,76vw,1320px)",
-            maxWidth: "98vw",
-            maxHeight: "clamp(110px,16vh,190px)",
+            width: "clamp(1100px,88vw,1600px)",
+            maxWidth: "100vw",
+            maxHeight: "clamp(220px,28vh,320px)",
             height: "auto",
             display: "block",
             objectFit: "contain",
@@ -195,21 +195,20 @@ export default function ChinaQuestDisplay() {
           position: "relative",
           zIndex: 4,
           minHeight: 0,
-          display: "grid",
-          gridTemplateColumns: "minmax(440px,1fr) minmax(326px,clamp(326px,30vw,450px))",
+          display: "flex",
           alignItems: "center",
-          justifyItems: "center",
-          gap: "clamp(20px,3.8vw,70px)",
-          padding: "0 clamp(28px,4.8vw,82px) clamp(18px,2.8vh,30px)",
+          justifyContent: "center",
+          gap: "clamp(30px,5vw,90px)",
+          padding: "0 clamp(28px,4.8vw,82px) clamp(60px,7vh,100px)",
         }}
       >
         <img
           src={A.lantern}
           style={{
             position: "absolute",
-            top: "clamp(-34px,-3vh,-16px)",
-            left: "clamp(-10px,.8vw,22px)",
-            width: "clamp(168px,17vw,286px)",
+            top: "clamp(-24px,-2vh,-10px)",
+            left: "clamp(-6px,.6vw,18px)",
+            width: "clamp(160px,15vw,250px)",
             animation: "swayL 5s ease-in-out infinite",
             transformOrigin: "top center",
             pointerEvents: "none",
@@ -221,14 +220,11 @@ export default function ChinaQuestDisplay() {
 
         <section
           style={{
-            gridColumn: 1,
-            alignSelf: "center",
-            justifySelf: "end",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            transform: "translateX(clamp(-16px,-2vw,-4px))",
+            flexShrink: 0,
             zIndex: 3,
           }}
           aria-label="China Quest spinner wheel"
@@ -249,8 +245,8 @@ export default function ChinaQuestDisplay() {
             width="100%"
             viewBox="0 0 400 400"
             style={{
-              width: "clamp(430px,60vh,680px)",
-              height: "clamp(430px,60vh,680px)",
+              width: "clamp(480px,64vh,720px)",
+              height: "clamp(480px,64vh,720px)",
               maxWidth: "100%",
               transform: `rotate(${rot}deg)`,
               transition: spinning ? "transform 5s cubic-bezier(.06,.7,.08,1)" : "none",
@@ -337,9 +333,9 @@ export default function ChinaQuestDisplay() {
           src={A.lantern}
           style={{
             position: "absolute",
-            top: "clamp(-34px,-3vh,-16px)",
-            right: "clamp(-10px,.8vw,22px)",
-            width: "clamp(168px,17vw,286px)",
+            top: "clamp(-24px,-2vh,-10px)",
+            right: "clamp(-6px,.6vw,18px)",
+            width: "clamp(160px,15vw,250px)",
             animation: "swayR 4.5s ease-in-out infinite",
             transformOrigin: "top center",
             transform: "scaleX(-1)",
@@ -353,192 +349,135 @@ export default function ChinaQuestDisplay() {
         <aside
           className="display-control-panel"
           style={{
-            gridColumn: 2,
-            justifySelf: "start",
-            width: "100%",
-            maxWidth: 410,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "clamp(10px,1.5vh,16px)",
-            padding: "clamp(16px,2.6vh,26px) clamp(16px,2vw,24px)",
-            borderRadius: 34,
-            border: "5px solid rgba(215,159,48,.96)",
-            background:
-              "radial-gradient(circle at 12% 12%,rgba(255,224,134,.8) 0 10px,transparent 11px), radial-gradient(circle at 86% 16%,rgba(255,183,200,.78) 0 8px,transparent 9px), radial-gradient(circle at 22% 84%,rgba(151,209,183,.38) 0 11px,transparent 12px), linear-gradient(160deg,rgba(255,255,246,.98),rgba(255,238,218,.97) 58%,rgba(255,248,232,.98))",
-            boxShadow: "0 24px 52px rgba(87,48,14,.3), 0 7px 0 rgba(176,113,34,.28), inset 0 0 0 3px rgba(255,255,255,.85), inset 0 0 0 9px rgba(248,214,143,.34)",
-            backdropFilter: "blur(7px)",
+            gap: "clamp(10px,1.4vh,18px)",
+            flexShrink: 0,
             position: "relative",
             zIndex: 4,
           }}
           aria-label="Spin controls"
         >
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              top: 12,
-              left: 26,
-              right: 26,
-              height: 12,
-              borderTop: "3px solid rgba(213,159,55,.42)",
-              borderRadius: "50%",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              bottom: 14,
-              left: 22,
-              right: 22,
-              height: 18,
-              borderBottom: "3px solid rgba(213,159,55,.34)",
-              borderRadius: "50%",
-            }}
-          />
           <h1
             style={{
-              margin: "clamp(4px,.8vh,8px) 0 0",
-              maxWidth: 350,
+              margin: 0,
+              maxWidth: 280,
               fontFamily: "'Cinzel',serif",
-              fontSize: "clamp(1.38rem,2.1vw,2rem)",
-              lineHeight: 1.06,
+              fontSize: "clamp(1.1rem,1.5vw,1.5rem)",
+              lineHeight: 1.1,
               letterSpacing: 0,
               textAlign: "center",
               color: "#743B20",
-              textShadow: "0 2px 0 rgba(255,255,255,.8)",
-              position: "relative",
-              zIndex: 2,
+              textShadow: "0 2px 0 rgba(255,255,255,.85)",
             }}
           >
-            Ready for your China Quest?
+            Ready for your<br />China Quest?
           </h1>
 
-          <div
+          <button
+            className="display-spin-button"
+            onClick={spin}
+            disabled={spinning}
             style={{
-              width: "clamp(206px,20vw,260px)",
-              height: "clamp(206px,20vw,260px)",
+              width: "clamp(120px,11vw,155px)",
+              height: "clamp(120px,11vw,155px)",
               borderRadius: "50%",
-              display: "grid",
-              placeItems: "center",
-              padding: "clamp(13px,1.6vw,18px)",
-              background:
-                "conic-gradient(from 12deg,#E4AA3F,#FFE39A,#D99B31,#F7D572,#E4AA3F), radial-gradient(circle,#FFF7DC 0 58%,#E6B14E 59% 100%)",
-              boxShadow: "0 18px 30px rgba(93,50,19,.26), inset 0 0 0 4px rgba(255,255,255,.72)",
-              position: "relative",
-              zIndex: 2,
+              fontFamily: "'Cinzel',serif",
+              fontSize: spinning ? "clamp(.7rem,1vw,.9rem)" : "clamp(1.3rem,2.2vw,1.95rem)",
+              fontWeight: 700,
+              letterSpacing: 0,
+              background: spinning
+                ? "radial-gradient(circle at 35% 24%,#EFE2BB,#BFAF83 72%)"
+                : "radial-gradient(circle at 32% 22%,#FFD2B7 0 18%,#FF755F 38%,#E73342 66%,#C82231 100%)",
+              border: `4px solid ${spinning ? "#B9A15C" : "#FFD76A"}`,
+              color: spinning ? "#786C4D" : "#FFF8D6",
+              cursor: spinning ? "not-allowed" : "pointer",
+              textShadow: spinning ? "none" : "0 2.5px 0 rgba(112,28,20,.42)",
+              boxShadow: spinning
+                ? "inset 0 5px 10px rgba(80,50,20,.18)"
+                : "0 8px 0 #9F2A23, 0 14px 18px rgba(114,45,20,.32), inset 0 5px 9px rgba(255,255,255,.48), inset 0 -6px 11px rgba(129,23,31,.22)",
+              transition: "transform .18s ease, box-shadow .18s ease, filter .18s ease",
+              animation: spinning ? "none" : "pulse 2.5s ease-in-out infinite",
             }}
           >
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                inset: "clamp(18px,2vw,24px)",
-                borderRadius: "50%",
-                border: "2px dashed rgba(139,78,28,.3)",
-              }}
-            />
-            <button
-              className="display-spin-button"
-              onClick={spin}
-              disabled={spinning}
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: "50%",
-                fontFamily: "'Cinzel',serif",
-                fontSize: spinning ? "clamp(1.18rem,1.8vw,1.54rem)" : "clamp(2.35rem,4.2vw,3.95rem)",
-                fontWeight: 700,
-                letterSpacing: 0,
-                background: spinning
-                  ? "radial-gradient(circle at 35% 24%,#EFE2BB,#BFAF83 72%)"
-                  : "radial-gradient(circle at 32% 22%,#FFD2B7 0 18%,#FF755F 38%,#E73342 66%,#C82231 100%)",
-                border: `7px solid ${spinning ? "#B9A15C" : "#FFD76A"}`,
-                color: spinning ? "#786C4D" : "#FFF8D6",
-                cursor: spinning ? "not-allowed" : "pointer",
-                textShadow: spinning ? "none" : "0 4px 0 rgba(112,28,20,.42)",
-                boxShadow: spinning
-                  ? "inset 0 9px 18px rgba(80,50,20,.18)"
-                  : "0 15px 0 #9F2A23, 0 23px 28px rgba(114,45,20,.32), inset 0 8px 12px rgba(255,255,255,.48), inset 0 -10px 18px rgba(129,23,31,.22)",
-                transition: "transform .18s ease, box-shadow .18s ease, filter .18s ease",
-                animation: spinning ? "none" : "pulse 2.5s ease-in-out infinite",
-                position: "relative",
-                zIndex: 1,
-              }}
-            >
-              {spinning ? "Spinning..." : "SPIN!"}
-            </button>
-          </div>
+            {spinning ? "Spinning..." : "SPIN!"}
+          </button>
 
-          <p style={{ color: "#8B6030", fontSize: "clamp(.92rem,1.2vw,1.08rem)", fontWeight: 700, margin: 0, letterSpacing: 0, textAlign: "center" }}>
+          <p style={{ color: "#8B6030", fontSize: "clamp(.78rem,.95vw,.92rem)", fontWeight: 700, margin: 0, letterSpacing: 0, textAlign: "center", textShadow: "0 1px 0 rgba(255,255,255,.6)" }}>
             Tap to start your China Quest!
           </p>
+        </aside>
 
-          <details
+        {/* Presenter Tools — collapsible bar at bottom */}
+        <details
+          className="display-presenter-tools"
+          style={{
+            position: "absolute",
+            bottom: "clamp(8px,1vh,16px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "min(720px,86vw)",
+            border: "2px solid rgba(200,156,56,.75)",
+            borderRadius: 14,
+            background: "rgba(255,250,236,.92)",
+            boxShadow: "0 6px 18px rgba(120,70,20,.18)",
+            overflow: "hidden",
+            zIndex: 5,
+          }}
+        >
+          <summary
             style={{
-              width: "100%",
-              border: "2px solid rgba(200,156,56,.65)",
-              borderRadius: 16,
-              background: "rgba(255,250,236,.62)",
-              boxShadow: "0 5px 14px rgba(120,70,20,.1)",
-              overflow: "hidden",
-              position: "relative",
-              zIndex: 2,
+              padding: "7px 14px",
+              color: "#8B6030",
+              fontSize: "clamp(.74rem,.9vw,.88rem)",
+              fontWeight: 700,
+              cursor: "pointer",
+              letterSpacing: 0.5,
+              textAlign: "center",
             }}
           >
-            <summary
-              style={{
-                padding: "9px 13px",
-                color: "#8B6030",
-                fontSize: "clamp(.72rem,.9vw,.88rem)",
-                fontWeight: 700,
-                cursor: "pointer",
-                letterSpacing: 0.5,
-              }}
-            >
-              Presenter Tools
-            </summary>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 8, padding: "0 10px 10px" }}>
-              {SEGS.map((s) => {
-                const available = Boolean(MODULE_REGISTRY[s.id]);
-                return (
-                  <button
-                    key={s.id}
-                    disabled={!available}
-                    onClick={() => setActiveModule(s.id)}
-                    style={{
-                      minHeight: 38,
-                      border: `1px solid ${available ? `${s.accent}55` : "#D8CDB8"}`,
-                      borderRadius: 10,
-                      background: available ? s.bg : "#F5EFE5",
-                      color: available ? s.accent : "#A89880",
-                      fontSize: "clamp(.62rem,.76vw,.78rem)",
-                      fontWeight: 700,
-                      cursor: available ? "pointer" : "not-allowed",
-                      opacity: available ? 1 : 0.55,
-                    }}
-                  >
-                    {s.en}
-                  </button>
-                );
-              })}
-            </div>
-          </details>
-        </aside>
+            ⚙ Presenter Tools
+          </summary>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 7, padding: "0 10px 10px" }}>
+            {SEGS.map((s) => {
+              const available = Boolean(MODULE_REGISTRY[s.id]);
+              return (
+                <button
+                  key={s.id}
+                  disabled={!available}
+                  onClick={() => setActiveModule(s.id)}
+                  style={{
+                    minHeight: 34,
+                    border: `1px solid ${available ? `${s.accent}55` : "#D8CDB8"}`,
+                    borderRadius: 9,
+                    background: available ? s.bg : "#F5EFE5",
+                    color: available ? s.accent : "#A89880",
+                    fontSize: "clamp(.62rem,.78vw,.78rem)",
+                    fontWeight: 700,
+                    cursor: available ? "pointer" : "not-allowed",
+                    opacity: available ? 1 : 0.55,
+                  }}
+                >
+                  {s.en}
+                </button>
+              );
+            })}
+          </div>
+        </details>
 
         <img
           src={A.child}
           className="display-child"
           style={{
             position: "absolute",
-            left: "clamp(8px,2vw,32px)",
-            bottom: "clamp(-18px,-1vh,-6px)",
-            width: "clamp(220px,21vw,350px)",
+            left: "clamp(6px,1.4vw,22px)",
+            bottom: "clamp(-14px,-.8vh,-4px)",
+            width: "clamp(180px,15vw,260px)",
             height: "auto",
             animation: "bounce 3s ease-in-out infinite",
             pointerEvents: "none",
-            zIndex: 1,
+            zIndex: 6,
           }}
           alt=""
         />
@@ -547,13 +486,13 @@ export default function ChinaQuestDisplay() {
           className="display-panda"
           style={{
             position: "absolute",
-            right: "clamp(8px,2vw,32px)",
-            bottom: "clamp(-18px,-1vh,-6px)",
-            width: "clamp(230px,21vw,360px)",
+            right: "clamp(6px,1.4vw,22px)",
+            bottom: "clamp(-14px,-.8vh,-4px)",
+            width: "clamp(190px,15vw,270px)",
             height: "auto",
             animation: "pandaSway 4s ease-in-out infinite",
             pointerEvents: "none",
-            zIndex: 1,
+            zIndex: 6,
           }}
           alt=""
         />
@@ -655,13 +594,13 @@ export default function ChinaQuestDisplay() {
         @keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:.7}100%{transform:translateY(110vh) rotate(720deg);opacity:.05}}
         .display-spin-button:active:not(:disabled){transform:translateY(8px)!important;box-shadow:0 8px 0 #A93325,0 14px 20px rgba(114,45,20,.28),inset 0 7px 12px rgba(255,255,255,.35)!important}
         @media (max-width: 980px){
-          .display-spinner-stage{grid-template-columns:minmax(0,1fr) minmax(260px,320px)!important;padding-left:18px!important;padding-right:18px!important;gap:16px!important}
+          .display-spinner-stage{padding-left:18px!important;padding-right:18px!important;gap:16px!important}
           .display-spinner-stage > img{display:none!important}
           .display-child,.display-panda{display:none!important}
         }
         @media (max-width: 760px){
-          .display-spinner-stage{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;overflow:auto!important}
-          .display-control-panel{grid-column:1!important;justify-self:center!important}
+          .display-spinner-stage{flex-direction:column!important;align-items:center!important;overflow:auto!important}
+          .display-presenter-tools{position:static!important;transform:none!important;margin:12px auto!important}
         }
       `}</style>
     </div>
