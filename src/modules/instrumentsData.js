@@ -1,91 +1,207 @@
 // ============================================================
-// INSTRUMENTS DATA — Six traditional Chinese instruments
-// Categories covered: plucked / bowed / wind / percussion
+// INSTRUMENTS DATA — 12 traditional Chinese instruments
+// Real photos: /public/images/instruments/
+//   - 08/11/14/15  from the 乐器.ppt teaching deck
+//   - 20-27        from Wikimedia Commons (free license)
+// Grouped: 弹拨 plucked · 拉弦 bowed · 吹管 wind · 打击 percussion
 // ============================================================
 
+const PALETTE = {
+  plucked:    { color: "#FBEEDB", accent: "#A26835" }, // warm wood
+  bowed:      { color: "#F8E2DE", accent: "#A04A3B" }, // red wood
+  wind:       { color: "#E8F2E0", accent: "#5C8348" }, // bamboo green
+  percussion: { color: "#FFF1CC", accent: "#A6792C" }, // bronze
+};
+
 export const INSTRUMENTS = [
-  {
-    id: "guqin",
-    emoji: "🎼",
-    name: "Guqin",
-    zh: "古琴",
-    category: "Plucked zither",
-    color: "#EDE8FA",
-    accent: "#5E4A9A",
-    description: "A seven-string zither played by scholars for 3000+ years.",
-    question: "What does the Guqin look like?",
-    options: ["A long wooden zither", "A round drum", "A brass horn"],
-    answer: "A long wooden zither",
-    feedback: "Yes! The Guqin is a long, slim wooden zither — a symbol of refined learning.",
-  },
+  // ── 弹拨 Plucked ──────────────────────────────
   {
     id: "pipa",
-    emoji: "🪕",
-    name: "Pipa",
     zh: "琵琶",
-    category: "Plucked lute",
-    color: "#FBEEDB",
-    accent: "#A26835",
-    description: "A pear-shaped lute with four strings, played upright on the lap.",
-    question: "How is the Pipa played?",
-    options: ["Plucked with fingers", "Blown with breath", "Hit with sticks"],
-    answer: "Plucked with fingers",
-    feedback: "Right! The name 'Pipa' even comes from the sound of plucking motions.",
-  },
-  {
-    id: "erhu",
-    emoji: "🎻",
-    name: "Erhu",
-    zh: "二胡",
-    category: "Bowed string",
-    color: "#F8E2DE",
-    accent: "#A04A3B",
-    description: "A two-string fiddle with a singing voice that can sound almost human.",
-    question: "How many strings does the Erhu have?",
-    options: ["Two", "Six", "Twelve"],
-    answer: "Two",
-    feedback: "Correct! Just two strings and a bow — yet it can express deep emotion.",
-  },
-  {
-    id: "dizi",
-    emoji: "🪈",
-    name: "Dizi",
-    zh: "笛子",
-    category: "Bamboo flute",
-    color: "#E8F2E0",
-    accent: "#5C8348",
-    description: "A bamboo flute with a buzzing membrane that gives it a bright voice.",
-    question: "What is the Dizi made of?",
-    options: ["Bamboo", "Iron", "Glass"],
-    answer: "Bamboo",
-    feedback: "Yes! Bamboo with a thin paper-like membrane that buzzes when you blow.",
+    pinyin: "pí pá",
+    name: "Pipa",
+    category: "弹拨 · Plucked lute",
+    img: "/images/instruments/15_琵琶.jpg",
+    ...PALETTE.plucked,
+    description: "A pear-shaped lute with four strings, played upright on the lap by plucking with the fingers.",
+    question: "What shape is the body of a pipa?",
+    options: ["Pear-shaped", "Triangle", "Square"],
+    answer: "Pear-shaped",
+    feedback: "Yes! That classic pear shape is unmistakable.",
   },
   {
     id: "guzheng",
-    emoji: "🎶",
-    name: "Guzheng",
     zh: "古筝",
-    category: "Plucked zither",
-    color: "#FAE6EC",
-    accent: "#A04E73",
-    description: "A long zither with movable bridges — often used in flowing solo music.",
-    question: "How many strings does a modern Guzheng usually have?",
+    pinyin: "gǔ zhēng",
+    name: "Guzheng",
+    category: "弹拨 · Plucked zither",
+    img: "/images/instruments/20_guzheng.jpg",
+    ...PALETTE.plucked,
+    description: "A long zither with 21 strings and movable bridges — its flowing sound is loved in solo music.",
+    question: "How many strings does a modern guzheng usually have?",
     options: ["21", "4", "88"],
     answer: "21",
-    feedback: "Right! The modern Guzheng has 21 strings tuned in a pentatonic scale.",
+    feedback: "Right! 21 strings tuned in a pentatonic scale.",
   },
   {
+    id: "guqin",
+    zh: "古琴",
+    pinyin: "gǔ qín",
+    name: "Guqin",
+    category: "弹拨 · Plucked zither",
+    img: "/images/instruments/21_guqin.jpg",
+    ...PALETTE.plucked,
+    description: "A slim seven-string zither played by scholars for over 3,000 years — a symbol of refined learning.",
+    question: "How long has the guqin been played in China?",
+    options: ["Over 3,000 years", "About 50 years", "Around 300 years"],
+    answer: "Over 3,000 years",
+    feedback: "Yes! It's one of China's most ancient instruments.",
+  },
+  {
+    id: "yangqin",
+    zh: "扬琴",
+    pinyin: "yáng qín",
+    name: "Yangqin",
+    category: "弹拨 · Hammered dulcimer",
+    img: "/images/instruments/08_扬琴.jpg",
+    ...PALETTE.plucked,
+    description: "A hammered dulcimer — you tap the many strings with two light bamboo mallets.",
+    question: "How is the yangqin played?",
+    options: ["Tap the strings with bamboo mallets", "Blow into a mouthpiece", "Bow it like a violin"],
+    answer: "Tap the strings with bamboo mallets",
+    feedback: "Right! Two light mallets make its sparkling sound.",
+  },
+
+  // ── 拉弦 Bowed ────────────────────────────────
+  {
+    id: "erhu",
+    zh: "二胡",
+    pinyin: "èr hú",
+    name: "Erhu",
+    category: "拉弦 · Bowed fiddle",
+    img: "/images/instruments/14_二胡.jpg",
+    ...PALETTE.bowed,
+    description: "A two-string fiddle whose singing voice can sound almost human.",
+    question: "How many strings does the erhu have?",
+    options: ["Two", "Six", "Twelve"],
+    answer: "Two",
+    feedback: "Right! 二 means 'two' — just two strings and a bow.",
+  },
+
+  // ── 吹管 Wind ─────────────────────────────────
+  {
+    id: "dizi",
+    zh: "笛子",
+    pinyin: "dí zi",
+    name: "Dizi",
+    category: "吹管 · Bamboo flute",
+    img: "/images/instruments/11_笛子.jpg",
+    ...PALETTE.wind,
+    description: "A bamboo flute with a thin paper-like membrane that gives it a bright, buzzing voice.",
+    question: "What gives the dizi its special bright tone?",
+    options: ["A buzzing membrane (笛膜)", "Metal strings", "An electric pickup"],
+    answer: "A buzzing membrane (笛膜)",
+    feedback: "Yes! The 笛膜 membrane is the secret to its voice.",
+  },
+  {
+    id: "suona",
+    zh: "唢呐",
+    pinyin: "suǒ nà",
+    name: "Suona",
+    category: "吹管 · Double-reed horn",
+    img: "/images/instruments/22_suona.jpg",
+    ...PALETTE.wind,
+    description: "A loud, bright double-reed horn — the star of weddings, parades and village festivals.",
+    question: "Where would you most likely hear a suona?",
+    options: ["At a lively wedding or festival", "In a quiet library", "Underwater"],
+    answer: "At a lively wedding or festival",
+    feedback: "Right! Its bold sound carries over a whole crowd.",
+  },
+  {
+    id: "sheng",
+    zh: "笙",
+    pinyin: "shēng",
+    name: "Sheng",
+    category: "吹管 · Mouth organ",
+    img: "/images/instruments/23_sheng.jpg",
+    ...PALETTE.wind,
+    description: "A mouth organ made of many vertical pipes — one of the world's oldest free-reed instruments.",
+    question: "What does the sheng look like?",
+    options: ["A cluster of vertical pipes", "A single round drum", "A flat wooden board"],
+    answer: "A cluster of vertical pipes",
+    feedback: "Yes! Blowing and drawing air makes its pipes sing together.",
+  },
+  {
+    id: "hulusi",
+    zh: "葫芦丝",
+    pinyin: "hú lu sī",
+    name: "Hulusi",
+    category: "吹管 · Gourd flute",
+    img: "/images/instruments/25_hulusi.jpg",
+    ...PALETTE.wind,
+    description: "A gentle gourd flute from Yunnan — a dried gourd on top feeds air to its bamboo pipes.",
+    question: "What is the top of a hulusi made from?",
+    options: ["A dried gourd", "A glass bottle", "A metal can"],
+    answer: "A dried gourd",
+    feedback: "Right! 葫芦 means 'gourd' — that's where the name comes from.",
+  },
+
+  // ── 打击 Percussion ───────────────────────────
+  {
     id: "luo",
-    emoji: "🔔",
-    name: "Luo",
     zh: "锣",
-    category: "Percussion gong",
-    color: "#FFF1CC",
-    accent: "#A6792C",
-    description: "A round bronze gong struck with a soft mallet — a heartbeat of festivals.",
-    question: "How do you play the Luo (gong)?",
-    options: ["Strike it with a mallet", "Pluck the strings", "Blow into it"],
+    pinyin: "luó",
+    name: "Luo (Gong)",
+    category: "打击 · Gong",
+    img: "/images/instruments/27_luo.jpg",
+    ...PALETTE.percussion,
+    description: "A round bronze gong struck with a soft mallet — its big sound rings out at celebrations.",
+    question: "How do you play the luo (gong)?",
+    options: ["Strike it with a mallet", "Pluck its strings", "Blow into it"],
     answer: "Strike it with a mallet",
-    feedback: "Yes! A soft mallet brings out its big, resonant voice.",
+    feedback: "Yes! A soft mallet brings out its booming voice.",
+  },
+  {
+    id: "drum",
+    zh: "鼓",
+    pinyin: "gǔ",
+    name: "Drum",
+    category: "打击 · Drum",
+    img: "/images/instruments/26_drum.jpg",
+    ...PALETTE.percussion,
+    description: "Chinese drums keep the beat for dragon dances, festivals and opera — struck with wooden sticks.",
+    question: "What are Chinese drums often used for?",
+    options: ["Keeping the beat at festivals & dances", "Telling the time", "Cooking food"],
+    answer: "Keeping the beat at festivals & dances",
+    feedback: "Right! The drumbeat drives dragon and lion dances.",
+  },
+  {
+    id: "bianzhong",
+    zh: "编钟",
+    pinyin: "biān zhōng",
+    name: "Bianzhong",
+    category: "打击 · Bronze bells",
+    img: "/images/instruments/24_bianzhong.jpg",
+    ...PALETTE.percussion,
+    description: "A set of ancient bronze bells hung in a row — each bell rings a different note when struck.",
+    question: "What makes a set of bianzhong special?",
+    options: ["Each bell plays a different note", "They are all the same note", "They have strings inside"],
+    answer: "Each bell plays a different note",
+    feedback: "Yes! A 2,400-year-old set was found in the tomb of Marquis Yi of Zeng.",
   },
 ];
+
+// Pick `n` shuffled distinct options including the correct one
+export function quizOptionsFor(correctItem, all = INSTRUMENTS, n = 4) {
+  const others = all.filter((x) => x.id !== correctItem.id);
+  for (let i = others.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [others[i], others[j]] = [others[j], others[i]];
+  }
+  const picks = [correctItem, ...others.slice(0, n - 1)];
+  for (let i = picks.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [picks[i], picks[j]] = [picks[j], picks[i]];
+  }
+  return picks;
+}
