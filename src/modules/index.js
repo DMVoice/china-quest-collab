@@ -13,6 +13,7 @@ import FoodGallery  from './FoodGallery';
 import HanfuStyle   from './HanfuStyle';
 import Zodiac       from './Zodiac';
 import Instruments  from './Instruments';
+import Festival     from './FestivalsDescription';
 
 const MODULES = {
   quiz:    CultureQuiz,
@@ -22,6 +23,7 @@ const MODULES = {
   hanfu:   HanfuStyle,
   art:     Instruments,
   zodiac:  Zodiac,
+  festival: Festival,
 };
 
 export default MODULES;
