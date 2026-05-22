@@ -22,7 +22,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1984,name:"LeBron James",tag:"NBA",known:"Lakers superstar · 4× NBA Champion · all-time leading scorer",image:"lebron-zodiac.jpeg"},
       {year:1996,name:"Zendaya",tag:"Film/TV",known:"Star of Euphoria, Spider-Man, and Dune",image:"zendaya-zodiac.jpeg"},
-      {year:1985,name:"Cristiano Ronaldo",tag:"Soccer",known:"Portuguese soccer legend · 5× Ballon d'Or winner",image:"ronaldo-zodiac.jpeg"},
+      {year:1984,name:"Scarlett Johansson",tag:"Film",known:"Black Widow · highest-grossing actress of all time"},
     ],
   },
   Ox: {
@@ -38,7 +38,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1985,name:"Bruno Mars",tag:"Music",known:"Grammy-winning pop/R&B superstar"},
       {year:1961,name:"Barack Obama",tag:"Politics",known:"44th President of the United States",image:"taylor-zodiac.jpeg"},
-      {year:1997,name:"Simone Biles",tag:"Gymnastics",known:"Most decorated gymnast in history · 7× Olympic gold"},
+      {year:1997,name:"Jungkook",tag:"K-Pop",known:"BTS golden maknae · global solo superstar · 'Seven'",image:"jungkook-zodiac.jpeg"},
     ],
   },
   Tiger: {
@@ -53,7 +53,7 @@ const ZODIAC_DATA = {
     poemEn:"Roar of the Tiger · Power in All Directions", poemZh:"虎啸生风 · 威震八方",
     famous:[
       {year:1998,name:"Jayson Tatum",tag:"NBA",known:"Boston Celtics All-Star · 2024 NBA Champion",image:"tatum-zodiac.jpeg"},
-      {year:1998,name:"Shai Gilgeous-Alexander",tag:"NBA",known:"OKC Thunder superstar · 2025 NBA MVP"},
+      {year:1998,name:"MrBeast",tag:"YouTube",known:"World's biggest YouTuber · philanthropist · 300M+ subscribers",image:"mrbeast-zodiac.jpeg"},
       {year:1986,name:"Lady Gaga",tag:"Music",known:"Pop icon · Oscar-winning singer and actress"},
     ],
   },
@@ -68,9 +68,9 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Jade Rabbit Rising · Peace and Longevity", poemZh:"玉兔东升 · 福寿安康",
     famous:[
-      {year:1987,name:"Lionel Messi",tag:"Soccer",known:"Argentine soccer GOAT · 2022 World Cup Champion"},
-      {year:1975,name:"David Beckham",tag:"Soccer",known:"England icon · Real Madrid and LA Galaxy legend"},
-      {year:1975,name:"Tiger Woods",tag:"Golf",known:"15× Major champion · greatest golfer of all time"},
+      {year:1987,name:"Lionel Messi",tag:"Soccer",known:"Argentine soccer GOAT · 2022 World Cup Champion",image:"messi-zodiac.jpg"},
+      {year:1963,name:"Michael Jordan",tag:"NBA",known:"The GOAT · 6× NBA Champion · Chicago Bulls legend",image:"jordan-zodiac.jpg"},
+      {year:1879,name:"Albert Einstein",tag:"Science",known:"Father of relativity · Nobel Prize physicist · E=mc²",image:"einstein-zodiac.jpeg"},
     ],
   },
   Dragon: {
@@ -84,9 +84,9 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Dragon Soars · Grand Visions Unfold", poemZh:"龙腾四海 · 鸿图大展",
     famous:[
-      {year:1988,name:"Stephen Curry",tag:"NBA",known:"Warriors legend · greatest shooter in NBA history"},
+      {year:1988,name:"Stephen Curry",tag:"NBA",known:"Warriors legend · greatest shooter in NBA history",image:"curry-zodiac.png"},
       {year:1988,name:"Rihanna",tag:"Music",known:"Music icon · Fenty Beauty founder · billionaire"},
-      {year:2000,name:"Paige Bueckers",tag:"WNBA",known:"Dallas Wings #1 pick · 2025 NCAA Champion at UConn"},
+      {year:1940,name:"Bruce Lee",tag:"Martial Arts",known:"Legend of martial arts · Enter the Dragon · 功夫之王",image:"brucelee-zodiac.jpeg"},
     ],
   },
   Snake: {
@@ -116,9 +116,9 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Galloping Steed · Brilliant Horizons", poemZh:"骏马奔腾 · 前程似锦",
     famous:[
-      {year:1990,name:"Jennifer Lawrence",tag:"Film",known:"Oscar-winning actress · The Hunger Games' Katniss"},
+      {year:1990,name:"Jennifer Lawrence",tag:"Film",known:"Oscar-winning actress · The Hunger Games' Katniss",image:"jlaw-zodiac.png"},
       {year:2002,name:"Emma Raducanu",tag:"Tennis",known:"2021 US Open Champion · British tennis star"},
-      {year:2002,name:"Sadie Sink",tag:"Film/TV",known:"Plays Max in Stranger Things"},
+      {year:1978,name:"Kobe Bryant",tag:"NBA",known:"Lakers legend · 5× NBA Champion · Mamba Forever",image:"kobe-zodiac.png"},
     ],
   },
   Goat: {
@@ -132,8 +132,8 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Three Goats Bring Spring · All Wishes Granted", poemZh:"三阳开泰 · 吉祥如意",
     famous:[
-      {year:2004,name:"Victor Wembanyama",tag:"NBA",known:'San Antonio Spurs phenom · 7\'4" rising superstar'},
-      {year:2003,name:"Jude Bellingham",tag:"Soccer",known:"Real Madrid & England midfielder superstar"},
+      {year:1955,name:"Steve Jobs",tag:"Tech",known:"Apple co-founder · visionary who changed the world",image:"jobs-zodiac.png"},
+      {year:2003,name:"Jude Bellingham",tag:"Soccer",known:"Real Madrid & England midfielder superstar",image:"bellingham-zodiac.jpeg"},
       {year:2003,name:"Carlos Alcaraz",tag:"Tennis",known:"World #1 · multiple Grand Slam champion"},
     ],
   },
@@ -149,7 +149,7 @@ const ZODIAC_DATA = {
     poemEn:"Golden Monkey · Boundless Cleverness", poemZh:"金猴献瑞 · 灵动通达",
     famous:[
       {year:1992,name:"Selena Gomez",tag:"Music/Film",known:"Singer · star of Only Murders in the Building"},
-      {year:2004,name:"Coco Gauff",tag:"Tennis",known:"2023 US Open Champion · top US tennis star"},
+      {year:2004,name:"Charli D'Amelio",tag:"TikTok",known:"Most-followed TikToker · Gen Z icon · dancer",image:"charli-zodiac.jpg"},
       {year:1992,name:"Son Goku",tag:"Anime",known:"Saiyan warrior · Dragon Ball hero · protector of Earth",image:"goku-zodiac.jpeg"},
     ],
   },
@@ -164,9 +164,9 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Golden Rooster Crows · Bountiful Harvest", poemZh:"金鸡报晓 · 五谷丰登",
     famous:[
-      {year:1993,name:"Ariana Grande",tag:"Music",known:"Pop superstar · star of Wicked"},
+      {year:1993,name:"Ariana Grande",tag:"Music",known:"Pop superstar · star of Wicked",image:"ariana-zodiac.png"},
       {year:1981,name:"Beyoncé",tag:"Music",known:"Music icon · most-Grammy-winning artist ever"},
-      {year:1994,name:"Harry Styles",tag:"Music",known:'Former One Direction star · "As It Was", "Watermelon Sugar"'},
+      {year:1993,name:"Suga",tag:"K-Pop",known:"BTS rapper · producer · AGUST D · Grammy-nominated artist",image:"suga-zodiac.jpg"},
     ],
   },
   Dog: {
@@ -180,9 +180,9 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Faithful Guardian · Peace and Joy", poemZh:"义犬护宅 · 平安喜乐",
     famous:[
-      {year:1994,name:"Justin Bieber",tag:"Music",known:'Global pop star · "Baby", "Sorry", "Peaches"'},
+      {year:1958,name:"Michael Jackson",tag:"Music",known:"King of Pop · Thriller · greatest entertainer of all time",image:"mjackson-zodiac.png"},
+      {year:1994,name:"Shohei Ohtani",tag:"MLB",known:"Two-way superstar · pitcher and slugger · MLB sensation",image:"ohtani-zodiac.jpeg"},
       {year:1982,name:"Prince William",tag:"Royalty",known:"Prince of Wales · future King of England"},
-      {year:1982,name:"Nicki Minaj",tag:"Music",known:"Rap icon · one of the best-selling female artists ever"},
     ],
   },
   Pig: {
@@ -196,14 +196,116 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Golden Pig · Wealth and Honor", poemZh:"金猪纳福 · 富贵双全",
     famous:[
-      {year:1995,name:"Patrick Mahomes",tag:"NFL",known:"Chiefs QB · 3× Super Bowl Champion"},
-      {year:1995,name:"Gigi Hadid",tag:"Fashion",known:"Top supermodel · runway and Vogue cover star"},
-      {year:1996,name:"Jennie",tag:"K-Pop",known:"BLACKPINK member · global fashion icon"},
+      {year:1995,name:"Patrick Mahomes",tag:"NFL",known:"Chiefs QB · 3× Super Bowl Champion",image:"mahomes-zodiac.jpg"},
+      {year:1971,name:"Elon Musk",tag:"Tech",known:"Tesla · SpaceX · X · the world's richest person",image:"musk-zodiac.webp"},
+      {year:1995,name:"Timothée Chalamet",tag:"Film",known:"Oscar-nominated actor · star of Dune and Wonka"},
     ],
   },
 };
 
 const ORDER = ["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Goat","Monkey","Rooster","Dog","Pig"];
+
+const MAJESTIC_SIGNS = new Set(["Dragon", "Tiger", "Horse", "Ox"]);
+
+// Plays electronic fanfare + voice "Lucky!" using SpeechSynthesis
+function playJackpotFanfare(delayMs) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const master = ctx.createGain();
+    master.gain.value = 0.4;
+    master.connect(ctx.destination);
+
+    const offset = ctx.currentTime + (delayMs || 0) / 1000;
+
+    // Electronic sparkle arpeggio (fast ascending)
+    [784, 988, 1175, 1568, 1976].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const env = ctx.createGain();
+      osc.type = "square";
+      osc.frequency.value = freq;
+      const t = offset + i * 0.07;
+      env.gain.setValueAtTime(0, t);
+      env.gain.linearRampToValueAtTime(0.35, t + 0.02);
+      env.gain.exponentialRampToValueAtTime(0.01, t + 0.2);
+      osc.connect(env);
+      env.connect(master);
+      osc.start(t);
+      osc.stop(t + 0.25);
+    });
+
+    // Bright synth chord hit (C6+E6+G6)
+    const hitTime = offset + 0.4;
+    [1047, 1319, 1568].forEach(freq => {
+      const osc = ctx.createOscillator();
+      const env = ctx.createGain();
+      osc.type = "sawtooth";
+      osc.frequency.value = freq;
+      env.gain.setValueAtTime(0, hitTime);
+      env.gain.linearRampToValueAtTime(0.3, hitTime + 0.02);
+      env.gain.exponentialRampToValueAtTime(0.01, hitTime + 0.8);
+      osc.connect(env);
+      env.connect(master);
+      osc.start(hitTime);
+      osc.stop(hitTime + 0.9);
+    });
+
+    // Shimmer tail
+    const shimmer = offset + 0.5;
+    [2093, 2637].forEach(freq => {
+      const osc = ctx.createOscillator();
+      const env = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      env.gain.setValueAtTime(0, shimmer);
+      env.gain.linearRampToValueAtTime(0.15, shimmer + 0.05);
+      env.gain.exponentialRampToValueAtTime(0.01, shimmer + 1.5);
+      osc.connect(env);
+      env.connect(master);
+      osc.start(shimmer);
+      osc.stop(shimmer + 1.6);
+    });
+
+    setTimeout(() => ctx.close(), 4000);
+
+    // Voice "Lucky!" via SpeechSynthesis — child-like high pitch
+    setTimeout(() => {
+      try {
+        const utter = new SpeechSynthesisUtterance("Lucky!");
+        utter.rate = 0.8;
+        utter.pitch = 2.0;
+        utter.volume = 1;
+        utter.lang = "en-US";
+        // Try to pick a higher/child-like voice if available
+        const voices = speechSynthesis.getVoices();
+        const child = voices.find(v => /samantha|junior|child|kid/i.test(v.name))
+          || voices.find(v => /female/i.test(v.name) && v.lang.startsWith("en"))
+          || voices.find(v => v.lang.startsWith("en"));
+        if (child) utter.voice = child;
+        speechSynthesis.speak(utter);
+      } catch (_) {}
+    }, (delayMs || 0) + 350);
+  } catch (_) {}
+}
+
+function generateParticles(zodiac) {
+  const isMajestic = MAJESTIC_SIGNS.has(zodiac);
+  const count = isMajestic ? 30 : 20;
+  const emoji = ZODIAC_DATA[zodiac].emoji;
+  const mixEmoji = isMajestic ? "✦" : "❤️";
+  return Array.from({ length: count }, (_, i) => {
+    const angle = (Math.PI * 2 * i / count) + (Math.random() - 0.5) * 0.5;
+    const dist = (isMajestic ? 150 : 100) + Math.random() * (isMajestic ? 200 : 150);
+    return {
+      emoji: Math.random() < 0.8 ? emoji : mixEmoji,
+      tx: Math.cos(angle) * dist,
+      ty: Math.sin(angle) * dist,
+      size: (isMajestic ? 30 : 20) + Math.random() * (isMajestic ? 20 : 16),
+      duration: 1.0 + Math.random() * 0.8,
+      delay: Math.random() * 0.2,
+      rotation: Math.random() * 720 - 360,
+    };
+  });
+}
 
 function getCategoryIcons(tag) {
   const t = tag.toLowerCase();
@@ -451,11 +553,19 @@ export default function Zodiac({ onExit }) {
   const [result, setResult] = useState(null);
   const [showFamous, setShowFamous] = useState(false);
   const [modal, setModal] = useState(null);
+  const [blindBoxPhase, setBlindBoxPhase] = useState(null);
+  const [blindBoxPick, setBlindBoxPick] = useState(null);
+  const [particles, setParticles] = useState([]);
+  const [blindBoxPortrait, setBlindBoxPortrait] = useState(null);
   const resultRef = useRef(null);
 
   function selectYear(zodiac) {
     setResult(zodiac);
     setShowFamous(false);
+    setBlindBoxPhase(null);
+    setBlindBoxPick(null);
+    setParticles([]);
+    setBlindBoxPortrait(null);
     setTimeout(() => {
       resultRef.current?.scrollIntoView({ behavior:"smooth", block:"center" });
     }, 100);
@@ -477,7 +587,36 @@ export default function Zodiac({ onExit }) {
         @keyframes rise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
         .zyr-btn:hover { background:${VERMILION}!important; color:${PAPER}!important; transform:translateY(-2px)!important; box-shadow:0 4px 0 ${VERMILION_DEEP}!important; }
         .zperson:hover { background:rgba(184,38,26,0.06)!important; transform:translateX(4px)!important; }
-        .zfamous-btn:hover { background:${VERMILION_DEEP}!important; color:${PAPER}!important; border-color:${GOLD_BRIGHT}!important; transform:translateY(-2px)!important; box-shadow:0 4px 0 rgba(0,0,0,0.2)!important; }
+        .zfamous-btn:hover { transform:scale(1.08)!important; box-shadow:0 0 20px rgba(184,38,26,0.4),0 0 40px rgba(232,196,104,0.25)!important; }
+        @keyframes boxShake {
+          0%,100%{transform:translate(0,0) rotate(0)}
+          10%{transform:translate(-8px,0) rotate(-5deg)}
+          20%{transform:translate(8px,0) rotate(5deg)}
+          30%{transform:translate(-6px,0) rotate(-3deg)}
+          40%{transform:translate(6px,0) rotate(3deg)}
+          50%{transform:translate(-4px,0) rotate(-2deg)}
+          60%{transform:translate(4px,0) rotate(2deg)}
+          70%{transform:translate(0,0) rotate(0)}
+          100%{transform:scale(0);opacity:0}
+        }
+        @keyframes particleBurst {
+          0%{transform:translate(0,0) rotate(0) scale(1);opacity:1}
+          70%{opacity:1}
+          100%{transform:translate(var(--tx),var(--ty)) rotate(var(--rot)) scale(0);opacity:0}
+        }
+        @keyframes cardReveal {
+          0%{transform:scale(0) rotate(-10deg);opacity:0}
+          60%{transform:scale(1.05) rotate(1deg);opacity:1}
+          100%{transform:scale(1) rotate(0);opacity:1}
+        }
+        @keyframes shimmerSweep {
+          0%{left:-100%}
+          100%{left:200%}
+        }
+        @keyframes goldenPulse {
+          0%,100%{box-shadow:0 0 20px rgba(232,196,104,0.4)}
+          50%{box-shadow:0 0 40px rgba(232,196,104,0.7),0 0 80px rgba(201,160,78,0.3)}
+        }
       `}</style>
 
       {/* Header bar with exit */}
@@ -647,71 +786,223 @@ export default function Zodiac({ onExit }) {
               </div>
             </div>
 
-            {/* Famous people button */}
-            <div style={{ textAlign:"center", marginTop:24 }}>
-              <button
-                className="zfamous-btn"
-                onClick={() => setShowFamous(v => !v)}
+            {/* Blind box circle button — top right of result card */}
+            <button
+              className="zfamous-btn"
+              onClick={() => {
+                if (!data) return;
+                const pick = data.famous[Math.floor(Math.random() * data.famous.length)];
+                const generated = generateParticles(result);
+                setParticles(generated);
+                setBlindBoxPick(pick);
+                setBlindBoxPortrait(null);
+                loadPortrait(pick, data.emoji).then(setBlindBoxPortrait);
+                if (pick.image) playJackpotFanfare(600);
+                setShowFamous(true);
+                setBlindBoxPhase("exploding");
+                setTimeout(() => setBlindBoxPhase("revealed"), 1600);
+              }}
+              style={{
+                position:"absolute", top:12, right:12, zIndex:5,
+                width:96, height:96, borderRadius:"50%",
+                background:`linear-gradient(135deg, ${VERMILION} 0%, ${VERMILION_DEEP} 100%)`,
+                border:`2.5px solid ${GOLD}`,
+                cursor:"pointer", transition:"all 0.25s ease",
+                boxShadow:`0 0 12px rgba(184,38,26,0.25), 0 0 24px rgba(232,196,104,0.15)`,
+                display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",
+                padding:0,
+              }}
+            >
+              <span style={{ fontSize:34, lineHeight:1, display:"block" }}>🎁</span>
+              <span style={{
+                fontFamily:"'Cormorant Garamond',serif", fontWeight:700, fontStyle:"italic",
+                fontSize:10, color:PAPER, letterSpacing:0.5, lineHeight:1.15,
+                marginTop:4, textAlign:"center", display:"block",
+              }}>BLIND{"\n"}BOX</span>
+            </button>
+
+            {/* Exploding / Revealed overlay */}
+            {showFamous && (blindBoxPhase === "exploding" || blindBoxPhase === "revealed") && blindBoxPick && (
+              <div
+                onClick={(e) => { if (e.target === e.currentTarget) { setBlindBoxPhase(null); setShowFamous(false); } }}
                 style={{
-                  background:INK, color:GOLD_BRIGHT, border:`2px solid ${GOLD}`,
-                  padding:"11px 26px", fontFamily:"'Cormorant Garamond',serif",
-                  fontStyle:"italic", fontWeight:600, fontSize:16, letterSpacing:3, cursor:"pointer",
-                  transition:"all 0.25s ease",
+                  position:"fixed", inset:0, zIndex:600,
+                  background:"rgba(26,15,10,0.85)",
+                  backdropFilter:"blur(6px)",
+                  display:"flex", alignItems:"center", justifyContent:"center",
                 }}
               >
-                <span style={{ color:VERMILION, margin:"0 6px" }}>★</span>
-                Famous People With Your Sign
-                <span style={{ color:VERMILION, margin:"0 6px" }}>★</span>
-                <span style={{ display:"block", fontFamily:"'ZCOOL XiaoWei',serif", fontSize:11,
-                  color:INK, opacity:0.5, letterSpacing:3, marginTop:6, fontStyle:"normal" }}>
-                  同生肖名人
-                </span>
-              </button>
-            </div>
+                {/* Close button */}
+                <button
+                  onClick={() => { setBlindBoxPhase(null); setShowFamous(false); }}
+                  style={{
+                    position:"absolute", top:16, right:16, width:36, height:36,
+                    borderRadius:"50%", background:"rgba(255,253,247,0.15)",
+                    color:PAPER, border:`1px solid rgba(201,160,78,0.4)`,
+                    fontSize:20, cursor:"pointer", zIndex:610,
+                    display:"flex", alignItems:"center", justifyContent:"center",
+                  }}
+                >✕</button>
 
-            {/* Famous list */}
-            {showFamous && (
-              <div style={{
-                marginTop:20, paddingTop:20, borderTop:`1px dashed ${GOLD}`,
-                animation:"rise 0.5s cubic-bezier(0.2,0.8,0.2,1) both",
-              }}>
-                <h3 style={{
-                  fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontWeight:600,
-                  fontSize:21, textAlign:"center", color:VERMILION_DEEP, letterSpacing:3, marginBottom:4,
-                }}>Fellow {result}s You Might Know</h3>
-                <div style={{ textAlign:"center", fontFamily:"'Ma Shan Zheng',serif", fontSize:13,
-                  opacity:0.55, letterSpacing:4, marginBottom:16 }}>
-                  与你同为属{data.zh}者
-                </div>
-                <div style={{ textAlign:"center", fontStyle:"italic", fontSize:12, opacity:0.5, marginBottom:12 }}>
-                  ✦ tap a name to see their portrait ✦
-                </div>
-                {data.famous.map((p, i) => (
-                  <div
-                    key={i}
-                    className="zperson"
-                    onClick={() => setModal({ person:p, zodiac:result })}
-                    style={{
-                      display:"flex", alignItems:"flex-start", gap:12,
-                      padding:"11px 8px", borderBottom:`1px dotted rgba(26,15,10,0.15)`,
-                      cursor:"pointer", transition:"all 0.2s ease", borderRadius:2,
-                    }}
-                  >
-                    <div style={{ flex:"0 0 58px", textAlign:"center", fontWeight:700, fontSize:17,
-                      color:VERMILION, paddingTop:2 }}>{p.year}</div>
-                    <div style={{ flex:1 }}>
-                      <span style={{ fontWeight:700, fontSize:16, letterSpacing:0.5 }}>{p.name}</span>
-                      <span style={{
-                        display:"inline-block", marginLeft:8, padding:"1px 8px",
-                        background:PAPER_DEEP, border:`1px solid ${GOLD}`,
-                        fontStyle:"italic", fontSize:11, color:VERMILION_DEEP, letterSpacing:1,
-                        verticalAlign:"middle",
-                      }}>{p.tag}</span>
-                      <div style={{ fontStyle:"italic", fontSize:13, opacity:0.75, marginTop:2, lineHeight:1.4 }}>{p.known}</div>
+                {/* Center content */}
+                <div style={{ position:"relative", display:"flex", alignItems:"center", justifyContent:"center" }}>
+                  {/* Shaking box (only during exploding) */}
+                  {blindBoxPhase === "exploding" && (
+                    <div style={{
+                      width:140, height:160, position:"absolute",
+                      background:`linear-gradient(135deg, ${VERMILION} 0%, ${VERMILION_DEEP} 100%)`,
+                      borderRadius:8, border:`2px solid ${GOLD}`, overflow:"hidden",
+                      animation:"boxShake 0.7s ease-in-out forwards",
+                      display:"flex", alignItems:"center", justifyContent:"center",
+                      zIndex:2,
+                    }}>
+                      <div style={{
+                        position:"absolute", top:0, bottom:0, left:"50%", width:16,
+                        transform:"translateX(-50%)", background:`linear-gradient(180deg, ${GOLD_BRIGHT}, ${GOLD})`,
+                        opacity:0.7,
+                      }}/>
+                      <div style={{
+                        position:"absolute", left:0, right:0, top:"50%", height:16,
+                        transform:"translateY(-50%)", background:`linear-gradient(90deg, ${GOLD_BRIGHT}, ${GOLD})`,
+                        opacity:0.7,
+                      }}/>
+                      <div style={{
+                        position:"absolute", top:10, left:"50%", transform:"translateX(-50%)",
+                        fontSize:28, lineHeight:1, zIndex:2,
+                      }}>🎀</div>
+                      <div style={{
+                        fontSize:52, fontWeight:700, color:"rgba(255,255,255,0.5)",
+                        fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic",
+                        zIndex:1, marginTop:18,
+                      }}>?</div>
                     </div>
-                    <div style={{ color:VERMILION, fontSize:20, opacity:0.4, paddingTop:6 }}>›</div>
-                  </div>
-                ))}
+                  )}
+
+                  {/* Particles */}
+                  {particles.map((p, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        position:"absolute",
+                        fontSize:p.size,
+                        lineHeight:1,
+                        animation:`particleBurst ${p.duration}s ease-out ${p.delay}s both`,
+                        "--tx":`${p.tx}px`,
+                        "--ty":`${p.ty}px`,
+                        "--rot":`${p.rotation}deg`,
+                        pointerEvents:"none",
+                        zIndex:1,
+                      }}
+                    >{p.emoji}</div>
+                  ))}
+
+                  {/* Person card */}
+                  {(() => {
+                    const isJackpot = !!blindBoxPick.image;
+                    return (
+                      <div
+                        style={{
+                          animation: isJackpot
+                            ? "cardReveal 0.6s ease-out 0.6s both, goldenPulse 1.5s ease-in-out 1.2s infinite"
+                            : "cardReveal 0.6s ease-out 0.6s both",
+                          maxWidth:400, width:"92vw",
+                          background:PAPER,
+                          border:isJackpot ? `3px solid ${GOLD_BRIGHT}` : `2px solid ${GOLD}`,
+                          borderRadius:12,
+                          textAlign:"center",
+                          position:"relative",
+                          overflow:"hidden",
+                          zIndex:3,
+                        }}
+                      >
+                        {/* Shimmer sweep for jackpot */}
+                        {isJackpot && (
+                          <div style={{
+                            position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none", zIndex:10, borderRadius:12,
+                          }}>
+                            <div style={{
+                              position:"absolute", top:0, width:"50%", height:"100%",
+                              background:"linear-gradient(90deg, transparent, rgba(232,196,104,0.3), transparent)",
+                              animation:"shimmerSweep 2.5s ease-in-out 1.2s infinite",
+                            }}/>
+                          </div>
+                        )}
+
+                        {/* Jackpot banner */}
+                        {isJackpot && (
+                          <div style={{
+                            background:`linear-gradient(135deg, ${GOLD}, ${GOLD_BRIGHT})`,
+                            color:INK, padding:"6px 0",
+                            fontFamily:"'Cormorant Garamond',serif", fontWeight:700,
+                            fontSize:19, letterSpacing:4, textAlign:"center",
+                          }}>🎊 Lucky!</div>
+                        )}
+
+                        {/* Portrait area */}
+                        {blindBoxPortrait?.type === "img" ? (
+                          <div style={{
+                            width:"100%", aspectRatio:"3/4",
+                            backgroundImage:`url('${blindBoxPortrait.url}')`,
+                            backgroundSize: blindBoxPick.image ? "contain" : "cover",
+                            backgroundRepeat:"no-repeat",
+                            backgroundPosition: blindBoxPick.image ? "center" : "center top",
+                            backgroundColor:PAPER_DEEP,
+                          }}/>
+                        ) : blindBoxPortrait?.type === "emoji" ? (
+                          <div style={{ padding:"20px 0 10px" }}>
+                            <div style={{ fontSize:64, lineHeight:1 }}>{blindBoxPortrait.emoji}</div>
+                          </div>
+                        ) : (
+                          <div style={{ padding:"24px 0 12px" }}>
+                            <div style={{
+                              width:32, height:32, borderRadius:"50%", margin:"0 auto",
+                              border:`3px solid rgba(232,196,104,0.2)`,
+                              borderTopColor:GOLD_BRIGHT,
+                              animation:"spin 0.8s linear infinite",
+                            }}/>
+                          </div>
+                        )}
+
+                        <div style={{ padding:"14px 20px 22px" }}>
+                          {/* Person name */}
+                          <div style={{
+                            fontFamily:"'Cormorant Garamond',serif", fontWeight:700, fontStyle:"italic",
+                            fontSize:24, color:VERMILION_DEEP, letterSpacing:1, marginBottom:8, lineHeight:1.1,
+                          }}>{blindBoxPick.name}</div>
+
+                          {/* Year + Tag badges */}
+                          <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:10 }}>
+                            <span style={{
+                              background:INK, color:GOLD_BRIGHT, padding:"3px 10px",
+                              fontFamily:"'Cormorant Garamond',serif", fontWeight:600, fontSize:13, letterSpacing:2,
+                            }}>{blindBoxPick.year}</span>
+                            <span style={{
+                              background:VERMILION, color:PAPER, padding:"3px 10px",
+                              fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:12, letterSpacing:1.5,
+                            }}>{blindBoxPick.tag}</span>
+                          </div>
+
+                          {/* Zodiac line */}
+                          <div style={{
+                            display:"flex", alignItems:"center", justifyContent:"center", gap:6,
+                            background:PAPER_DEEP, border:`1px solid ${GOLD}`, padding:"4px 12px",
+                            fontFamily:"'Ma Shan Zheng',serif", fontSize:13, color:VERMILION_DEEP, letterSpacing:2,
+                            marginBottom:10, width:"fit-content", marginLeft:"auto", marginRight:"auto",
+                          }}>
+                            <span style={{ fontSize:16 }}>{data.emoji}</span>
+                            <span>属{data.zh} · Year of the {result}</span>
+                          </div>
+
+                          {/* Known description */}
+                          <div style={{
+                            fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic",
+                            fontSize:14, color:INK, opacity:0.85, lineHeight:1.5,
+                          }}>{blindBoxPick.known}</div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
               </div>
             )}
           </div>
