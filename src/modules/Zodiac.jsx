@@ -22,7 +22,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1984,name:"LeBron James",tag:"NBA",known:"Lakers superstar · 4× NBA Champion · all-time leading scorer",image:"lebron-zodiac.jpeg"},
       {year:1996,name:"Zendaya",tag:"Film/TV",known:"Star of Euphoria, Spider-Man, and Dune",image:"zendaya-zodiac.jpeg"},
-      {year:1564,name:"Shakespeare",tag:"Literature",known:"Greatest writer in the English language · Romeo & Juliet · Hamlet"},
+      {year:1564,name:"William Shakespeare",tag:"Literature",known:"Greatest writer in the English language · Romeo & Juliet · Hamlet"},
     ],
   },
   Ox: {
@@ -39,6 +39,7 @@ const ZODIAC_DATA = {
       {year:1985,name:"Bruno Mars",tag:"Music",known:"Grammy-winning pop/R&B superstar"},
       {year:1961,name:"Barack Obama",tag:"Politics",known:"44th President of the United States",image:"taylor-zodiac.jpeg"},
       {year:1997,name:"Jungkook",tag:"K-Pop",known:"BTS golden maknae · global solo superstar · 'Seven'",image:"jungkook-zodiac.jpeg"},
+      {year:1997,name:"Rosé",tag:"K-Pop",known:"BLACKPINK member · solo star · 'APT.' with Bruno Mars",image:"rose-zodiac.webp"},
     ],
   },
   Tiger: {
@@ -71,6 +72,9 @@ const ZODIAC_DATA = {
       {year:1987,name:"Lionel Messi",tag:"Soccer",known:"Argentine soccer GOAT · 2022 World Cup Champion",image:"messi-zodiac.jpg"},
       {year:1963,name:"Michael Jordan",tag:"NBA",known:"The GOAT · 6× NBA Champion · Chicago Bulls legend",image:"jordan-zodiac.jpg"},
       {year:1879,name:"Albert Einstein",tag:"Science",known:"Father of relativity · Nobel Prize physicist · E=mc²",image:"einstein-zodiac.jpeg"},
+      {year:1999,name:"Sabrina Carpenter",tag:"Music",known:"Pop sensation · 'Espresso' · Short n' Sweet",image:"sabrina-zodiac.jpeg"},
+      {year:1999,name:"Gracie Abrams",tag:"Music",known:"Singer-songwriter · 'That's So True' · Taylor Swift's tour opener",image:"gracie-zodiac.jpeg"},
+      {year:1999,name:"Naruto Uzumaki",tag:"Anime",known:"Hero of Hidden Leaf · 7th Hokage · 火影忍者 · Believe it!"},
     ],
   },
   Dragon: {
@@ -102,6 +106,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1989,name:"Taylor Swift",tag:"Music",known:"Pop superstar · Eras Tour broke every record imaginable",image:"obama-zodiac.jpeg"},
       {year:2001,name:"Billie Eilish",tag:"Music",known:'Grammy-winning singer · "bad guy", "What Was I Made For?"'},
+      {year:2001,name:"Emma Chamberlain",tag:"YouTube",known:"YouTube pioneer · fashion icon · Chamberlain Coffee founder",image:"emma-zodiac.png"},
       {year:1989,name:"Shinichi Kudo",tag:"Anime",known:"Teen detective · hero of Detective Conan · 名探偵コナン",image:"shinichi-zodiac.jpeg"},
     ],
   },
@@ -118,6 +123,8 @@ const ZODIAC_DATA = {
     famous:[
       {year:1990,name:"Jennifer Lawrence",tag:"Film",known:"Oscar-winning actress · The Hunger Games' Katniss",image:"jlaw-zodiac.png"},
       {year:2002,name:"Emma Raducanu",tag:"Tennis",known:"2021 US Open Champion · British tennis star"},
+      {year:2002,name:"Senku Ishigami (Dr. Stone)",tag:"Anime",known:"10 billion percent genius · Dr. Stone · science will save humanity"},
+      {year:2002,name:"Sophie Laforteza",tag:"K-Pop",known:"Katseye member · HBE · Filipino-Canadian global pop star"},
       {year:1978,name:"Kobe Bryant",tag:"NBA",known:"Lakers legend · 5× NBA Champion · Mamba Forever",image:"kobe-zodiac.png"},
     ],
   },
@@ -135,6 +142,7 @@ const ZODIAC_DATA = {
       {year:1955,name:"Steve Jobs",tag:"Tech",known:"Apple co-founder · visionary who changed the world",image:"jobs-zodiac.png"},
       {year:2003,name:"Jude Bellingham",tag:"Soccer",known:"Real Madrid & England midfielder superstar",image:"bellingham-zodiac.jpeg"},
       {year:2003,name:"Carlos Alcaraz",tag:"Tennis",known:"World #1 · multiple Grand Slam champion"},
+      {year:2003,name:"Olivia Rodrigo",tag:"Music",known:"Pop-rock sensation · 'drivers license' · SOUR · GUTS"},
     ],
   },
   Monkey: {
@@ -151,6 +159,7 @@ const ZODIAC_DATA = {
       {year:1992,name:"Selena Gomez",tag:"Music/Film",known:"Singer · star of Only Murders in the Building"},
       {year:2004,name:"Charli D'Amelio",tag:"TikTok",known:"Most-followed TikToker · Gen Z icon · dancer",image:"charli-zodiac.jpg"},
       {year:1992,name:"Son Goku",tag:"Anime",known:"Saiyan warrior · Dragon Ball hero · protector of Earth",image:"goku-zodiac.jpeg"},
+      {year:2004,name:"Monkey D. Luffy",tag:"Anime",known:"King of the Pirates · 海贼王 · 'I'm gonna be King of the Pirates!'"},
     ],
   },
   Rooster: {
@@ -166,7 +175,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1993,name:"Ariana Grande",tag:"Music",known:"Pop superstar · star of Wicked",image:"ariana-zodiac.png"},
       {year:1981,name:"Beyoncé",tag:"Music",known:"Music icon · most-Grammy-winning artist ever"},
-      {year:1993,name:"Suga",tag:"K-Pop",known:"BTS rapper · producer · AGUST D · Grammy-nominated artist",image:"suga-zodiac.jpg"},
+      {year:2005,name:"Danielle",tag:"K-Pop",known:"NewJeans member · global K-Pop icon · brand ambassador",image:"danielle-zodiac.png"},
     ],
   },
   Dog: {
@@ -183,6 +192,7 @@ const ZODIAC_DATA = {
       {year:1958,name:"Michael Jackson",tag:"Music",known:"King of Pop · Thriller · greatest entertainer of all time",image:"mjackson-zodiac.png"},
       {year:1994,name:"Shohei Ohtani",tag:"MLB",known:"Two-way superstar · pitcher and slugger · MLB sensation",image:"ohtani-zodiac.jpeg"},
       {year:1982,name:"Prince William",tag:"Royalty",known:"Prince of Wales · future King of England"},
+      {year:2018,name:"Anya Forger",tag:"Anime",known:"Spy x Family · telepathic secret agent daughter · 'Heh!'",image:"anya-zodiac.jpeg"},
     ],
   },
   Pig: {
@@ -617,6 +627,16 @@ export default function Zodiac({ onExit }) {
           0%,100%{box-shadow:0 0 20px rgba(232,196,104,0.4)}
           50%{box-shadow:0 0 40px rgba(232,196,104,0.7),0 0 80px rgba(201,160,78,0.3)}
         }
+        @keyframes starFloat {
+          0%{transform:translateY(0) scale(1);opacity:0}
+          15%{opacity:1}
+          85%{opacity:1}
+          100%{transform:translateY(-50px) scale(0.4);opacity:0}
+        }
+        @keyframes starTwinkle {
+          0%,100%{opacity:0.15;transform:scale(0.7)}
+          50%{opacity:1;transform:scale(1.3)}
+        }
       `}</style>
 
       {/* Header bar with exit */}
@@ -941,14 +961,35 @@ export default function Zodiac({ onExit }) {
                         {/* Portrait area */}
                         {blindBoxPick.image ? (
                           blindBoxPortrait?.type === "img" ? (
-                            <div style={{
-                              width:"100%", aspectRatio:"3/4",
-                              backgroundImage:`url('${blindBoxPortrait.url}')`,
-                              backgroundSize:"contain",
-                              backgroundRepeat:"no-repeat",
-                              backgroundPosition:"center",
-                              backgroundColor:PAPER_DEEP,
-                            }}/>
+                            <div style={{ width:"100%", aspectRatio:"3/4", position:"relative", backgroundColor:PAPER_DEEP }}>
+                              <div style={{
+                                position:"absolute", inset:0,
+                                backgroundImage:`url('${blindBoxPortrait.url}')`,
+                                backgroundSize:"contain",
+                                backgroundRepeat:"no-repeat",
+                                backgroundPosition:"center",
+                              }}/>
+                              {["Taylor Swift","Stephen Curry","Kobe Bryant","Steve Jobs"].includes(blindBoxPick.name) && (
+                                <div style={{ position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden" }}>
+                                  {[
+                                    {e:"✨",x:12,y:18,s:22,d:0.0},{e:"⭐",x:75,y:8,s:16,d:0.4},
+                                    {e:"✨",x:88,y:35,s:20,d:0.8},{e:"⭐",x:5,y:55,s:14,d:1.2},
+                                    {e:"✨",x:60,y:70,s:18,d:0.3},{e:"⭐",x:30,y:82,s:12,d:1.6},
+                                    {e:"✨",x:90,y:75,s:16,d:0.6},{e:"⭐",x:45,y:15,s:20,d:1.0},
+                                    {e:"✨",x:20,y:40,s:14,d:1.8},{e:"⭐",x:70,y:50,s:18,d:0.2},
+                                    {e:"✨",x:50,y:90,s:12,d:1.4},{e:"⭐",x:82,y:22,s:16,d:0.9},
+                                  ].map((star, i) => (
+                                    <span key={i} style={{
+                                      position:"absolute",
+                                      left:`${star.x}%`, top:`${star.y}%`,
+                                      fontSize:star.s,
+                                      animation:`starFloat 2.8s ease-in-out ${star.d}s infinite`,
+                                      display:"block", lineHeight:1,
+                                    }}>{star.e}</span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
                           ) : (
                             <div style={{
                               width:"100%", aspectRatio:"3/4", backgroundColor:PAPER_DEEP,
