@@ -22,7 +22,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1984,name:"LeBron James",tag:"NBA",known:"Lakers superstar · 4× NBA Champion · all-time leading scorer",image:"lebron-zodiac.jpeg"},
       {year:1996,name:"Zendaya",tag:"Film/TV",known:"Star of Euphoria, Spider-Man, and Dune",image:"zendaya-zodiac.jpeg"},
-      {year:1984,name:"Scarlett Johansson",tag:"Film",known:"Black Widow · highest-grossing actress of all time"},
+      {year:1564,name:"Shakespeare",tag:"Literature",known:"Greatest writer in the English language · Romeo & Juliet · Hamlet"},
     ],
   },
   Ox: {
@@ -649,7 +649,7 @@ export default function Zodiac({ onExit }) {
             fontFamily:"'Cormorant Garamond',serif", fontWeight:600, fontSize:"clamp(38px,8vw,56px)",
             color:INK, letterSpacing:4, lineHeight:1, marginBottom:6, fontStyle:"italic",
           }}>Chinese <span style={{ color:VERMILION }}>Zodiac</span></h1>
-          <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:20, color:VERMILION, letterSpacing:8, marginBottom:10 }}>十二生肖</div>
+          <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:15, color:VERMILION, letterSpacing:8, marginBottom:10 }}>十二生肖</div>
           <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:12, margin:"12px 0 6px" }}>
             <span style={{ flex:"0 1 80px", height:1, background:INK, opacity:0.3, display:"block" }}/>
             <span style={{ width:6, height:6, background:VERMILION, transform:"rotate(45deg)", display:"block" }}/>
@@ -677,11 +677,11 @@ export default function Zodiac({ onExit }) {
             }}/>
           ))}
 
-          <p style={{ fontStyle:"italic", fontWeight:500, fontSize:20, textAlign:"center",
+          <p style={{ fontStyle:"italic", fontWeight:500, fontSize:22, textAlign:"center",
             marginBottom:4, letterSpacing:2 }}>
             ✦ Select Your Birth Year ✦
           </p>
-          <p style={{ textAlign:"center", fontFamily:"'ZCOOL XiaoWei',serif", fontSize:12,
+          <p style={{ textAlign:"center", fontFamily:"'ZCOOL XiaoWei',serif", fontSize:10,
             opacity:0.55, letterSpacing:3, marginBottom:20 }}>请选择你的出生年份</p>
 
           {ORDER.map(z => {
@@ -693,8 +693,8 @@ export default function Zodiac({ onExit }) {
               }}>
                 <div style={{ display:"flex", alignItems:"baseline", gap:10, marginBottom:8, paddingLeft:4 }}>
                   <span style={{ fontSize:22 }}>{d.emoji}</span>
-                  <span style={{ fontStyle:"italic", fontWeight:600, fontSize:21, color:VERMILION_DEEP, letterSpacing:2 }}>{z}</span>
-                  <span style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:13, opacity:0.55, letterSpacing:2 }}>{d.zh}</span>
+                  <span style={{ fontStyle:"italic", fontWeight:600, fontSize:23, color:VERMILION_DEEP, letterSpacing:2 }}>{z}</span>
+                  <span style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:11, opacity:0.55, letterSpacing:2 }}>{d.zh}</span>
                 </div>
                 <div style={{ display:"grid", gridTemplateColumns:"repeat(5,1fr)", gap:7 }}>
                   {d.years.map(y => (
@@ -752,7 +752,7 @@ export default function Zodiac({ onExit }) {
                 fontSize:"clamp(32px,7vw,44px)", color:VERMILION, letterSpacing:4, marginTop:10,
                 textShadow:"2px 2px 0 rgba(201,160,78,0.3)",
               }}>Year of the {result}</div>
-              <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:17, opacity:0.65, letterSpacing:6, marginTop:6 }}>
+              <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:13, opacity:0.65, letterSpacing:6, marginTop:6 }}>
                 属{data.zh}
               </div>
               <div style={{
@@ -769,19 +769,19 @@ export default function Zodiac({ onExit }) {
                   position:"relative",
                 }}>
                   <span style={{ position:"absolute", left:8, top:14, color:VERMILION, fontSize:13 }}>✦</span>
-                  <div style={{ fontWeight:700, fontStyle:"italic", fontSize:17, color:VERMILION_DEEP, letterSpacing:1, marginBottom:3 }}>{title}</div>
-                  <div style={{ fontSize:15, lineHeight:1.6 }}>{descEn}</div>
-                  <span style={{ display:"block", marginTop:3, fontFamily:"'Noto Serif SC',serif", fontSize:12, opacity:0.55, lineHeight:1.5 }}>{descZh}</span>
+                  <div style={{ fontWeight:700, fontStyle:"italic", fontSize:19, color:VERMILION_DEEP, letterSpacing:1, marginBottom:3 }}>{title}</div>
+                  <div style={{ fontSize:16, lineHeight:1.6 }}>{descEn}</div>
+                  <span style={{ display:"block", marginTop:3, fontFamily:"'Noto Serif SC',serif", fontSize:10, opacity:0.55, lineHeight:1.5 }}>{descZh}</span>
                 </li>
               ))}
             </ul>
 
             {/* Poem */}
             <div style={{ marginTop:20, textAlign:"center" }}>
-              <div style={{ fontStyle:"italic", fontWeight:500, fontSize:16, color:VERMILION, opacity:0.85, letterSpacing:3 }}>
+              <div style={{ fontStyle:"italic", fontWeight:500, fontSize:18, color:VERMILION, opacity:0.85, letterSpacing:3 }}>
                 « {data.poemEn} »
               </div>
-              <div style={{ fontFamily:"'Ma Shan Zheng',serif", opacity:0.55, fontSize:13, letterSpacing:3, marginTop:5 }}>
+              <div style={{ fontFamily:"'Ma Shan Zheng',serif", opacity:0.55, fontSize:11, letterSpacing:3, marginTop:5 }}>
                 {data.poemZh}
               </div>
             </div>
@@ -978,18 +978,18 @@ export default function Zodiac({ onExit }) {
                             <div style={{ fontSize:72, lineHeight:1, marginBottom:10, filter:`drop-shadow(0 0 14px rgba(201,160,78,0.6))` }}>
                               {data.emoji}
                             </div>
-                            <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:26, color:GOLD_BRIGHT, letterSpacing:6, marginBottom:14 }}>
+                            <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:20, color:GOLD_BRIGHT, letterSpacing:6, marginBottom:14 }}>
                               属{data.zh}
                             </div>
                             <div style={{ width:"35%", height:1, background:`linear-gradient(90deg,transparent,${GOLD},transparent)`, marginBottom:14 }}/>
-                            <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:15, color:GOLD_BRIGHT, letterSpacing:1, textAlign:"center", marginBottom:8, lineHeight:1.3 }}>
+                            <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:17, color:GOLD_BRIGHT, letterSpacing:1, textAlign:"center", marginBottom:8, lineHeight:1.3 }}>
                               {data.traits[0][0]}
                             </div>
-                            <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:12, color:"rgba(244,232,208,0.65)", textAlign:"center", lineHeight:1.5, padding:"0 10px" }}>
+                            <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:13, color:"rgba(244,232,208,0.65)", textAlign:"center", lineHeight:1.5, padding:"0 10px" }}>
                               {data.traits[0][1]}
                             </div>
                             <div style={{ width:"55%", height:1, background:`linear-gradient(90deg,transparent,${GOLD},transparent)`, marginTop:18, marginBottom:10 }}/>
-                            <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:11, color:`rgba(201,160,78,0.45)`, letterSpacing:3, textAlign:"center" }}>
+                            <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:9, color:`rgba(201,160,78,0.45)`, letterSpacing:3, textAlign:"center" }}>
                               {data.poemZh}
                             </div>
                           </div>
@@ -999,7 +999,7 @@ export default function Zodiac({ onExit }) {
                           {/* Person name */}
                           <div style={{
                             fontFamily:"'Cormorant Garamond',serif", fontWeight:700, fontStyle:"italic",
-                            fontSize:24, color:VERMILION_DEEP, letterSpacing:1, marginBottom:8, lineHeight:1.1,
+                            fontSize:27, color:VERMILION_DEEP, letterSpacing:1, marginBottom:8, lineHeight:1.1,
                           }}>{blindBoxPick.name}</div>
 
                           {/* Year + Tag badges */}
@@ -1010,7 +1010,7 @@ export default function Zodiac({ onExit }) {
                             }}>{blindBoxPick.year}</span>
                             <span style={{
                               background:VERMILION, color:PAPER, padding:"3px 10px",
-                              fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:12, letterSpacing:1.5,
+                              fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:14, letterSpacing:1.5,
                             }}>{blindBoxPick.tag}</span>
                           </div>
 
@@ -1018,17 +1018,18 @@ export default function Zodiac({ onExit }) {
                           <div style={{
                             display:"flex", alignItems:"center", justifyContent:"center", gap:6,
                             background:PAPER_DEEP, border:`1px solid ${GOLD}`, padding:"4px 12px",
-                            fontFamily:"'Ma Shan Zheng',serif", fontSize:13, color:VERMILION_DEEP, letterSpacing:2,
+                            color:VERMILION_DEEP, letterSpacing:2,
                             marginBottom:10, width:"fit-content", marginLeft:"auto", marginRight:"auto",
                           }}>
                             <span style={{ fontSize:16 }}>{data.emoji}</span>
-                            <span>属{data.zh} · Year of the {result}</span>
+                            <span style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:11 }}>属{data.zh}</span>
+                            <span style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:14 }}> · Year of the {result}</span>
                           </div>
 
                           {/* Known description */}
                           <div style={{
                             fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic",
-                            fontSize:14, color:INK, opacity:0.85, lineHeight:1.5,
+                            fontSize:15, color:INK, opacity:0.85, lineHeight:1.5,
                           }}>{blindBoxPick.known}</div>
                         </div>
                       </div>
