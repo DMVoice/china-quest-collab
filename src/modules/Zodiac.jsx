@@ -905,7 +905,7 @@ export default function Zodiac({ onExit }) {
                           animation: isJackpot
                             ? "cardReveal 0.6s ease-out 0.6s both, goldenPulse 1.5s ease-in-out 1.2s infinite"
                             : "cardReveal 0.6s ease-out 0.6s both",
-                          maxWidth:400, width:"92vw",
+                          maxWidth:340, width:"82vw",
                           background:PAPER,
                           border:isJackpot ? `3px solid ${GOLD_BRIGHT}` : `2px solid ${GOLD}`,
                           borderRadius:12,
@@ -939,27 +939,59 @@ export default function Zodiac({ onExit }) {
                         )}
 
                         {/* Portrait area */}
-                        {blindBoxPortrait?.type === "img" ? (
+                        {blindBoxPick.image ? (
+                          blindBoxPortrait?.type === "img" ? (
+                            <div style={{
+                              width:"100%", aspectRatio:"3/4",
+                              backgroundImage:`url('${blindBoxPortrait.url}')`,
+                              backgroundSize:"contain",
+                              backgroundRepeat:"no-repeat",
+                              backgroundPosition:"center",
+                              backgroundColor:PAPER_DEEP,
+                            }}/>
+                          ) : (
+                            <div style={{
+                              width:"100%", aspectRatio:"3/4", backgroundColor:PAPER_DEEP,
+                              display:"flex", alignItems:"center", justifyContent:"center",
+                            }}>
+                              <div style={{
+                                width:32, height:32, borderRadius:"50%",
+                                border:`3px solid rgba(232,196,104,0.2)`,
+                                borderTopColor:GOLD_BRIGHT,
+                                animation:"spin 0.8s linear infinite",
+                              }}/>
+                            </div>
+                          )
+                        ) : (
+                          /* Ink wash encouragement card */
                           <div style={{
                             width:"100%", aspectRatio:"3/4",
-                            backgroundImage:`url('${blindBoxPortrait.url}')`,
-                            backgroundSize: blindBoxPick.image ? "contain" : "cover",
-                            backgroundRepeat:"no-repeat",
-                            backgroundPosition: blindBoxPick.image ? "center" : "center top",
-                            backgroundColor:PAPER_DEEP,
-                          }}/>
-                        ) : blindBoxPortrait?.type === "emoji" ? (
-                          <div style={{ padding:"20px 0 10px" }}>
-                            <div style={{ fontSize:64, lineHeight:1 }}>{blindBoxPortrait.emoji}</div>
-                          </div>
-                        ) : (
-                          <div style={{ padding:"24px 0 12px" }}>
+                            background:`linear-gradient(160deg, #120a06 0%, #2a160d 45%, #120a06 100%)`,
+                            display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",
+                            position:"relative", overflow:"hidden", padding:"24px 20px", boxSizing:"border-box",
+                          }}>
                             <div style={{
-                              width:32, height:32, borderRadius:"50%", margin:"0 auto",
-                              border:`3px solid rgba(232,196,104,0.2)`,
-                              borderTopColor:GOLD_BRIGHT,
-                              animation:"spin 0.8s linear infinite",
+                              position:"absolute", inset:0, opacity:0.18, pointerEvents:"none",
+                              background:`radial-gradient(ellipse at 25% 25%, ${GOLD} 0%, transparent 55%), radial-gradient(ellipse at 75% 75%, ${VERMILION} 0%, transparent 50%)`,
                             }}/>
+                            <div style={{ width:"55%", height:1, background:`linear-gradient(90deg,transparent,${GOLD},transparent)`, marginBottom:18 }}/>
+                            <div style={{ fontSize:72, lineHeight:1, marginBottom:10, filter:`drop-shadow(0 0 14px rgba(201,160,78,0.6))` }}>
+                              {data.emoji}
+                            </div>
+                            <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:26, color:GOLD_BRIGHT, letterSpacing:6, marginBottom:14 }}>
+                              属{data.zh}
+                            </div>
+                            <div style={{ width:"35%", height:1, background:`linear-gradient(90deg,transparent,${GOLD},transparent)`, marginBottom:14 }}/>
+                            <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:15, color:GOLD_BRIGHT, letterSpacing:1, textAlign:"center", marginBottom:8, lineHeight:1.3 }}>
+                              {data.traits[0][0]}
+                            </div>
+                            <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic", fontSize:12, color:"rgba(244,232,208,0.65)", textAlign:"center", lineHeight:1.5, padding:"0 10px" }}>
+                              {data.traits[0][1]}
+                            </div>
+                            <div style={{ width:"55%", height:1, background:`linear-gradient(90deg,transparent,${GOLD},transparent)`, marginTop:18, marginBottom:10 }}/>
+                            <div style={{ fontFamily:"'Ma Shan Zheng',serif", fontSize:11, color:`rgba(201,160,78,0.45)`, letterSpacing:3, textAlign:"center" }}>
+                              {data.poemZh}
+                            </div>
                           </div>
                         )}
 
