@@ -91,6 +91,7 @@ const ZODIAC_DATA = {
       {year:1988,name:"Stephen Curry",tag:"NBA",known:"Warriors legend · greatest shooter in NBA history",image:"curry-zodiac.png"},
       {year:1988,name:"Rihanna",tag:"Music",known:"Music icon · Fenty Beauty founder · billionaire"},
       {year:1940,name:"Bruce Lee",tag:"Martial Arts",known:"Legend of martial arts · Enter the Dragon · 功夫之王",image:"brucelee-zodiac.jpeg"},
+      {year:2000,name:"Han Jisung (Stray Kids)",tag:"K-Pop",known:"Stray Kids rapper · producer · 3RACHA · main vocal powerhouse",image:"hanjisung-zodiac.webp"},
     ],
   },
   Snake: {
@@ -123,7 +124,7 @@ const ZODIAC_DATA = {
     famous:[
       {year:1990,name:"Jennifer Lawrence",tag:"Film",known:"Oscar-winning actress · The Hunger Games' Katniss",image:"jlaw-zodiac.png"},
       {year:2002,name:"Emma Raducanu",tag:"Tennis",known:"2021 US Open Champion · British tennis star"},
-      {year:2002,name:"Senku Ishigami (Dr. Stone)",tag:"Anime",known:"10 billion percent genius · Dr. Stone · science will save humanity"},
+      {year:2002,name:"Senku Ishigami (Dr. Stone)",tag:"Anime",known:"10 billion percent genius · Dr. Stone · science will save humanity",image:"senku-zodiac.jpg"},
       {year:2002,name:"Sophie Laforteza",tag:"K-Pop",known:"Katseye member · HBE · Filipino-Canadian global pop star"},
       {year:1978,name:"Kobe Bryant",tag:"NBA",known:"Lakers legend · 5× NBA Champion · Mamba Forever",image:"kobe-zodiac.png"},
     ],
@@ -568,6 +569,7 @@ export default function Zodiac({ onExit }) {
   const [particles, setParticles] = useState([]);
   const [blindBoxPortrait, setBlindBoxPortrait] = useState(null);
   const resultRef = useRef(null);
+  const recentPicksRef = useRef([]);
 
   function selectYear(zodiac) {
     setResult(zodiac);
@@ -576,6 +578,7 @@ export default function Zodiac({ onExit }) {
     setBlindBoxPick(null);
     setParticles([]);
     setBlindBoxPortrait(null);
+    recentPicksRef.current = [];
     setTimeout(() => {
       resultRef.current?.scrollIntoView({ behavior:"smooth", block:"center" });
     }, 100);
@@ -811,7 +814,11 @@ export default function Zodiac({ onExit }) {
               className="zfamous-btn"
               onClick={() => {
                 if (!data) return;
-                const pick = data.famous[Math.floor(Math.random() * data.famous.length)];
+                const recent = recentPicksRef.current;
+                const blocked = recent.length >= 2 && recent[0] === recent[1] ? recent[0] : null;
+                const pool = blocked ? data.famous.filter(f => f.name !== blocked) : data.famous;
+                const pick = pool[Math.floor(Math.random() * pool.length)];
+                recentPicksRef.current = [recent[1] || null, pick.name].filter(Boolean);
                 const generated = generateParticles(result);
                 setParticles(generated);
                 setBlindBoxPick(pick);
