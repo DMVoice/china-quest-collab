@@ -37,7 +37,7 @@ const ZODIAC_DATA = {
     poemEn:"Diligent Virtue · Fortune as Mountains", poemZh:"勤恳厚德 · 福如山岳",
     famous:[
       {year:1985,name:"Bruno Mars",tag:"Music",known:"Grammy-winning pop/R&B superstar"},
-      {year:1961,name:"Barack Obama",tag:"Politics",known:"44th President of the United States",image:"taylor-zodiac.jpeg"},
+      {year:1961,name:"Barack Obama",tag:"Politics",known:"44th President of the United States",image:"obama-zodiac.jpeg"},
       {year:1997,name:"Jungkook",tag:"K-Pop",known:"BTS golden maknae · global solo superstar · 'Seven'",image:"jungkook-zodiac.jpeg"},
       {year:1997,name:"Rosé",tag:"K-Pop",known:"BLACKPINK member · solo star · 'APT.' with Bruno Mars",image:"rose-zodiac.webp"},
     ],
@@ -104,7 +104,7 @@ const ZODIAC_DATA = {
     ],
     poemEn:"Sacred Serpent · Heart of Jade", poemZh:"灵蛇献瑞 · 慧心如玉",
     famous:[
-      {year:1989,name:"Taylor Swift",tag:"Music",known:"Pop superstar · Eras Tour broke every record imaginable",image:"obama-zodiac.jpeg"},
+      {year:1989,name:"Taylor Swift",tag:"Music",known:"Pop superstar · Eras Tour broke every record imaginable",image:"taylor-zodiac.jpeg"},
       {year:2001,name:"Billie Eilish",tag:"Music",known:'Grammy-winning singer · "bad guy", "What Was I Made For?"'},
       {year:2001,name:"Emma Chamberlain",tag:"YouTube",known:"YouTube pioneer · fashion icon · Chamberlain Coffee founder",image:"emma-zodiac.png"},
       {year:1989,name:"Shinichi Kudo",tag:"Anime",known:"Teen detective · hero of Detective Conan · 名探偵コナン",image:"shinichi-zodiac.jpeg"},
