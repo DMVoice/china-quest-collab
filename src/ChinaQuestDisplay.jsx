@@ -409,35 +409,38 @@ export default function ChinaQuestDisplay() {
           </p>
         </aside>
 
-        {/* Presenter Tools — collapsible bar at bottom */}
+        {/* Presenter Tools — open by default so direct-pick is discoverable */}
         <details
+          open
           className="display-presenter-tools"
           style={{
             position: "absolute",
             bottom: "clamp(8px,1vh,16px)",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "min(720px,86vw)",
-            border: "2px solid rgba(200,156,56,.75)",
+            width: "min(780px,90vw)",
+            border: "2px solid rgba(200,156,56,.8)",
             borderRadius: 14,
-            background: "rgba(255,250,236,.92)",
-            boxShadow: "0 6px 18px rgba(120,70,20,.18)",
+            background: "rgba(255,250,236,.96)",
+            boxShadow: "0 6px 18px rgba(120,70,20,.22)",
             overflow: "hidden",
             zIndex: 5,
           }}
         >
           <summary
             style={{
-              padding: "7px 14px",
-              color: "#8B6030",
-              fontSize: "clamp(.74rem,.9vw,.88rem)",
-              fontWeight: 700,
+              padding: "9px 16px",
+              color: "#7A4E18",
+              fontSize: "clamp(.82rem,1vw,.96rem)",
+              fontWeight: 800,
               cursor: "pointer",
               letterSpacing: 0.5,
               textAlign: "center",
+              background: "linear-gradient(135deg,rgba(255,240,168,.6),rgba(247,196,90,.55))",
+              borderBottom: "1px solid rgba(200,156,56,.45)",
             }}
           >
-            ⚙ Presenter Tools
+            🎯 Or pick directly — Presenter Tools
           </summary>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 7, padding: "0 10px 10px" }}>
             {SEGS.map((s) => {

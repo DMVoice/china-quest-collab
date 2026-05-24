@@ -158,7 +158,9 @@ function QuizCard({ n, index, score, quiz, choice, onAnswer, onNext }) {
       {/* Image card */}
       <div style={{ background: quiz.correct.color, border: `3px solid ${quiz.correct.accent}38`, borderRadius: 22, padding: 18, textAlign: "center", width: "min(420px,92vw)" }}>
         <img src={quiz.correct.img} alt="" style={{ width: "min(240px,60vw)", aspectRatio: "1", objectFit: "contain", borderRadius: 18, background: "white", padding: 8, boxShadow: "0 6px 18px rgba(90,60,140,.18)" }} />
-        <p style={{ margin: "12px 0 0", fontWeight: 700, color: "#3F3258", fontSize: "1rem" }}>What is this instrument in Chinese?</p>
+        <p style={{ margin: "12px 0 2px", fontWeight: 800, color: quiz.correct.accent, fontSize: "1.15rem", lineHeight: 1.1 }}>{quiz.correct.name}</p>
+        <p style={{ margin: "0 auto 10px", color: "#5A4B72", fontSize: ".84rem", lineHeight: 1.5, maxWidth: 340 }}>{quiz.correct.description}</p>
+        <p style={{ margin: 0, fontWeight: 700, color: "#3F3258", fontSize: "1rem" }}>What is this instrument in Chinese?</p>
       </div>
       {/* Options */}
       <div style={{ width: "min(420px,92vw)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
