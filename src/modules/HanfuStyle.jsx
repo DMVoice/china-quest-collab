@@ -69,6 +69,7 @@ const DYNASTIES = [
     arrowLabel: "Check out that stand-up collar!",
     descFemale: "Áo Qún (袄裙) — A richly embroidered jacket-and-skirt set, detailed and beautifully layered.",
     descMale: "Dàopáo (道袍) — A wide-sleeved robe with cloud-pattern trim. Dignified and finely crafted.",
+    img: "/images/ming_hanfu.jpg",
     imgLabel: "ming_costume",
     imgDesc: "Ming dynasty costume — Áo Qún for women, Dàopáo for men",
   },
