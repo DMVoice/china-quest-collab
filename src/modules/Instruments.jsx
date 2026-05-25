@@ -181,6 +181,9 @@ function QuizCard({ n, index, score, quiz, choice, onAnswer, onNext }) {
             }}>
               <span style={{ fontWeight: 800, fontSize: "1.1rem", color: "#3A2D52" }}>{opt.zh}</span>
               <span style={{ fontSize: ".75rem", color: "#6F5B96", fontStyle: "italic" }}>{opt.pinyin}</span>
+              {opt.tagline && (
+                <span style={{ fontSize: ".7rem", color: "#5A4B72", lineHeight: 1.2, marginTop: 2, opacity: .85 }}>{opt.tagline}</span>
+              )}
             </button>
           );
         })}
