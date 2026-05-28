@@ -1,7 +1,7 @@
 export const FOODS = [
   {
     id: "dumplings",
-    emoji: "🥟",
+    img: "/images/food/food_jiaozi.png",
     name: "Dumplings",
     zh: "饺子",
     color: "#FFF0D8",
@@ -14,7 +14,7 @@ export const FOODS = [
   },
   {
     id: "tangyuan",
-    emoji: "⚪",
+    img: "/images/food/food_tangyuan.png",
     name: "Tangyuan",
     zh: "汤圆",
     color: "#FFF3F6",
@@ -27,7 +27,7 @@ export const FOODS = [
   },
   {
     id: "mooncake",
-    emoji: "🥮",
+    img: "/images/food/food_mooncake.png",
     name: "Mooncake",
     zh: "月饼",
     color: "#FFF4D2",
@@ -40,7 +40,7 @@ export const FOODS = [
   },
   {
     id: "baozi",
-    emoji: "🥟",
+    img: "/images/food/food_xiaolongbao.png",
     name: "Baozi",
     zh: "包子",
     color: "#F6F1E6",
@@ -53,7 +53,7 @@ export const FOODS = [
   },
   {
     id: "hot-pot",
-    emoji: "🍲",
+    img: "/images/food/food_hotpot.png",
     name: "Hot Pot",
     zh: "火锅",
     color: "#FFE7D6",
@@ -66,7 +66,7 @@ export const FOODS = [
   },
   {
     id: "zongzi",
-    emoji: "🍙",
+    img: "/images/food/food_zongzi.png",
     name: "Zongzi",
     zh: "粽子",
     color: "#EAF4E6",

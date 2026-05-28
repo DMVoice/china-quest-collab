@@ -36,11 +36,11 @@ export default function FoodGallery({ onExit }) {
           gap:12,maxWidth:760,margin:"0 auto",alignItems:"stretch"}}>
           {FOODS.map(food=>(
             <button key={food.id} onClick={()=>chooseFood(food)} style={{
-              minHeight:178,background:food.color,border:`2px solid ${food.accent}38`,borderRadius:18,
-              padding:"16px 12px",cursor:"pointer",textAlign:"center",
+              minHeight:200,background:food.color,border:`2px solid ${food.accent}38`,borderRadius:18,
+              padding:"14px 12px",cursor:"pointer",textAlign:"center",
               boxShadow:"0 4px 14px rgba(120,70,20,.09)",display:"flex",flexDirection:"column",
-              alignItems:"center",justifyContent:"center",gap:7}}>
-              <span style={{fontSize:"3rem",lineHeight:1}}>{food.emoji}</span>
+              alignItems:"center",justifyContent:"center",gap:6}}>
+              <img src={food.img} alt={food.name} style={{height:88,width:"auto",objectFit:"contain"}}/>
               <span style={{fontWeight:800,fontSize:"1rem",color:food.accent,lineHeight:1.2}}>{food.name}</span>
               <span style={{fontSize:".78rem",color:food.accent,opacity:.78,lineHeight:1.2}}>{food.zh}</span>
               <span style={{fontSize:".78rem",color:"#5E4630",lineHeight:1.45,maxWidth:150}}>
@@ -56,7 +56,7 @@ export default function FoodGallery({ onExit }) {
         <div style={{background:selected.color,border:`3px solid ${selected.accent}38`,borderRadius:20,
           padding:"24px 20px",textAlign:"center",width:"min(430px,92vw)",
           boxShadow:"0 5px 18px rgba(120,70,20,.12)"}}>
-          <div style={{fontSize:"5rem",lineHeight:1,marginBottom:10}}>{selected.emoji}</div>
+          <img src={selected.img} alt={selected.name} style={{height:160,width:"auto",objectFit:"contain",marginBottom:10}}/>
           <h2 style={{color:selected.accent,margin:"0 0 4px",fontSize:"1.7rem",lineHeight:1.15}}>
             {selected.name}
           </h2>
