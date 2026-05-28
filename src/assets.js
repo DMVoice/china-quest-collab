@@ -22,6 +22,7 @@ const A = {
   icon_food:     "/images/icon-food.png",
   icon_art:      "/images/icon-art.png",
   icon_festival: "/images/icon-festival.png",
+  icon_zodiac:   "/images/qilin.png",
   // Nav bar
   nav1:          "/images/nav1.png",
   nav2:          "/images/nav2.png",

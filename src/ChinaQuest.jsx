@@ -7,7 +7,7 @@ const SEGS = [
   { id:"hanfu",    en:"Hanfu Style",  img:"icon_hanfu",    bg:"#E6F4EA", accent:"#3F8468", active:true  },
   { id:"scratch",  en:"Lucky Card",   img:"icon_scratch",  bg:"#FFE7D6", accent:"#B86B45", active:true  },
   { id:"quiz",     en:"Culture Quiz", img:null, emoji:"📜", bg:"#EAF1FF", accent:"#526FA8", active:true  },
-  { id:"zodiac",   en:"Zodiac",       img:null, emoji:"🐴", bg:"#FFF2D2", accent:"#A9783B", active:false },
+  { id:"zodiac",   en:"Zodiac",       img:"icon_zodiac",   bg:"#FFF2D2", accent:"#A9783B", active:true  },
   { id:"food",     en:"Foodie",       img:"icon_food",     bg:"#FFEBDD", accent:"#B86B45", active:false },
   { id:"art",      en:"Instruments",  img:"icon_art",      bg:"#F1EAFE", accent:"#7A62A8", active:true  },
   { id:"festival", en:"Festival",     img:"icon_festival", bg:"#FFE5E8", accent:"#B85F62", active:false },
