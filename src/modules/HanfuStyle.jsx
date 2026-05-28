@@ -65,10 +65,11 @@ const DYNASTIES = [
     circleBg: "linear-gradient(135deg,#F0EAFC,#C4B0E8)",
     placeholderColor: "#C4B0E8",
     hint: "Spot the stand-up collar and decorative knot buttons at the front!",
-    arrowSpot: { x: 35, y: 20 },
+    arrowSpot: { x: 68, y: 22 },
     arrowLabel: "Check out that stand-up collar!",
     descFemale: "Áo Qún (袄裙) — A richly embroidered jacket-and-skirt set, detailed and beautifully layered.",
     descMale: "Dàopáo (道袍) — A wide-sleeved robe with cloud-pattern trim. Dignified and finely crafted.",
+    img: "/images/ming_hanfu.jpg",
     imgLabel: "ming_costume",
     imgDesc: "Ming dynasty costume — Áo Qún for women, Dàopáo for men",
   },
@@ -268,8 +269,18 @@ export default function HanfuStyle({ onExit }) {
     }
   }, []);
 
+  useEffect(() => {
+    DYNASTIES.forEach(d => {
+      if (d.img) {
+        const img = new Image();
+        img.src = d.img;
+      }
+    });
+  }, []);
+
   function startGame() {
-    const picked = DYNASTIES[Math.floor(Math.random() * DYNASTIES.length)];
+    const pool = target ? DYNASTIES.filter(d => d.id !== target) : DYNASTIES;
+    const picked = pool[Math.floor(Math.random() * pool.length)];
     setTarget(picked.id);
     setShowHints(false);
     setPhase("guess");
@@ -346,6 +357,7 @@ export default function HanfuStyle({ onExit }) {
             transition: "margin 300ms ease",
           }}>
             <DynastyImage
+              key={targetDynasty.id}
               d={targetDynasty}
               style={{ width: "100%", height: 250 }}
               className="hf-pop"
@@ -497,6 +509,7 @@ export default function HanfuStyle({ onExit }) {
             <p style={{ fontSize: ".82rem", color: "#9A7A50", margin: 0 }}>{targetDynasty.period}</p>
           </div>
           <DynastyImage
+            key={`correct-${targetDynasty.id}`}
             d={targetDynasty}
             style={{ width: "100%", maxWidth: 300, height: 180 }}
           />
@@ -544,6 +557,7 @@ export default function HanfuStyle({ onExit }) {
             </p>
           </div>
           <DynastyImage
+            key={`wrong-${targetDynasty.id}`}
             d={targetDynasty}
             style={{ width: "100%", maxWidth: 300, height: 180 }}
           />
