@@ -25,3 +25,12 @@ dist-ssr
 
 # Local-only experiments
 ChineseLearningTeaching/
+
+# Image generation / cutout pipeline (local-only)
+cutout.py
+cutouts/
+
+# Raw drops from ChatGPT / iOS Screenshots (UUID-named PNGs at project root)
+/[0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F]-*.PNG
+/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]-*.png
+/ChatGPT Image*.png
