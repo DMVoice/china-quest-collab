@@ -243,11 +243,12 @@ export default function ChinaQuestDisplay() {
           </div>
 
           <svg
+            className="display-wheel"
             width="100%"
             viewBox="0 0 400 400"
             style={{
-              width: "clamp(480px,64vh,720px)",
-              height: "clamp(480px,64vh,720px)",
+              width: "min(clamp(480px,64vh,720px), 92vw)",
+              height: "min(clamp(480px,64vh,720px), 92vw)",
               maxWidth: "100%",
               transform: `rotate(${rot}deg)`,
               transition: spinning ? "transform 5s cubic-bezier(.06,.7,.08,1)" : "none",
@@ -727,6 +728,14 @@ export default function ChinaQuestDisplay() {
         @media (max-width: 760px){
           .display-spinner-stage{flex-direction:column!important;align-items:center!important;overflow:auto!important}
           .display-presenter-tools{position:static!important;transform:none!important;margin:12px auto!important}
+        }
+        /* Portrait orientation (e.g., big display rotated 90°): horizontal flow doesn't fit. Stack vertically + cap wheel by both width and height. */
+        @media (orientation: portrait){
+          .display-spinner-stage{flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;overflow-y:auto!important;padding:clamp(20px,3vh,40px) clamp(16px,3vw,40px) clamp(80px,10vh,140px)!important;gap:clamp(20px,3vh,40px)!important}
+          .display-spinner-stage > img{display:none!important}
+          .display-wheel{width:min(72vw,56vh,640px)!important;height:min(72vw,56vh,640px)!important}
+          .display-presenter-tools{position:static!important;transform:none!important;margin:12px auto!important;width:min(640px,86vw)!important}
+          .display-child,.display-panda{display:none!important}
         }
       `}</style>
     </div>
