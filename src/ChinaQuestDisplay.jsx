@@ -729,13 +729,13 @@ export default function ChinaQuestDisplay() {
           .display-spinner-stage{flex-direction:column!important;align-items:center!important;overflow:auto!important}
           .display-presenter-tools{position:static!important;transform:none!important;margin:12px auto!important}
         }
-        /* Portrait orientation (e.g., big display rotated 90°): horizontal flow doesn't fit. Stack vertically + cap wheel by both width and height. */
+        /* Portrait orientation (e.g., big display rotated 90°): horizontal flow doesn't fit. Stack vertically + cap wheel by both width and height. Decorations shrunk to ~50% so they don't crowd the column flow. */
         @media (orientation: portrait){
           .display-spinner-stage{flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;overflow-y:auto!important;padding:clamp(20px,3vh,40px) clamp(16px,3vw,40px) clamp(80px,10vh,140px)!important;gap:clamp(20px,3vh,40px)!important}
-          .display-spinner-stage > img{display:none!important}
+          .display-spinner-stage > img{width:clamp(70px,9vw,130px)!important}
           .display-wheel{width:min(72vw,56vh,640px)!important;height:min(72vw,56vh,640px)!important}
-          .display-presenter-tools{position:static!important;transform:none!important;margin:12px auto!important;width:min(640px,86vw)!important}
-          .display-child,.display-panda{display:none!important}
+          .display-presenter-tools{position:static!important;transform:none!important;margin:12px auto!important;width:min(640px,86vw)!important;z-index:7!important}
+          .display-child,.display-panda{width:clamp(90px,11vw,150px)!important;z-index:4!important}
         }
       `}</style>
     </div>
